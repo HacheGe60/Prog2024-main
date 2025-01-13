@@ -27,10 +27,3 @@ function save() {
     count = 0;
     countEl.innerText = count;
 }
-
-let name = 'Horacio.';
-let greeting = 'Hi, my name is ';
-
-let myGreeting = greeting + name;
-
-console.log(myGreeting);
