@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetos I</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Parámetros por defecto</h1>
+      <p>Antes de aprender sobre las funciones flecha, veamos una característica pequeña pero útil.</p>
+      <p>Digamos que tenemos el siguiente código:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">addOne</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="ope">+</span> <span class="num">1</span>;
+        </p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">addOne</span>(<span class="num">2</span>)); <span
+            class="comment">//
+            3</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">addOne</span>(<span class="num">5</span>)); <span
+            class="comment">//
+            6</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">addOne</span>()); <span class="comment">// ¿Qué
+            valor devuelve?
+          </span></p>
+        <p class="prueba" onclick="prueba118()">Prueba</p>
+      </div>
+      <p>¿Qué crees que pasará si llamas a <code>addOne()</code> sin ningún argumento? En algunos lenguajes de
+        programación esto
+        fallaría.
+        Pero, en JavaScript, no fallará y tu código continuará ejecutándose.</p>
+      <p>El parámetro <code>number</code> recibirá un valor de <code>undefined</code>, por lo que la función devolverá
+        <code>undefined + 1</code>, lo que
+        resulta en
+        <code>NaN</code>. Vimos en un capítulo anterior que podemos prevenir esto agregando una condición
+        <code>if</code>.
+      </p>
+      <p>Sin embargo, hay una manera más fácil. Echemos un vistazo a los parámetros por defecto.</p>
+      <p>Nota: Si estás confundido acerca de la diferencia entre parámetros y argumentos, aquí hay una breve definición:
+        Un
+        parámetro es una variable en la definición de una función. Cuando se llama a una función, los argumentos son los
+        datos
+        que pasas a los parámetros del método.</p>
+      <h3>Parámetros por defecto</h3>
+
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../07_Arrays_II_&_callbacks/04_Chapter_recap/04_chapter_recap.html">Anterior</a>
+        <a class="next" href="../../09_Arrow_functions/01_Default_parameters/01_default_parameters.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

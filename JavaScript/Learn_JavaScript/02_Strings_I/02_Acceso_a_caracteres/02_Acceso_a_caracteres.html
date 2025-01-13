@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Acceso a caracteres</h1>
+      <p>Puedes acceder a un carácter específico en una cadena usando la sintaxis de corchetes [ ].</p>
+      <p>Tienes que proporcionar el <strong>índice</strong> del carácter al que deseas acceder, comenzando desde 0.</p>
+      <p>Tomemos un ejemplo donde la variable <code>language</code> tiene el valor: <code>"JavaScript"</code>. Aquí está
+        cómo puedes acceder al primer
+        carácter, al segundo y al tercero:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> language = <span class="txt">"JavaScript"</span>;</p>
+        <p>&nbsp;</p>
+        <p>language[<span class="num">0</span>]; <span class="comment">// primer carácter</span></p>
+        <p>language[<span class="num">1</span>]; <span class="comment">// segundo carácter</span></p>
+        <p>language[<span class="num">2</span>]; <span class="comment">// tercer carácter</span></p>
+        <p class="prueba" onclick="prueba11()">Prueba</p>
+      </div>
+      <p>Si deseas depurar tu código y ver el resultado de <code>language[1]</code> en la consola, debes registrarlo de
+        la siguiente manera:</p>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(language[<span class="num">1</span>]);</span></p>
+        <p class="prueba" onclick="prueba12()">Prueba</p>
+      </div>
+      <h2>Combinándolo con la longitud</h2>
+      <p>También puedes combinar el acceso a caracteres con la propiedad <strong>.length</strong>. Entonces, usando la
+        misma variable <code>language</code>,
+        aquí tienes cómo obtener el segundo carácter desde el final:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> language = <span class="txt">"JavaScript"</span>;</p>
+        <p>&nbsp;</p>
+        <p>language[language.<span class="func">length</span> - <span class="num">2</span>]; <span class="comment">//
+            "p" porque es el segundo carácter del final de "JavaScript"</span></p>
+        <p class="prueba" onclick="prueba13()">Prueba</p>
+      </div>
+      <p>Ten en cuenta que <code>language[language.length]</code> será <code>undefined</code> porque el acceso a
+        caracteres comienza en 0.</p>
+      <p>De esta manera, para una cadena de 9 caracteres, 8 es la posición del último carácter.</p>
+      <h3>El método <code><strong>.at(index)</strong></code></h3>
+      <p>Desde 2022, JavaScript ahora tiene un método <code>.at()</code> que lee el carácter en un determinado índice,
+        que también puede ser
+        negativo.</p>
+      <p>Veamos algunos ejemplos:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> language = <span class="txt">"JavaScript"</span>;</p>
+        <p>console.<span class="func">log</span>(language.<span class="func">at</span>(<span class="num">0</span>));
+          <span class="comment">// "J"</span>
+        </p>
+        <p>console.<span class="func">log</span>(language.<span class="func">at</span>(<span class="num">1</span>));
+          <span class="comment">// "a"</span>
+        </p>
+        <p>console.<span class="func">log</span>(language.<span class="func">at</span>(<span class="num">-1</span>));
+          <span class="comment">// "t"</span>
+        </p>
+        <p>console.<span class="func">log</span>(language.<span class="func">at</span>(<span class="num">-2</span>));
+          <span class="comment">// "p"</span>
+        </p>
+        <p class="prueba" onclick="prueba14()">Prueba</p>
+      </div>
+      <p>El principal caso de uso para el método <code>.at()</code> son los índices negativos, lo que lo hace más fácil
+        que depender de la
+        propiedad <code>.length</code>. Sin embargo, puedes usar el enfoque que prefieras.</p>
+      <p>Cuando se especifica un índice negativo, se comienza a contar desde el final. <code>-1</code> es el último
+        carácter, <code>-2</code> es el
+        anterior, etc.</p>
+      <p>Puedes seguir usando la sintaxis de corchetes para todos los demás casos de uso, sabiendo que
+        <code>language[-1]</code> devuelve
+        <code>undefined</code>. Por lo tanto, siempre que desees usar un índice negativo, debes usar el método
+        <code>.at()</code>.
+      </p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Los corchetes <code>[índice]</code> se utilizan para acceder a un índice específico de una cadena.</li>
+          <li>El índice comienza en 0. Por lo tanto, el primer carácter es el índice 0.</li>
+          <li>Puedes combinarlo con la longitud de una cadena para obtener otro carácter en otra posición.</li>
+          <li>El método <code>.at()</code> te permite leer un carácter en un índice determinado (que también puede ser
+            negativo).</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Obtener el primer carácter</h3>
+      <p>Completa la función <code>getFirstCharacter</code> para que devuelva el primer carácter del parámetro
+        <code>name</code> que recibe.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getFirstCharacter</span>(name) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> name[<span class="num">0</span>];</em></p>
+        <p>}</p>
+        <p>&nbsp</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getFirstCharacter</span>(<span
+            class="txt">"Amsterdam"</span>));
+          <span class="comment">// A</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getFirstCharacter</span>(<span
+            class="txt">"Japan"</span>));
+          <span class="comment">// J</span>
+        </p>
+        <p class="prueba" onclick="prueba15()">Prueba</p>
+      </div>
+      <h3>Obtener el último carácter</h3>
+      <p>Completa la función <code>getLastCharacter</code> para que devuelva el último carácter del parámetro
+        <code>name</code> que recibe.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getLastCharacter</span>(name) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">at</span>(<span
+              class="num">-1</span>);</em></p>
+        <p>}</p>
+        <p>&nbsp</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getLastCharacter</span>(<span
+            class="txt">"Sam"</span>));
+          <span class="comment">// m</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getLastCharacter</span>(<span
+            class="txt">"Alex"</span>));
+          <span class="comment">// x</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getLastCharacter</span>(<span
+            class="txt">"Cherley"</span>));
+          <span class="comment">// y</span>
+        </p>
+        <p class="prueba" onclick="prueba16()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../../02_Strings_I/01_Strings/01_Strings.html"><button class="last">Anterior</button></a>
+        <a href="../../02_Strings_I/03_Substrings/03_Substrings.html"><button class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

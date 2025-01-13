@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Rasumen del capítulo</h1>
+      <p>Una función de devolución es como dejar un número de teléfono para que alguien te llame cuando esté listo. En
+        JavaScript, proporcionas una función de devolución como argumento, que se llama cuando la función principal está
+        lista
+        para enviar el resultado.</p>
+      <p>En el próximo capítulo, aprenderemos más sobre las funciones de devolución, así como sobre métodos adicionales
+        de arrays
+        que usaremos a lo largo de todo el curso. Estos métodos resultarán ser útiles especialmente una vez que
+        trabajemos con
+        arrays de objetos, que son la estructura de datos más común que se obtiene de las API.</p>
+      <div class="resumen">
+        <h2>Resumen del capítulo</h2>
+        <ul>
+          <li><code>const data = [1, 2, 3]</code> es un array que contiene 3 números.</li>
+          <li><code>array.length</code> devuelve el número de elementos dentro del array.</li>
+          <li><code>array .push()</code> te permite agregar la variable <code>x</code> al final del array. También
+            devuelve la nueva longitud del array (después
+            de que se haya realizado el push).</li>
+          <li>Los arrays definidos con <code>const</code> no son constantes porque puedes cambiar los elementos dentro
+            de ellos. Sin embargo, no
+            puedes reasignarlos a otro valor, por lo que siempre serán un array.</li>
+          <li><code>.forEach(callback)</code> itera sobre cada elemento en un array.</li>
+          <li>Una función de devolución es una definición de función pasada como parámetro a otra función.</li>
+          <li>Siempre comienza con un <code>console.log()</code> dentro de <code>.forEach()</code> para visualizar el
+            cambio de array a elemento de array.
+            (Puedes omitir esto cuando te acostumbres).</li>
+          <li>El método <code>.forEach()</code> tomará tu definición de función y la llamará para cada elemento del
+            array. Cada vez que se llame a
+            la función de devolución, el primer parámetro representará el elemento correspondiente del array.</li>
+          <li>Nombra tus arrays en plural y el elemento del array (dentro de <code>.forEach()</code>) en singular.</li>
+          <li>Asegúrate de colocar correctamente el <code>return</code> dentro de una función que contenga
+            <code>.forEach()</code>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../06_Arrays_I/03_Return_confusion/03_return_confusion.html">Anterior</a>
+        <a class="next" href="../../07_Arrays_II_&_callbacks/01_Array_filter/01_array_filter.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Array find</h1>
+      <p>En la lección anterior, aprendimos sobre el método <code>.filter()</code> de los arrays. En esta lección,
+        exploraremos el
+        método
+        <code>.find()</code>, que es un poco similar en su funcionamiento.
+      </p>
+      <p>Comencemos con un ejemplo, esta vez con un array de cadenas:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> names <span class="elem">=</span> [<span class="txt">"Javier"</span>, <span
+            class="txt">"Linda"</span>, <span class="txt">"Ana"</span>, <span class="txt">"Liz"</span>];</p>
+        <p><span class="elem">const</span> result = names.<span class="func">find</span>( <span
+            class="elem">function</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> name <span class="elem">===</span> <span
+            class="txt">'Ana'</span>;</p>
+        <p>});</p>
+        <p>console.<span class="func">log</span>(result); <span class="comment">// 'Ana'</span></p>
+        <p class="prueba" onclick="prueba110()">Prueba</p>
+      </div>
+      <p>Cuando llamas al método <code>.find(callback)</code> en un array, obtendrás el primer elemento que coincida con
+        la condición que
+        especifiques. Si no se encuentran elementos, obtendrás <code>undefined</code>.</p>
+      <p>La condición que especificamos aquí es que el <code>name</code> debe ser igual a <code>"Ana"</code>.</p>
+      <p>Entonces, el método <code>.find(callback)</code> llamará a la función de devolución que proporcionaste para
+        cada elemento del array
+        hasta que una de las funciones de devolución devuelva <code>true</code>. Cuando esto suceda, dejará de llamar a
+        las funciones de
+        devolución restantes y te devolverá el elemento para el cual la función de devolución devolvió
+        <code>true</code>.
+      </p>
+      <p>En nuestro ejemplo anterior, aquí está la función de devolución:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> name <span class="elem">===</span> <span
+            class="txt">'Ana'</span>;</p>
+        <p>}</p>
+      </div>
+      <p>que se llama para <code>name = "Javier"</code> (primer elemento del array). Sin embargo, la función de
+        devolución devolverá
+        <code>false</code> porque
+        <code>name === "Ana"</code> devuelve <code>false</code>. Por lo tanto, la función de devolución se llamará
+        nuevamente con el siguiente
+        valor de
+        <code>name</code>. Nuevamente devolverá <code>false</code> porque <code>name = "Linda"</code> es distinto a Ana.
+        Esta vez, <code>name</code> <code>= "Alex"</code>. La función de
+        devolución devolverá <code>true</code> porque <code>name === "Ana"</code> (la condición dentro de la
+        función de devolución) devuelve <code>true</code>. Por lo tanto, el método <code>.find()</code> se detiene y te
+        devuelve ese elemento, que
+        es
+        <code>"Ana"</code>.
+      </p>
+      <p>Veamos otro ejemplo, esta vez con un array de números:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="num">9</span>, <span
+            class="num">5</span>, <span class="num">14</span>, <span class="num">3</span>, <span class="num">11</span>];
+        </p>
+        <p><span class="elem">const</span> firstNumberAboveTen <span class="elem">=</span> numbers.<span
+            class="func">find</span>(
+          <span class="elem">function</span>(number) {
+        </p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;</span> <span
+            class="num">10</span>;
+        </p>
+        <p>});</p>
+        <p>console.<span class="func">log</span>(firstNumberAboveTen); <span class="comment">// 14</span></p>
+        <p class="prueba" onclick="prueba111()">Prueba</p>
+      </div>
+      <p>Observa cómo, incluso si hay 2 números que satisfacen la condición, el método <code>.find()</code> se detiene
+        en el primero
+        que
+        satisface la condición.</p>
+      <p>Esto nos llevará a la siguiente sección, que es <code>.filter()</code> vs <code>.find()</code>. ¿Cuáles son las
+        diferencias?</p>
+      <h2>.filter() vs .find()</h2>
+      <p>¿Cuál es la diferencia entre <code>.filter()</code> y <code>.find()</code>?
+      </p>
+      <p>La diferencia tiene que ver con el tipo de retorno de estos 2 métodos:</p>
+      <ol>
+        <li>El método <code>.filter()</code> siempre devuelve un array.</li>
+        <li>El método <code>.find()</code> devuelve el primer elemento del array que coincide con la condición de la
+          función de devolución o
+          <code>undefined</code>.
+        </li>
+      </ol>
+      <p>Veamos algunos ejemplos:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="num">9</span>, <span
+            class="num">5</span>, <span class="num">14</span>, <span class="num">3</span>, <span class="num">11</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// .filter() SIEMPRE devuelve un array</span></p>
+        <p>numbers.<span class="func">filter</span>(<span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;&equals;</span> <span
+            class="num">12</span>;
+        </p>
+        <p>}); <span class="comment">// 14</span></p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// .find() devuelve el primer elemento que coincide con la condición o undefined</span>
+        </p>
+        <p>numbers.<span class="func">find</span>(<span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;&equals;</span> <span
+            class="num">12</span>;
+        </p>
+        <p>}); <span class="comment">// 14</span></p>
+      </div>
+      <p>Observa cómo <code>.filter()</code> devuelve un array, incluso si solo hay 1 elemento que coincida con tu
+        condición. Por el
+        contrario, el método <code>.find()</code> devolverá el primer elemento que coincida con la condición.</p>
+      <div class="notaVerde">
+        <i class="fas fa-check-circle fa-xl" style="color: #000333;"></i>
+        <p><code>.filter()</code> siempre devuelve un array. Incluso si no coincide ningún elemento.</p>
+      </div>
+      <p>Ahora veamos un ejemplo donde ningún elemento satisface la condición:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="num">9</span>, <span
+            class="num">5</span>, <span class="num">14</span>, <span class="num">3</span>, <span class="num">11</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// .filter() SIEMPRE devuelve un array</span></p>
+        <p>numbers.<span class="func">filter</span>(<span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;&equals;</span> <span
+            class="num">15</span>;
+        </p>
+        <p>}); <span class="comment">// []</span></p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// .find() devuelve el primer elemento que coincide con la condición o undefined</span>
+        </p>
+        <p>numbers.<span class="func">find</span>(<span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;&equals;</span> <span
+            class="num">15</span>;
+        </p>
+        <p>}); <span class="comment">// undefined</span></p>
+      </div>
+      <p>Observa cómo <code>.filter()</code> devuelve un array vacío y <code>.find()</code> devuelve
+        <code>undefined</code>.
+      </p>
+      <div class="notaNaranja">
+        <i class="fas fa-exclamation-triangle fa-xl" style="color: #000333;"></i>
+        <p><code>.find(callback)</code> puede devolver <code>undefined</code>. Es posible que debas envolver su
+          resultado en una condición <code>if</code> para evitar
+          errores inesperados si terminas llamando a un método en su resultado.
+        </p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <p><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find"
+            target="_blank">Array.find()</a> on MDN</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>El método <code>.find()</code> devuelve el primer elemento que coincida con la condición impuesta. Si no
+            se encuentran elementos, devuelve <code>undefined</code>.</li>
+          <li>El método <code>.filter()</code> siempre devuelve un array. Incluso si está vacío.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Encontrar un determinado año</h3>
+      <p>Completa la función <code>getYear</code> para que devuelva el <code>searchYear</code> (pasado como segundo
+        parámetro) cuando se encuentre en el
+        array. De lo contrario, debería devolver <code>undefined</code>.</p>
+      <p>Echa un vistazo al uso de ejemplo y la salida esperada para comprender mejor cómo debería funcionar la función.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getYear</span>(years, searchYear) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> years.<span class="func">find</span>(<span
+            class="elem">function</span> (year) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> year<span class="elem">===</span> searchYear
+        </p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getYear</span>([<span class="num">1991</span>,
+          <span class="num">1992</span>, <span class="num">1993</span>,
+          <span class="num">1994</span>, <span class="num">1995</span>], <span class="num">1995</span>)); <span
+            class="comment">// 1995</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getYear</span>([<span class="num">1991</span>,
+          <span class="num">1992</span>, <span class="num">1993</span>,
+          <span class="num">1994</span>, <span class="num">1995</span>], <span class="num">1990</span>)); <span
+            class="comment">// undefined</span>
+        </p>
+        <p class="prueba" onclick="prueba112()">Prueba</p>
+      </div>
+      <h3>Años impares</h3>
+      <p>Completa la función <code>getOddYears</code> para que devuelva todos los años que son impares del
+        parámetro <code>years</code> que recibe.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getOddYears</span>(years) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> years.<span class="func">filter</span>(<span
+            class="elem">function</span>
+          (year) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> year <span class="elem">%</span> <span
+            class="num">2</span> <span class="ope">!==</span> <span class="num">0</span>;
+        </p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getOddYears</span>([<span class="num">2019</span>,
+          <span class="num">2020</span>, <span class="num">2021</span>])); <span class="comment">// [2019, 2021]</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getOddYears</span>([<span class="num">2000</span>,
+          <span class="num">2015</span>, <span class="num">2018</span>,
+          <span class="num">2020</span>])); <span class="comment">// [2015]</span>
+        </p>
+        <p class="prueba" onclick="prueba113()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../07_Arrays_II_&_callbacks/01_Array_filter/01_array_filter.html">Anterior</a>
+        <a class="next"
+          href="../../07_Arrays_II_&_callbacks/03_Mas_metodos_de_array/03_mas_metodos_de_array.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

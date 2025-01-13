@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM Projects</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .subscribe-button {
+                border: none;
+                background-color: #000;
+                color: #fff;
+                padding: 10px 16px;
+                font-weight: bold;
+                border-radius: 50px;
+                cursor: pointer;
+                margin-bottom: 30px;
+            }
+
+            .is-subscribed {
+                background-color: #ccc;
+                color: #000;
+            }
+
+            .cost-input,
+            .calculate-button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .calculate-button {
+                background-color: #008000;
+                color: #fff;
+                border: 1px solid #008000;
+                cursor: pointer;
+            }
+
+            .addCart {
+                background-color: #ffd814;
+                font-size: 16px;
+                border: none;
+                padding: 8px 48px;
+                border-radius: 20px;
+            }
+
+            .uberRequest {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: bold;
+                margin-right: 12px;
+            }
+
+            .uberSchedule,
+            .gaming {
+                background-color: #e6e6e6;
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .isToggled {
+                background-color: #ffd814;
+                color: #ff0000;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>YouTube Subscribe Button</p>
+        <button onclick="subscribe()" class="js-subscribe-button subscribe-button">
+            Subscribe
+        </button>
+
+        <p>Amazon Shipping Calculator</p>
+        <button class="addCart">Add to cart</button>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <input type="number" placeholder="Cost of order" class="js-cost-input cost-input"
+            onkeydown="handleCostKey(event)">
+        <button onclick="calculateTotal()" class="calculate-button">Calculate</button>
+        <p class="js-total-cost"></p>
+
+        <p>Uber buttons</p>
+        <button class="uberRequest">Request now</button>
+        <button class="uberSchedule">Schedule for later</button>
+        <br><br>
+        <button class="js-button">Test</button>
+        <br><br>
+        <button onclick="toggleBtn()" class="js-gaming gaming">Gaming</button>
+        <br><br>
+
+
+        <script>
+
+            function handleCostKey(event) {
+                event.key === 'Enter' && calculateTotal();
+            }
+            function subscribe() {
+                const buttonElement = document.querySelector('.js-subscribe-button');
+                if (buttonElement.innerText === 'Subscribe') {
+                    buttonElement.innerHTML = 'Subscribed';
+                    buttonElement.classList.add('is-subscribed');
+                } else {
+                    buttonElement.innerHTML = 'Subscribe';
+                    buttonElement.classList.remove('is-subscribed');
+                }
+            }
+
+            function calculateTotal() {
+                const inputElement = document.querySelector('.js-cost-input');
+                const costElement = document.querySelector('.js-total-cost');
+                const cost = Number(inputElement.value);
+                const total = cost >= 40 ? cost : cost + 10;
+                costElement.innerHTML = `Shipping cost: $${total}`;
+            }
+
+            console.log(document.querySelector('.js-button').classList.contains('js-button'));
+
+            function toggleBtn() {
+                const buttonElement = document.querySelector('.js-gaming');
+                if (buttonElement.classList.contains('isToggled')) {
+                    buttonElement.classList.remove('isToggled');
+                } else {
+                    buttonElement.classList.add('isToggled');
+                }
+            }
+
+
+
+            function toggleOffButtons(selector) {
+                const button = document.querySelector(selector);
+                if (!button.classList.contains('isToggled')) {
+                    button.classList.add('isToggled');
+                } else { button.classList.remove('isToggled'); };
+            }
+        </script>
+    </body>
+
+</html>

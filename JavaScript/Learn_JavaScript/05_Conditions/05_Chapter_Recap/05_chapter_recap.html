@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Resumen del capítulo</h1>
+      <h2>El operador ternario</h2>
+      <p>Las condiciones <code>if</code> breves a veces se pueden escribir usando el operador ternario. El operador
+        ternario es una forma
+        abreviada de escribir una declaración <code>if...else</code>.</p>
+      <p>Volvamos a la solución del desafío anterior:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">evenOrOdd</span>(number) {</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (number <span class="elem">%</span> <span class="num">2</span> <span
+            class="elem">===</span> <span class="num">0</span>) {</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">"even"</span>;</span></p>
+        <p>&nbsp;&nbsp;}</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">"odd"</span>;</span></p>
+        <p>}</span></p>
+      </div>
+      <p>Se puede escribir usando el operador ternario de la siguiente manera:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">evenOrOdd</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> (number <span class="elem">%</span> <span class="num">2</span>
+          <span class="elem">===</span> <span class="num">0</span>) ? <span class="txt">"even"</span> : <span
+            class="txt">"odd"</span>;
+        </p>
+        <p>}</p>
+      </div>
+      <p>El operador ternario tiene la siguiente sintaxis</p>
+      <div class="codigo">
+        <p>condition ? expressionWhenTrue : expressionWhenFalse
+      </div>
+      <p>Si bien el operador ternario puede hacer que tu código sea más conciso, también puede hacerlo menos legible. En
+        general,
+        te recomendamos que lo evites y optes por un código más legible.</p>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../05_Conditions/04_Even_&_Odd/04_even_&_odd.html">Anterior</a>
+        <a class="next" href="../../06_Arrays_I/01_Arrays/01_arrays.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

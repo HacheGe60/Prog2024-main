@@ -1,0 +1,37 @@
+/* Crea tu CSS de prueba aquí */
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	color: blue;
+}
+
+p {
+	color: red;
+}
+
+a {
+	color: green;
+}
+
+.manythings {
+	color: grey;
+	font-weight: bold;
+}
+
+#onething {
+	color: black;
+	font-weight: lighter;
+}
+
+.box p {
+	color: yellow;
+	font-weight: bold;
+	font-size: 200%;
+}
+
+.box p:first-child {
+	color: red;
+	font-size: 300%;
+}

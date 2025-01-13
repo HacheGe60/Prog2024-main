@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>If avanzado</h1>
+      <p>A veces es posible omitir el <code>else</code>. Veamos un ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">canVote</span>(age) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (age <span class="elem">&gt;=</span> <span class="num">18</span>) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">true</span>;</p>
+        <p>&nbsp;&nbsp;} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">false</span>;</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+      </div>
+      <p>Dado que esta función está realizando dos acciones diferentes basadas en el resultado de la condición if y su
+        opuesto
+        (else), podemos reescribirla omitiendo la palabra clave <code>else</code>.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">canVote</span>(age) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (age <span class="elem">&gt;=</span> <span class="num">18</span>) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">true</span>;</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">false</span>;</p>
+        <p>}</p>
+      </div>
+      <p>Estas dos funciones tendrán el mismo resultado exacto. Eso se debe a que la palabra clave <code>return</code>
+        detendrá la función con
+        el resultado. Por lo tanto, cuando la edad sea mayor o igual a 18, la función devolverá <code>true</code> y el
+        resto del código no se
+        ejecutará.</p>
+      <p>Sin embargo, cuando la edad es menor que 18, entonces el código dentro de la condición <code>if</code> no se
+        ejecutará. Por lo tanto,
+        la única línea que se ejecutará es la última, que es <code>return false</code>.</p>
+      <p>Aprovecharemos este consejo más adelante en este curso para aprender sobre un patrón común llamado
+        "<strong>early return</strong>.</p>
+      <h2>Nota de legado</h2>
+      <p>Una nota rápida sobre el legado. Si encuentras <code>==</code> (igual doble) en JavaScript, intenta
+        reemplazarlo con <code>===</code> (igual
+        triple).</p>
+      <p>El operador de igualdad doble <code>==</code> realiza algunas conversiones que no esperarías. Siempre usa
+        <code>===</code> en su lugar.
+      </p>
+      <div class="notaVerde">
+        <i class="fa-solid fa-circle-check fa-xl" style="color: #000333;"></i>
+        <p>Siempre usa <code>===</code> cuando compares 2 valores en JavaScript.</p>
+      </div>
+      <p>Si deseas saber más por qué no se recomienda <code>==</code>, entonces consulta esta comparación:</p>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="txt">'2'</span> <span class="elem">==</span> <span
+            class="num">2</span>);</p>
+        <p class="prueba" onclick="prueba68()">Prueba</p>
+      </div>
+      <p>¿Esto retornaría verdadero o falso?</p>
+      <p>Retornaría <code>true</code> porque JavaScript intentará convertir ambos valores al mismo tipo de dato. Por
+        favor, no
+        consideres esto
+        una "característica". En su lugar, debes evitarlo y siempre usar <code>===</code> (igual triple), que solo
+        devuelve <code>true</code> si
+        ambos
+        lados son del mismo tipo de dato y tienen el mismo valor.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Cuando tienes una condición <code>if/else</code> que devuelve dos resultados diferentes, es posible omitir
+            la palabra clave <code>else</code>.</li>
+          <li>Siempre usa <code>===</code> (igual triple) cuando compares 2 valores en JavaScript.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Obtener la próxima edad II</h3>
+      <p>Completa la función <code>getNextAge</code> para que devuelva la edad del próximo año (sumando 1 a la edad
+        actual).</p>
+      <p>Ten en cuenta que la edad es proporcionada por el usuario en un cuadro de texto (que puedes probar en la
+        pestaña
+        "<a href="./02_01_get_next_age_II/index.html" target="_blank">NAVEGADOR</a> ").</p>
+      <p>Sin embargo, cuando el cuadro de texto está vacío, la función devuelve <code>NaN</code>. Necesitamos arreglar
+        eso y hacer que muestre
+        <code>0</code> en lugar de <code>NaN</code>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getNextAge</span>(age) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">if</span> (age <span class="elem">===</span> '' ) {</em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> <span class="num">0</span>;</em></p>
+        <p>&nbsp;&nbsp;<em>}</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="num">age</span> + <span
+              class="num">1</span>;</em></p>
+        <p>}</p>
+        <p class="prueba"><a href="./02_01_get_next_age_II/index.html" target="_blank">Prueba</a></p>
+      </div>
+      <h3>Proyecto de elipsis de texto III</h3>
+      <p>Completa la función <code>getDescription</code> para que devuelva los primeros 10 caracteres del parámetro
+        <code>text</code> que recibe, seguido
+        de puntos suspensivos. Un punto suspensivo es el carácter punto escrito 3 veces: <code>...</code>
+      </p>
+      <p>Sin embargo, cuando el texto tenga 10 caracteres o menos, no se deben agregar puntos suspensivos porque el
+        texto no se
+        está recortando.</p>
+      <p>Hay varias formas de resolver este desafío. Tómate tu tiempo y comete todos los errores que puedas ;) ¡Y
+        asegúrate de
+        probarlo en la pestaña del navegador!</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getDescription</span>(text) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(text); <span class="comment">// write something in the
+            BROWSER and see it in the console</span> <span <p><em>&nbsp;&nbsp;<span class="elem">return</span>
+              text.<span class="func">length</span> <span class="elem">&lt;=</span> <span class="num">10</span> <span
+                class="elem">?</span> <span class="txt">text</span> <span class="elem">:</span> text.<span
+                class="func">substring</span>(<span class="num">0</span>, <span class="num">10</span>) <span
+                class="elem">+</span> <span class="txt">'...'</span>;</em></p>
+        <p>}</p>
+
+        <p class="prueba"><a href="./02_02_proyecto_de_elipsis_de_texto_III/index.html" target="_blank">Prueba</a>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../05_Conditions/01_Conditions/01_conditions.html">Anterior</a>
+        <a class="next" href="../../05_Conditions/03_Returning_booleans/03_returning_booleans.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

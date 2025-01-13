@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Conversión de cadena a número</h1>
+      <p>En algunos escenarios (explicados a continuación), querrás convertir de una cadena a un número. Para eso,
+        tendrás que
+        usar el método <code>Number.parseInt()</code>.</p>
+      <p>Ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> str <span class="elem">=</span> <span class="txt">"42"</span>;</p>
+        <p>Number.<span class="func">parseInt</span>(str, <span class="num">10</span>); <span class="comment">//
+            42</span></p>
+      </div>
+      <p>Hay mucho sucediendo aquí, así que vamos a desglosarlo paso a paso.</p>
+      <p>La función se llama <code>Number.parseInt().</code> Sí, incluyendo la parte <code>Number.</code>. Esto se debe
+        a que hay un objeto global llamado
+        <code>Number.</code>que contiene un método llamado <code>parseInt().</code>
+      </p>
+      <p>El método <code>Number.parseInt()</code> espera 2 parámetros:</p>
+      <div class="codigo">
+        <p>Number.<span class="func">parseInt</span>(string, radix);</p>
+      </div>
+      <p>El primer parámetro es la cadena que deseas convertir en un número. El segundo argumento es el
+        <strong>radix</strong> que se utilizará en
+        la conversión.
+      </p>
+      <p>El <code>radix</code> es la base del sistema numérico que deseas usar. Para la mayoría de los casos de
+        uso, el radix que
+        querrás usar es <code>10</code>, que representa la forma en que contamos números en nuestra vida cotidiana. Este
+        sistema se llama
+        sistema decimal (porque tenemos 10 dedos, por lo que usamos los dígitos del 0 al 9).</p>
+      <p>Otro ejemplo de radix es 2, que representa binario (un sistema numérico utilizado por las computadoras). Si
+        deseas
+        profundizar más en este concepto, consulta esta página simplificada de Wikipedia sobre bases matemáticas.</p>
+      <div class="notaWiki">
+        <h2>Wikipedia Base (aritmética)</h2>
+        <p>En un sistema de numeración posicional, se le llama base al número que define el orden de magnitud en que se
+          ve
+          incrementada cada una de las cifras sucesivas que componen el número. Es también la cantidad de símbolos
+          presentes en
+          dicho sistema. Por ejemplo, el sistema de numeración decimal (el más utilizado en la actualidad) utiliza como
+          base el
+          número 10 (diez): hay 10 símbolos o dígitos, y cada uno de ellos se incrementa en un orden de magnitud de 10
+          por
+          cada
+          posición consecutiva.
+        </p>
+        <p>En cualquier sistema de numeración, el número
+          <code>x</code> y su base <code>y</code> se denotan convencionalmente como
+          <code>(x)<sub>y</sub></code>, esto se cumple para todos los sistemas salvo el decimal, por ser la manera más
+          habitual de expresar valores, donde se omite la base. Así, por ejemplo,<code>(100)<sub>10</sub></code> (o sin
+          la
+          base) es el número
+          <code>100</code> en el sistema decimal; y <code>(100)<sub>2</sub></code> es el número
+          <code>4</code> en el sistema binario.
+        </p>
+      </div>
+      <p>Como resumen rápido, el radix generalmente será <code>10</code>. Si no estás seguro de qué radix elegir, lo más
+        probable es que sea
+        10.</p>
+      <h2>¿Se puede obviar el radix?</h2>
+      <p>Aunque el <code>radix</code> es un parámetro opcional, no debes omitirlo. Eso es porque no siempre se establece
+        como <code>10</code> por defecto.</p>
+      <p>Así que asegúrate de siempre pasar el radix como segundo parámetro.</p>
+      <div class="notaNaranja">
+        <p><span><i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #000333;"></i></span>
+          <code>Number.parseInt(string, radix)</code> no siempre se establece como un radix de 10 de forma
+          predeterminada.
+        </p>
+      </div>
+      <p>Si intentas usar <code>Number.parseInt()</code> sin un radix de 10, funcionará. Sin embargo, hay algunos casos
+        límite (números que
+        comienzan con <code>0x</code>) que se romperían. Por lo tanto, para estar seguro, siempre se recomienda pasar el
+        radix.</p>
+      <div class="notaVerde">
+        <p><i class="fa-solid fa-circle-check fa-xl" style="color: #000333;"></i> Asegúrate de especificar
+          siempre
+          el radix para evitar sorpresas desagradables.
+        </p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h2>Number.parseInt()</h2>
+      </div>
+      <p>El método estático <code>Number.parseInt()</code> analiza un argumento de cadena y devuelve un número entero de
+        la raíz o base
+        especificada.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">roughScale</span>(x, base) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">const</span> parsed = Number.<span class="func">parseInt</span>(x, base);</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (Number.<span class="func">isNaN</span>(parsed)) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="num">0</span>;</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> parsed * <span class="num">100</span>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(roughScale(<span class="txt">" 0xF"</span>,
+          <span class="num">16</span>));
+        </p>
+        <p><span class="comment">// resultado esperado: 1500</span></p>
+        <p>&nbsp;</p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(roughScale(<span class="txt">"321"</span>,
+          <span class="num">2</span>));
+        </p>
+        <p><span class="comment">// resultado esperado: 0</span></p>
+        <p class="prueba" onclick="prueba41()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>Number.<span class="func">parseInt</span>(string)</p>
+        <p>Number.<span class="func">parseInt</span>(string, radix)</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h4>Parámetros</h4>
+      </div>
+      <p><code>string</code></p>
+      <p>El valor a analizar, forzado a una cadena. Se ignoran los espacios en blanco iniciales en este argumento.</p>
+      <p><code>radix</code> (opcional)</p>
+      <p>Un número entero entre <code>2</code> y <code>36</code> que representa la base (la base en los sistemas
+        numéricos matemáticos) del <code>string</code>.</p>
+      <p>Si <code>radix</code> no está definida o es <code>0</code>, se supone que es <code>10</code>, excepto cuando el
+        número comienza con los pares de
+        unidades de
+        código <code>0x</code> o <code>0X</code>, en cuyo caso se asume una base de <code>16</code>.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h4>Valor devuelto</h4>
+      </div>
+      <p>Un entero analizado a partir del <code>string</code> dado.</p>
+      <p>Si <code>radix</code> es menor que <code>2</code> o mayor que <code>36</code>, o el primer carácter que no es
+        un espacio en blanco no se puede convertir en un
+        número, se devuelve <code>NaN</code>.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="" class="mdn-logo">
+        <h4>Number.parseInt vs. parseInt</h4>
+      </div>
+      <p>Este método tiene la misma funcionalidad que la función global parseInt():</p>
+      <div class="codigo">
+        <p>Number.<span class="func">parseInt</span> <span class="elem">===</span> <span class="func">parseInt</span>;
+          <span class="comment">// true</span>
+        </p>
+      </div>
+      <p>Su propósito es la modularización de globales. Consulte <a
+          href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/parseInt">parseInt()</a>
+        para obtener más detalles y
+        ejemplos.</p>
+      <h2>Notas de legado</h2>
+      <p>JavaScript es un lenguaje en evolución que tiene más de 25 años. Sigue cambiando y evolucionando. Las notas de
+        legado
+        explicarán algunos comportamientos confusos o funciones antiguas que quizás hayas encontrado hace un tiempo.</p>
+      <p>Si estás aprendiendo JavaScript por primera vez, entonces no necesitas dedicar mucho tiempo a esas notas de
+        legado.</p>
+      <div class="nota">
+        <i class="fa-solid fa-circle-info fa-xl" style="color: #000333;"></i>
+        <p><code>Number.parseInt()</code> y <code>parseInt()</code> son exactamente el mismo método. Se prefiere el
+          uso de <code>Number.parseInt()</code> sobre <code>parseInt()</code>.</p>
+      </div>
+      <p>Hace un tiempo, <code>parseInt(string, radix)</code> era la única forma de convertir números, sin embargo,
+        tiempo después, esta
+        función ha sido clonada bajo el objeto Number y se convirtió en <code>Number.parseInt(string, radix)</code> en
+        un esfuerzo por
+        agrupar funciones similares juntas bajo su objeto relevante.</p>
+      <p>Ambas funcionan exactamente igual. Recomendamos que te adhieras al enfoque moderno, que es
+        <code>Number.parseInt()</code>.
+      </p>
+      <h3>Casos de uso para convertir una cadena a un número</h3>
+      <p>Hay varias razones por las que querrás convertir una cadena a un número, pero la más común es cuando el número
+        es
+        ingresado por el usuario en un cuadro de texto o el número se está leyendo desde el DOM (lo que se explica más
+        adelante).</p>
+      <p>Como verás en el próximo desafío, estos valores siempre serán una cadena (incluso si el usuario escribe un
+        número). Por
+        lo tanto, es tu trabajo convertirlo en un número.</p>
+      <p>Si olvidas convertir una cadena a un número, verás que la suma prevista se comporta como una concatenación.</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> a <span class="elem">=</span> <span class="num">10</span>;</p>
+        <p><span class="elem">let</span> b <span class="elem">=</span> <span class="txt">'20'</span>; <span
+            class="comment">// nos olvidamos de convertir esta cadena a un número</span></p>
+        <p>console.<span class="func">log</span>(a <span class="elem">+</span> b); <span class="comment">// '1020'
+            (concatenación en vez de suma)</span></p>
+        <p class="prueba" onclick="prueba42()">Prueba</p>
+      </div>
+      <p>El método <code>Number.parseInt()</code> intentará convertir la cadena que recibe en un número. Como puedes ver
+        a continuación,
+        funciona con más frecuencia cuando la cadena comienza con un número y termina con valores no numéricos:</p>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(Number.<span class="func">parseInt</span>(<span
+            class="txt">'123abc'</span>, <span class="num">10</span>)); <span class="comment">//
+            123</span></p>
+        <p>console.<span class="func">log</span>(Number.<span class="func">parseInt</span>(<span class="txt">'5
+            meters'</span>, <span class="num">10</span>));
+          <span class="comment">// 5</span>
+        </p>
+        <p class="prueba" onclick="prueba43()">Prueba</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Convertir de cadena a número: <code>Number.parseInt(value, 10)</code>.</li>
+          <li><code>Number.parseInt()</code> es el nombre de la función que estás llamando.</li>
+          <li>Debes especificar el <code>radix</code> 10.</li>
+          <li>Asegúrate de especificar siempre el <code>radix</code> para evitar sorpresas desagradables.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Obtener la siguiente edad I</h3>
+      <p>Completa la función <code>getNextAge</code> para que devuelva la edad del próximo año (sumando 1 a la edad
+        actual).</p>
+      <p>Ten en cuenta que la <code>age</code> la escribe el usuario en un cuadro de texto (podés probar en la pestaña
+        <a href="./02_01_Obtener_la_siguiente_edad_I/index.html" target="_blank">"Navegador"</a>
+      </p>
+      <p>No te preocupes por obtener <code>NaN</code> cuando el cuadro de texto esté vacío por ahora, lo trataremos en
+        un capítulo futuro.</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getNextAge</span>(age) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> Number.<span class="func">parseInt</span>(age) <span
+              class="elem">+</span> <span class="num">1</span>;</em></p>
+        <p>}</p>
+        <p class="prueba"><a href="./02_01_Obtener_la_siguiente_edad_I/index.html" target="_blank">Prueba</a></p>
+      </div>
+      <h3>Obtener el ancho de la caja</h3>
+      <p>Completa la función <code>getBoxWidth</code> para que devuelva el ancho (como número) de la cadena de texto que
+        recibes.</p>
+      <p>Ten en cuenta que la cadena que recibe se parece a <code>50px</code> o <code>100px</code> (que se usa en CSS),
+        mientras que las funciones deberían
+        devolver un número a partir de estas cadenas.</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getBoxWidth</span>(value) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> Number.<span class="func">parseInt</span>(value);</em>
+        </p>
+        <p>}</p>
+        <p class="prueba"><a href="./02_02_Obtener_el_ancho_de_la_caja/index.html" target="_blank">Prueba</a></p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../03_Numbers/01_Numbers/">Anterior</a>
+        <a class="next" href="../../03_Numbers/03_Operaciones/03_operaciones.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

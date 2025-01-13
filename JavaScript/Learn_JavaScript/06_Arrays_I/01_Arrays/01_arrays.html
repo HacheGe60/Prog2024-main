@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Arrays</h1>
+      <p>Los arrays en JavaScript te permiten almacenar múltiples elementos en la misma variable. Puedes almacenar
+        números,
+        cadenas, booleanos, arrays, objetos y más. Estos pueden mezclarse dentro del mismo array.</p>
+      <p>Aquí hay algunos ejemplos:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> users <span class="elem">=</span> []; <span class="comment"> // array vacío
+          </span>
+        </p>
+        <p><span class="elem">const</span> grades <span class="elem">=</span> [<span class="num">10</span> <span
+            class="comment">
+            // array de números</span></p>
+        <p><span class="elem">const</span> attendees <span class="elem">=</span> [<span class="txt">'Sam'</span>, <span
+            class="txt">'Alex'</span>]; <span class="comment">
+            // array de cadenas de texto</span></p>
+        <p><span class="elem">const</span> values <span class="elem">=</span> [<span class="num">10</span>, <span
+            class="elem">false</span>, <span class="txt">'John'</span>]; <span class="comment">
+            // array mixto</span></p>
+      </div>
+      <div class="notaVerde">
+        <i class="fa-solid fa-circle-check fa-xl " style="color: #000333;"></i>
+        <p>Nombra los arrays en plural ya que pueden contener más de un elemento. Esto resultará ser especialmente útil
+          una vez que
+          necesitemos iterar sobre un array.</p>
+      </div>
+      <h2>Propiedad .length</h2>
+      <p>Puedes obtener el número de elementos en un array usando la propiedad <code>.length</code>. Por ejemplo:</p>
+      <div class="codigo">
+        <p>[].<span class="func">length</span>; <span class="comment">// 0</span></p>
+        <p>&nbsp;</p>
+        <p><span class="elem">const</span> grades <span class="elem">=</span> [<span class="num">'10'</span>, <span
+            class="num">8</span>, <span class="num">13</span>, <span class="num">15</span>];</p>
+        <p>grades.<span class="func">length</span>; <span class="comment">// 4</span></p>
+      </div>
+      <p>Ten en cuenta que <code>.length</code> es una propiedad (valor precalculado) y no una función. Por eso no debes
+        poner <code>()</code> después de
+        ella.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h2>Array.length</h2>
+      </div>
+      <p>La propiedad length de un objeto que es una instancia de tipo Array establece o devuelve la cantidad de
+        elementos en esa
+        matriz. El valor es un entero sin signo de 32 bits que siempre es numéricamente mayor que el índice más alto en
+        la
+        matriz.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">const</span> clothing <span class="elem">=</span> [<span class="txt">'shoes'</span>, <span
+            class="txt">'shirts'</span>, <span class="txt">'socks'</span>, <span class="txt">'sweaters'</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(clothing.<span class="func">length</span>); <span class="comment">//
+            Resultado esperado:
+            4</span></p>
+        <p class="prueba" onclick="prueba71()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Descripción</h3>
+      </div>
+      <p>El valor de la propiedad <code>length</code> es un número entero con un signo positivo y un valor menor que 2 a
+        la 32a potencia
+        (232).</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> nameListA <span class="elem">=</span> <span class="elem">new</span> <span
+            class="func">Array</span>(<span class="num">4294967296</span>); <span class="comment">// 2 a la 32a potencia
+            =
+            4294967296</span></p>
+        <p><span class="elem">let</span> nameListC <span class="elem">=</span> <span class="elem">new</span> <span
+            class="func">Array</span>(<span class="num">-100</span>); <span class="comment">// signo negativo</span></p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(nameListA.<span class="func">length</span>); <span class="comment">//
+            RangeError: longitud de la matriz inválida</span></p>
+        <p>console.<span class="func">log</span>(nameListC.<span class="func">length</span>); <span class="comment">//
+            RangeError: longitud de la matriz inválida</span></p>
+        <p>&nbsp;</p>
+        <p><span class="elem">let</span> nameListB <span class="elem">=</span> [];</p>
+        <p>nameListB.<span class="func">length</span> <span class="elem">=</span> Math.<span
+            class="func">pow</span>(<span class="num">2</span>, <span class="num">32</span>) - <span
+            class="num">1</span>; <span class="comment">// establecer una longitud de la matriz menor que 2 a la
+            32<sup>2</sup> potencia</span></p>
+        <p>console.<span class="func">log</span>(nameListB.<span class="func">length</span>); <span class="comment">//
+            4294967295</span></p>
+        <p class="prueba" onclick="prueba72()">Prueba</p>
+      </div>
+      <p>Puedes establecer la propiedad <code>length</code> para truncar una matriz unidimensional en cualquier momento.
+        Cuando
+        extiende una
+        matriz cambiando su propiedad <code>length</code>, el número de elementos reales aumenta; por ejemplo, si se
+        establece <code>length</code>
+        en 3
+        cuando actualmente es 2, la matriz ahora contiene 3 elementos, lo que hace que el tercer elemento sea
+        <code>undefined</code>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">let</span> arr <span class="elem">=</span> [<span class="num">1</span>, <span
+            class="num">2</span>, <span class="num">3</span>];</p>
+        <p><span class="func">printEntries</span>(arr);</p>
+        <p>&nbsp;</p>
+        <p>arr.<span class="elem">length</span> <span class="elem">=</span> <span class="num">5</span>; <span
+            class="comment">// establecer la longitud de la matriz en 5 mientras que la actual es 3.</span></p>
+        <p><span class="func">printEntries</span>(arr);</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">function</span> <span class="func">printEntries</span>(arr) {
+        </p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> length <span class="elem">=</span> arr.<span
+            class="func">length</span>;</p>
+        <p>&nbsp;&nbsp;<span class="elem">for</span> (<span class="elem">let</span> i <span class="elem">=</span> <span
+            class="num">0</span>; i <span class="elem">&lt;</span> length; i<span class="elem">++</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(arr[i]);</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">"=== impreso ==="</span>);</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// 1</span></p>
+        <p><span class="comment">// 2</span></p>
+        <p><span class="comment">// 3</span></p>
+        <p><span class="comment">// === impreso ===</span></p>
+        <p><span class="comment">// 1</span></p>
+        <p><span class="comment">// 2</span></p>
+        <p><span class="comment">// 3</span></p>
+        <p><span class="comment">// undefined</span></p>
+        <p><span class="comment">// undefined</span></p>
+        <p><span class="comment">// === impreso ===</span></p>
+        <p class="prueba" onclick="prueba73()">Prueba
+        </p>
+      </div>
+      <p>Pero, la propiedad length no necesariamente indica el número de valores definidos en la matriz.</p>
+      <table>
+        <tr>
+          <th colspan="2">Atributos de la propiedad Array.prototype.length</th>
+        </tr>
+        <tr>
+          <td>Sobrescribir</td>
+          <td>Sí</td>
+        </tr>
+        <tr>
+          <td>Numerable</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Configurable</td>
+          <td>No</td>
+        </tr>
+      </table>
+      <ul>
+        <li><code>Sobrescribir</code>: si este atributo se establece en <code>false</code>, el valor de la propiedad no
+          se puede cambiar.</li>
+        <li><code>Configurable</code>: si este atributo se establece en <code>false</code>, cualquier intento de
+          eliminar la propiedad o cambiar sus atributos
+          (<code>Sobrescribir</code>, <code>Configurable</code> o <code>Numerable</code>) fallará.</li>
+        <li><code>Numerable</code>: si este atributo se establece en <code>true</code>, la propiedad se repetirá durante
+          los bucles
+          <code>for</code> o <code>for..in</code>.
+        </li>
+      </ul>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Iterando sobre una matriz</h4>
+      </div>
+      <p>En el siguiente ejemplo, la matriz <code>numbers</code> se itera a través de la propiedad <code>length</code>.
+        El valor en cada elemento se
+        duplica.</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="num">1</span>, <span
+            class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>];
+        </p>
+        <p><span class="elem">let</span> length <span class="elem">=</span>
+          numbers.<span class="span func">length</span>;
+        </p>
+        <p><span class="elem">for</span> (<span class="elem">let</span> i <span class="elem">=</span> <span
+            class="num">0</span>; i <span class="elem">&lt;</span> length; i<span class="elem">++</span>) {</p>
+        <p>&nbsp;&nbsp;numbers[i] <span class="elem">*=</span> <span class="num">2</span>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(numbers);</p>
+        <p class="prueba" onclick="prueba74()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Acortando una matriz</h4>
+      </div>
+      <p>El siguiente ejemplo acorta los numbers de la matriz a una longitud de 3 si la longitud actual es mayor que 3.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="num">1</span>, <span
+            class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="elem">if</span> (numbers.<span class="func">length</span> <span class="elem">&gt;</span> <span
+            class="num">3</span>) {</p>
+        <p>&nbsp;&nbsp;numbers.<span class="func">length</span> <span class="elem">=</span> <span class="num">3</span>;
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(numbers); <span class="comment">// [1, 2, 3]</span></p>
+        <p>console.<span class="func">log</span>(numbers.<span class="func">length</span>); <span class="comment">//
+            3</span></p>
+        <p class="prueba" onclick="prueba75()">Prueba</p>
+      </div>
+      <h2>Obtener elemento por índice</h2>
+      <p>De manera similar a las cadenas, puedes obtener un elemento de un array usando la sintaxis de corchetes
+        <code>[]</code> con el <code>índice</code>
+        comenzando desde 0.
+      </p>
+      <p>Por ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> users <span class="elem">=</span> [<span class="txt">'Sam'</span>, <span
+            class="txt">'Alex'</span>, <span class="txt">'Charley'</span>];</p>
+        <p>console.<span class="func">log</span>(users[<span class="num">1</span>]); <span class="comment">//
+            'Alex'</span>
+        </p>
+        <p class="prueba" onclick="prueba76()">Prueba</p>
+      </div>
+      <p>También puedes usar el método <code>.at(index)</code>, que acepta índices negativos, lo que facilita encontrar
+        el último elemento del
+        array. Los índices negativos cuentan hacia atrás desde el último elemento del array. Aquí hay algunos ejemplos
+        con
+        <code>.at()</code>:
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> users <span class="elem">=</span> [<span class="txt">'Sam'</span>, <span
+            class="txt">'Alex'</span>, <span class="txt">'Charley'</span>, <span class="txt">'Blane'</span>, <span
+            class="txt">'Crane'</span>];</p>
+        <p>console.<span class="func">log</span>(users.<span class="func">at</span>(<span class="num">0</span>)); <span
+            class="comment">//
+            'Sam'</span></p>
+        <p>console.<span class="func">log</span>(users.<span class="func">at</span>(<span class="num">1</span>)); <span
+            class="comment">//
+            'Alex'</span></p>
+        <p>console.<span class="func">log</span>(users.<span class="func">at</span>(<span class="num">-2</span>)); <span
+            class="comment">//
+            'Blane'</span></p>
+        <p>console.<span class="func">log</span>(users.<span class="func">at</span>(<span class="num">-1</span>)); <span
+            class="comment">//
+            'Crane'</span></p>
+        <p class="prueba" onclick="prueba77()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h2>Array.prototype.at()</h2>
+      </div>
+      <p>El método at() recibe un valor numérico entero y devuelve el elemento en esa posición, permitiendo valores
+        positivos y
+        negativos. Los valores negativos contarán desde el último elemento del array.</p>
+      <p>Esto no sugiere que haya algo mal con usar la notación de corchetes. Por ejemplo, <code>array[0]</code>
+        devolvería el primer
+        elemento. Sin embargo, en lugar de usar <code>array.length</code> para los últimos elementos; ej.
+        <code>array[array.length-1]</code> para el
+        último elemento, puede llamar <code>array.at(-1)</code>.
+      </p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">const</span> array1 <span class="elem">=</span> [<span class="num">5</span>, <span
+            class="num">12</span>, <span class="num">8</span>, <span class="num">130</span>, <span
+            class="num">44</span>];</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">let</span> index <span class="elem">=</span> <span class="num">2</span>;</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="txt">`Un índice de </span>${index} <span
+            class="txt">da</span>
+          ${array1.at(index)}<span class="txt">`</span>);</p>
+        <p><span class="comment">// Resultado esperado: "Un índice de 2 da 8"</span></p>
+        <p>&nbsp;</p>
+        <p>index <span class="elem">=</span><span class="num">-+2</span></p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="txt">`Un índice de </span>${index} <span
+            class="txt">da</span>
+          ${array1.at(index)}<span class="txt">`</span>);</p>
+        <p><span class="comment">// Resultado esperado: "Un índice de -2 da 130"</span></p>
+        <p class="prueba" onclick="prueba78()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="func">at</span>(indice);</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Parámetros</h4>
+      </div>
+      <p><code>índice</code></p>
+      <p>El índice (posición) del elemento del array que se devolverá. Soporta el índice relativo desde el final del
+        array cuando
+        se pasa un índice negativo; ej. si se usa un número negativo, el elemento devuelto se encontrará contando hacia
+        atrás
+        desde el final del array.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Valor de retorno</h4>
+      </div>
+      <p>El elemento en el array que coincide con el índice dado. Devuelve <code>undefined</code> si el índice dado no
+        se puede encontrar.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Retorna el último valor de un array</h4>
+      </div>
+      <p>El siguiente ejemplo proporciona una función que devuelve el último elemento encontrado en un array
+        especificado.</p>
+      <div class="codigo">
+        <p><span class="comment">// Nuestro array con objetos</span></p>
+        <p><span class="elem">const</span> carrito <span class="elem">=</span> [<span class="txt">'manzana'</span>,
+          <span class="txt">'banana'</span>, <span class="txt">'pera'</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Una función que devuelve el último elemento de un array dado </span></p>
+        <p><span class="elem">function</span> <span class="func">devolverUltimo</span>(arr) { </p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> arr.<span class="func">at</span>(<span class="num">-1</span>);
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Obtenemos el último elemento de nuestro array 'carrito'</span></p>
+        <p><span class="elem">const</span> objeto1 = <span class="func">devolverUltimo</span>(carrito);</p>
+        <p>console.<span class="func">log</span>(objeto1); <span class="comment">// Muestra 'pera'</span></p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Añade un elemento a nuestro array 'carrito'</span></p>
+        <p>carrito.<span class="func">push</span>(<span class="txt">'naranja'</span>);</p>
+        <p><span class="elem">const</span> objeto2 = <span class="func">devolverUltimo</span>(carrito);</p>
+        <p>console.<span class="func">log</span>(objeto2); <span class="comment">// Muestra 'naranja'</span></p>
+        <p class="prueba" onclick="prueba78()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Comparando métodos</h4>
+      </div>
+      <p>Este ejemplo compara diferentes maneras de seleccionar el penúltimo (uno antes del último) elemento de un
+        Array.
+        Mientras todos los métodos mostrados a continuación son válidos, este ejemplo resalta la concisión y la fácil
+        lectura
+        del método <code>at()</code>.</p>
+      <div class="codigo">
+        <p><span class="comment">// Nuestro array con elementos</span></p>
+        <p><span class="elem">const</span> colores <span class="elem">=</span> [<span class="txt">'rojo'</span>, <span
+            class="txt">'verde'</span>, <span class="txt">'azul'</span>];</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Usando la propiedad length</span></p>
+        <p><span class="elem">const</span> lengthMetodo <span class="elem">=</span> colores[colores.<span
+            class="func">length</span> <span class="elem">-</span><span class="num">2</span>];
+        </p>
+        <p>console.<span class="func">log</span>(lengthMetodo); <span class="comment">// Muestra 'verde'</span></p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Usando el método slice(). Note que se devuelve un array</span></p>
+        <p><span class="elem">const</span> sliceMetodo <span class="elem">=</span> colores.<span
+            class="func">slice</span>(<span class="num">-2</span>, <span class="num">-1</span>);
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">sliceMetodo</span>[<span class="num">0</span>]);
+          <span class="comment">//
+            Muestra 'verde'</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Usando el método at()</span></p>
+        <p><span class="elem">const</span> atMetodo <span class="elem">=</span> colores.<span
+            class="func">at</span>(<span class="num">-2</span>);
+        </p>
+        <p>console.<span class="func">log</span>(atMetodo); <span class="comment">// Muestra 'verde'</span></p>
+        <p class="prueba" onclick="prueba79()">Prueba</p>
+      </div>
+      <h2>Agregando un elemento</h2>
+      <p>Se puede agregar un elemento al final de un array con el método <code>push()</code>.</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="num">10</span>, <span
+            class="num">8</span>, <span class="num">13</span>, <span class="num">15</span>];</p>
+        <p>numbers.<span class="func">push</span>(<span class="num">20</span>); <span class="comment">// devuelve 5 (la
+            nueva longitud del array)</span></p>
+        <p>console.<span class="func">log</span>(numbers); <span class="comment">// [10, 8, 13, 15, 20]</span></p>
+        <p class="prueba" onclick="prueba80()">Prueba</p>
+      </div>
+      <div class="notaNaranja">
+        <i class="fas fa-exclamation-triangle fa-xl " style="color: #000333;"></i>
+        <p><code>Array.push()</code> devuelve la nueva longitud del array.</p>
+      </div>
+      <p>Como puedes ver, <code>numbers.push(20)</code> devuelve 5, que es la longitud del array. Esto a menudo es
+        confuso para muchos
+        desarrolladores, por lo que lo estamos destacando aquí. <code>.push()</code> agregará un elemento al array pero
+        también devolverá la
+        nueva longitud del array.
+      </p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h2>Array.prototype.push()</h2>
+      </div>
+      <p>El método <code>push()</code> añade uno o más elementos al final de un array y devuelve la nueva longitud del
+        array.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">const</span> animales <span class="elem">=</span> [<span class="txt">'cerdos'</span>,
+          <span class="txt">'cabras'</span>, <span class="txt">'ovejas'</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="elem">const</span> cantidad <span class="elem">=</span> animales.<span
+            class="func">push</span>(<span class="txt">'vacas'</span>);</p>
+        <p>console.<span class="func">log</span>(cantidad); <span class="comment">// ['cerdos', 'cabras', 'ovejas',
+            'vacas']</span>
+        </p>
+        <p><span class="comment">// Resultado esperado: 4</span></p>
+        <p>console.<span class="func">log</span>(animales);</p>
+        <p><span class="comment">// Resultado esperado: Array ['cerdos', 'cabras', 'ovejas', 'vacas']</span></p>
+        <p>&nbsp;</p>
+        <p>animales.<span class="func">push</span>(<span class="txt">'pollos'</span>, <span class="txt">'gatos'</span>,
+          <span class="txt">'perros'</span>);
+        </p>
+        <p>console.<span class="func">log</span>(animales);</p>
+        <p><span class="comment">// Resultado esperado: Array ['cerdos', 'cabras', 'ovejas', 'vacas', 'pollos', 'gatos',
+            'perros']</span></p>
+        <p class="prueba" onclick="prueba81()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>arr.push(element1[, ...[, elementN]]);</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Parámetros</h4>
+      </div>
+      <p><code>elementN</code></p>
+      <p>Los elementos a añadir al final del array.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Valor devuelto</h4>
+      </div>
+      <p>La nueva propiedad <code>length</code> del objeto sobre el cual se efectuó la llamada.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Descripción</h3>
+      </div>
+      <p>El método <code>push</code> es muy práctico para añadir valores a un array.</p>
+      <p><code>push</code> es genérico intencionadamente. Este método puede ser <code>call()</code> o
+        <code>apply()</code> a objetos que representen arrays. El
+        método
+        <code>push</code> depende de la propiedad <code>length</code> para decidir donde empezar a insertar los valores
+        dados. Si el valor de la
+        propiedad
+        <code>length</code> no puede ser convertido en numérico, el índice 0 es usado. Esto permite la posibilidad de
+        que la
+        propiedad <code>length</code>
+        sea inexistente, y en este caso <code>length</code> será creado.
+      </p>
+      <p>Los únicos objetos nativos que se asemejen al array son strings objetos, aunque estos no se puedan usar en la
+        aplicación
+        de este método ya que son inmutables.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Añadiendo elementos a un array</h4>
+      </div>
+      <p>El siguiente código crea el array deportes que contiene dos elementos, luego añade 2 elementos más. Tras
+        ejecutar
+        el
+        código, deportes contiene 4 elementos: "fútbol", "béisbol", "fútbol americano" y "natación".</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> deportes <span class="elem">=</span> [<span class="txt">'fútbol'</span>,
+          <span class="txt">'béisbol'</span>];
+        </p>
+        <p><span class="elem">let</span> total <span class="elem">=</span> deportes.<span class="func">push</span>(<span
+            class="txt">'fútbol americano'</span>, <span class="txt">'natación'</span>);</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(deportes); <span class="comment">// ['fútbol', 'béisbol', 'fútbol
+            americano', 'natación']</span></p>
+        <p>console.<span class="func">log</span>(total); <span class="comment">// 4</span></p>
+        <p class="prueba" onclick="prueba82()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Uniendo dos arrays</h4>
+      </div>
+      <p>Este ejemplo usa <code>apply()</code> para insertar todos los elementos de un segundo array.</p>
+      <p>No uses este método si el segundo array (<code>moreVegs</code> en el ejemplo) es muy grande, porque el número
+        máximo de parámetros
+        que puede tomar una función es limitado en la práctica. Consulta <code>apply()</code> para obtener más detalles.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> vegetales <span class="elem">=</span> [<span class="txt">'boniato'</span>,
+          <span class="txt">'papa'</span>];
+        </p>
+        <p><span class="elem">const</span> masVegs <span class="elem">=</span> [<span class="txt">'apio'</span>, <span
+            class="txt">'berenjena'</span>];</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Combinar el segundo array en el primero</span></p>
+        <p><span class="comment">// Equivalente a vegetales.push('apio', 'berenjena');</span></p>
+        <p>Array.prototype.<span class="func">push</span>.<span class="func">apply</span>(vegetales, masVegs);</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(vegetales); <span class="comment">// ['boniato', 'papa', 'apio',
+            'berenjena']</span></p>
+        <p class="prueba" onclick="prueba83()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Usando un objeto de manera similar a un array</h4>
+      </div>
+      <p>Como se menciona anteriormente, <code>push</code> es intencionadamente genérico, y podemos usar eso a nuestro
+        favor.
+        <code>Array.prototype.push</code> puede funcionar bien con un objeto, como muestra este ejemplo. Ten en cuenta
+        que no se crea
+        un
+        array para almacenar una colección de objetos. En su lugar, almacenamos la colección en el propio objeto y se
+        utiliza el
+        método <code>call</code> sobre <code>Array.prototype.push</code> para hacer creer al método que estamos tratando
+        a un array, y simplemente
+        funciona, gracias a la forma en que JavaScript nos permite establecer el contexto de la ejecución.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> obj <span class="elem">=</span> {</p>
+        <p>&nbsp;&nbsp;<span class="func">length</span>: <span class="num">0</span>,</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;&nbsp;<span class="func">addElem</span>: <span class="elem">function</span> <span
+            class="func">addElem</span>(elem) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// obj.length is automatically incremented</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// every time an element is added.</span>
+        </p>
+        <p>&nbsp;&nbsp;[].<span class="func">push</span>.<span class="func">call</span>(<span class="elem">this</span>,
+          elem);</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>};</p>
+        <p>&nbsp;</p>
+        <p>obj.<span class="func">addElem</span>({});</p>
+        <p>obj.<span class="func">addElem</span>({});</p>
+        <p>console.<span class="func">log</span>(obj.<span class="func">length</span>); <span class="comment">//
+            2</span></p>
+        <p class="prueba" onclick="prueba84()">Prueba</p>
+      </div>
+      <p>Tenga en cuenta que aunque <code>obj</code> no es un array, el método <code>push</code> ha incrementado
+        satisfactoriamente la propiedad <code>length</code> de
+        <code>obj</code> tal y como si se tratara de un array.
+      </p>
+      <h2>Arrays & const</h2>
+      <p>Aunque la variable
+        <code>numbers <span class="elem">=</span> []; <span class="comment">// comienza con un array vacío</span></code>
+        se definió con <code>const</code>, pudimos insertar nuevos datos en ella.
+      </p>
+      <p>Eso se debe a que <code>const</code> significa que <strong>solo puedes asignar la variable una vez</strong>
+        cuando se
+        define. Pero no significa que la
+        variable sea inmutable. Su contenido puede cambiar.</p>
+      <p>¿Cuál es el beneficio de declararla como <code>const</code>? El beneficio es que una vez que la defines como un
+        array,
+        siempre
+        permanecerá como un array, lo que significa que puedes llamar con seguridad a los métodos del array en ella. Sin
+        embargo, el contenido del array puede cambiar.</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> []; <span class="comment">// comienza con
+            un array vacío</span></p>
+        <p>numbers.<span class="func">push</span>(<span class="num">10</span>); <span class="comment">// devuelve 1
+            (nueva longitud del array)</span></p>
+        <p>console.<span class="func">log</span>(numbers); <span class="comment">// [10]
+            sigue siendo un array pero cambió su contenido</span></p>
+        <p>numbers.<span class="func">push</span>(<span class="num">20</span>); <span class="comment">// devuelve 2
+            (nueva longitud del array)</span>
+        </p>
+        <p>console.<span class="func">log</span>(numbers); <span class="comment">// [10, 20]
+            sigue siendo un array pero cambió su contenido</span></p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li><code>const data = [1, 2, 3]</code> es un array que contiene 3 números.</li>
+          <li><code>array.length</code> devuelve el número de elementos dentro del array.</li>
+          <li><code>array.push(x)</code> <strong>te permite agregar la variable</strong> <code>x</code> al final del
+            array. También devuelve la nueva longitud del array (después
+            de que se haya realizado el push).</li>
+          <li>Los arrays definidos con <code>const</code> no son constantes porque puedes cambiar los elementos dentro
+            de ellos. Sin embargo, no
+            puedes reasignarlos a otro valor, por lo que siempre serán un array.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Array vacío</h3>
+      <p>Completa la función <code>getEmptyArray</code> la cual devuelve un array vacío.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getEmptyArray</span>() {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="elem">[]</span></em>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getEmptyArray</span>());</p>
+        <p class="prueba" onclick="prueba85()">Prueba</p>
+      </div>
+      <h3>Longitud de un array</h3>
+      <p>Completa la función <code>getNumberOfElements</code> la cual devuelve la cantidad de items que contiene el
+        array <code>elements</code>.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getNumberOfElements</span>(<span
+            class="elem">elements</span>) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="elem">elements</span>.<span
+              class="func">length</span></em>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getNumberOfElements</span>([<span
+            class="txt">'a'</span>, <span class="txt">'b'</span>, <span class="txt">'c'</span>]); <span
+            class="comment">// 3</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getNumberOfElements</span>([])); <span
+            class="comment">// 0</span></p>
+        <p class="prueba" onclick="prueba86()">Prueba</p>
+      </div>
+      <h3>Añadir una calculadora a las aplicaciones</h3>
+      <p>Completa la función useCalculator para que agregue la cadena "Calculator" al array apps que recibe. Luego,
+        devuelve el
+        array apps.</p>
+      <p>Hay un pequeño truco en este desafío para asegurarte de que entiendes un concepto importante. Dedica algún
+        tiempo a
+        tratar de resolverlo, luego consulta las pistas si te quedas atascado.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">useCalculator</span>(apps) {</p>
+        <p><em>&nbsp;&nbsp;apps.<span class="func">push</span>(<span class="txt">'Calculator'</span>);</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> apps</em>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">useCalculator</span>([<span
+            class="txt">'Clock'</span> <span class="txt">'Twitter'</span>])); <span class="comment">// ['Clock',
+            'Twitter', 'Calculator']</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">useCalculator</span>(<span class="txt">['Weather']
+          </span>)); <span class="comment">// ['Weather', 'Calculator']</span></p>
+        <p class="prueba" onclick="prueba87()">Prueba</p>
+      </div>
+      <h3>Usar cualquier app</h3>
+      <p>Completa la función <code>useApp</code> para que agregue la variable <code>app</code> al array apps que recibe.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">useApp</span>(apps, app) {</p>
+        <p><em>&nbsp;&nbsp;apps.<span class="func">push</span>(app);</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> apps</em>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">useApp</span>( [<span class="txt">'Clock'</span>,
+          <span class="txt">'Twitter'</span>], <span class="txt">'Calculator'</span>)); <span class="comment">//
+            ['Clock',
+            'Twitter', 'Calculator']</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">useApp</span>([], <span
+            class="txt">'Safari'</span>)); <span class="comment">// ['Safari']</span></p>
+        <p class="prueba" onclick="prueba88()">Prueba</p>
+      </div>
+      <h3>Obtener el primer app</h3>
+      <p>Completa la función <code>getFirstApp</code> para que devuelva el primer elemento del array <code>apps</code>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getFirstApp</span>(apps) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> apps[<span class="num">0</span>]</em>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getFirstApp</span>([<span
+            class="txt">'Chrome'</span>, <span class="txt">'Clock'</span>, <span class="txt">'Twitter'</span>]));
+          <span class="comment">// 'Chrome'</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getFirstApp</span>([<span
+            class="txt">'Clock'</span>, <span class="txt">'Contacts'</span>]));
+          <span class="comment">// 'Clock'</span>
+        </p>
+        <p class="prueba" onclick="prueba89()">Prueba</p>
+      </div>
+      <h3>Obtener el ultimo app</h3>
+      <p>Completa la función <code>getLastApp</code> para que devuelva el último elemento del array <code>apps</code>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getLastApp</span>(apps) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> apps.<span class="func">at</span>(<span
+              class="num">-1</span>)</em>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getLastApp</span>([<span
+            class="txt">'Chrome'</span>, <span class="txt">'Clock'</span>, <span class="txt">'Twitter'</span>]));
+          <span class="comment">// 'Twitter'</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getLastApp</span>([<span
+            class="txt">'Safari'</span>,
+          <span class="txt">'Contacts'</span>]));
+          <span class="comment">// 'Contacts'</span>
+        </p>
+        <p class="prueba" onclick="prueba90()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../05_Conditions/05_Chapter_Recap/05_chapter_recap.html">Anterior</a>
+        <a class="next" href="../../06_Arrays_I/02_Array_forEach/02_array_forEach.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Literales de plantilla</h1>
+      <p>Ya sabes que puedes crear cadenas con comillas dobles o comillas simples, pero como ya sabes, estas cadenas no
+        admiten
+        interpolación.</p>
+      <p>Las cadenas de plantilla, sin embargo, admiten interpolación y otras características interesantes.</p>
+      <h2>Tu primer literal de plantilla</h2>
+      <div class="codigo">
+        <p><span class="txt">`Este es un literal de plantilla`</span></p>
+        </p>
+      </div>
+      <p>La única diferencia es que las cadenas de plantilla comienzan y terminan con un acento grave <code>`</code>.
+      <h2>Cadenas de texto multilíneas</h2>
+      <p>A diferencia de las cadenas de comillas simples y dobles, las cadenas de plantilla pueden abarcar varias
+        líneas. Aquí
+        hay un ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> text = <span class="txt">`Esta es una cadena</span></p>
+        <p><span class="txt">de texto</span></p>
+        <p><span class="txt">con varias</span></p>
+        <p><span class="txt">líneas</span></p>
+        <p><span class="txt">`</span>;</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(text);</p>
+        <p class="prueba" onclick="prueba30()">Prueba</p>
+      </div>
+      <p>Esto <strong>no</strong> hubiera sido posible con una cadena normal (comillas simples o dobles).</p>
+      <h2>Interpolación</h2>
+      <p>Las cadenas de plantilla admiten interpolación. Esto significa que puedes escribir una variable en tu cadena y
+        obtener
+        su valor. La sintaxis es sencilla, envuelves el nombre de tu variable con un signo de dólar y llaves. Tomemos un
+        ejemplo
+        donde tenemos una variable <code>language</code> con un valor de <code>"JavaScript"</code>.  
+      </p>
+      <div class="codigo">
+        <p><span class="elem">let</span> language = <span class="txt">"JavaScript"</span>;</p>
+        <p>console.<span class="func">log</span>(<span class="txt">`Mi lenguaje favorito es</span> <span
+            class="elem">${</span>language<span class="elem">}</span><span class="txt">`</span>); <span
+            class="comment">// "Mi lenguaje favorito es JavaScript"</span></p>
+        <p class="prueba" onclick="prueba31()">Prueba</p>
+      </div>
+      <p>Recuerda que la interpolación de cadenas solo funciona con <strong>comillas invertidas</strong>. Si alguna vez
+        lo intentas y no funciona,
+        verifica que estés usando comillas invertidas en lugar de comillas simples o dobles.  
+      </p>
+      <h2>Ejemplos adicionales</h2>
+      <h3>Cómo escribir una cadena de varias líneas</h3>
+      <div class="codigo">
+        <p><span class="elem">const</span> text = <span class="txt">`Usando el carácter de comilla invertida,</span></p>
+        <p><span class="txt">puedes definir una cadena que</span></p>
+        <p><span class="txt">abarque varias líneas.`</span></p>
+        <p>console.<span class="func">log</span>(text);</p>
+        <p class="prueba" onclick="prueba32()">Prueba</p>
+      </div>
+      <h3>Como interpolar en JavaScript</h3>
+      <div class="codigo">
+        <p><span class="elem">const</span> name = <span class="txt">"Sam"</span>;</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="txt">`Bienvenido </span><span
+            class="elem">${</span>name<span class="elem">}</span><span class="txt">.</span></p>
+        <p><span class="txt">Tienes </span><span class="elem">${</span><span class="num">2</span> <span
+            class="elem">*</span> <span class="num">5</span><span class="elem">}</span><span class="txt"> notificaciones
+            nuevas.`</span>);</p>
+        <p class="prueba" onclick="prueba33()">Prueba</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Una cadena de plantilla es una cadena creada con el carácter de comilla invertida: <code>`</code>.</li>
+          <li>Las cadenas de plantilla pueden abarcar varias líneas.</li>
+          <li>Las cadenas de plantilla admiten interpolación con la sintaxis <code>${nombreVariable}</code>.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Interpolación de cadenas</h3>
+      <p>Completá la función <code>sayHello</code> de manera que interpole la variable <strong>name</strong> en una
+        cadena de texto <code>'Hola name'</code>.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">sayHello</span>(name) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="txt">`Hola</span> <span
+              class="elem">${</span>name<span class="elem">}</span><span class="txt">`</span>;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">sayHello</span>(<span class="txt">"Alex"</span>));
+          <span class="comment">// "Hola Alex"</span>
+        <p>console.<span class="func">log</span>(<span class="func">sayHello</span>(<span class="txt">"Sam"</span>));
+          <span class="comment">// "Hola Sam"</span>
+        </p>
+        <p class="prueba" onclick="prueba34()">Prueba</p>
+      </div>
+      <h3>Interpolación de cadenas avanzada</h3>
+      <p>Completa la función <code>getFullName</code> de modo que devuelva el nombre completo de la persona utilizando
+        <strong>interpolación</strong>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getFullName</span>(firstName, lastName) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="txt">`</span><span
+              class="elem">${</span>firstName<span class="elem">}</span> <span class="elem">${</span>lastName<span
+              class="elem">}</span><span class="txt">`</span>;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getFullName</span>(<span class="txt">"Sam"</span>,
+          <span class="txt">"Doe"</span>));
+          <span class="comment">// "Sam Doe"</span>
+        <p>console.<span class="func">log</span>(<span class="func">getFullName</span>(<span class="txt">"Alex"</span>,
+          <span class="txt">"Blue"</span>));
+          <span class="comment">// "Alex Blue"</span>
+        </p>
+        <p class="prueba" onclick="prueba35()">Prueba</p>
+      </div>
+      <h3>Cadena multilínea</h3>
+      <p>Completa la función <strong>getMultilineString</strong> para que devuelva la siguiente cadena de varias líneas:
+      </p>
+      <p><code>I am learning JavaScript </code></p>
+      <p><code>and I found it to be</code></p>
+      <p><code>quite fun!</code></p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getMultilineString</span>() {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="txt">`I am learning JavaScript</span></em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<em><span class="txt">and I found it to be
+            </span></em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="txt">quite fun!`</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getMultilineString</span>());
+        </p>
+        <p class="prueba" onclick="prueba36()">Prueba</p>
+      </div>
+      <h3>Tabla Nutricional I</h3>
+      <p>Es muy común en JavaScript devolver una cadena que representa algún código HTML. De hecho, haremos esto con
+        bastante
+        frecuencia en los capítulos de DOM. La interpolación de cadenas resulta útil aquí porque admite cadenas de
+        varias líneas
+        e interpolación.</p>
+      <p>Completa la función <code>renderTableRow</code> para que devuelva el siguiente HTML:</p>
+      <div class="codigo">
+        <p>&lt;<span class="elem">tr</span>&gt;</p>
+        <p>&nbsp;&nbsp;&lt;<span class="elem">td</span>&gt;label here&lt;/<span class="elem">td</span>&gt;</p>
+        <p>&nbsp;&nbsp;&lt;<span class="elem">td</span>&gt;value here&lt;/<span class="elem">td</span>&gt;</p>
+        <p>&lt;/<span class="elem">tr</span>&gt;</p>
+      </div>
+      <p>donde <code>label here</code> y <code>value here</code> son reemplazados por los parámetros <code>label</code>
+        y <code>value</code> respectivamente. Asegúrate de mirar el
+        código en <code>index.js</code> para ver cómo se está utilizando esta función (es probable que el código DOM no
+        sea comprensible en
+        este momento, ya que aún no lo hemos explicado).</p>
+      <p>¡No olvides mirar el resultado final en la pestaña "NAVEGADOR"!</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">renderTableRow</span>(label, value) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(label, value);</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span>
+            <span class="txt">`&lt;tr&gt;</span></em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><span
+              class="txt">&lt;td&gt;${label}&lt;/td&gt;</span></em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em><span
+              class="txt">&lt;td&gt;${value}&lt;/td&gt;</span></em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>
+            <span class="txt">&lt;tr&gt;`</span></em>;</p>
+        <p>}</p>
+        <p class="prueba"><a href="../../02_Strings_I/05_Literales_de_plantilla/05_01_tabla_nutricional_I/index.html"
+            target="_blank">Prueba</a></p>
+      </div>
+      <h3>Capitalizar palabra</h3>
+      <p>Completa la función <code>capitalize</code> para que capitalice el parámetro <code>word</code> que recibe. No
+        existe un método capitalize en
+        JavaScript, por lo que debes escribirlo tú mismo.</p>
+      <p>Mira el ejemplo de uso para entender lo que significa capitalizar, luego mira las pistas si aún no está claro.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">capitalize</span>(word) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> word.<span class="func">at</span>(<span
+              class="num">0</span>).<span class="func">toUpperCase()</span> <span class="elem">+</span> word.<span
+              class="func">substring</span>(<span class="num">1</span>).<span class="func">toLowerCase()</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">capitalize</span>(<span class="txt">"sam"</span>));
+          <span class="comment">// "Sam"</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">capitalize</span>(<span
+            class="txt">"ALEX"</span>));<span class="comment">// "Alex"</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">capitalize</span>(<span
+            class="txt">"chARLie"</span>));<span class="comment">// "Charlie"</span></p>
+        <p class="prueba" onclick="prueba37()">Prueba</p>
+      </div>
+      <h3>Proyecto Variaciones de nombres</h3>
+      <p>En este proyecto, ¡practicarás las habilidades de cadenas que acabas de adquirir!</p>
+      <p>Completa las funciones dadas como se describe en los comentarios y prueba la aplicación que acabas de construir
+        en la
+        pestaña "NAVEGADOR".</p>
+      <p>Tómate tu tiempo, comete la menor cantidad de errores que puedas y aprende de ellos.</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getNumberOfChars</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// número de caracteres en la variable name</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">length</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getFirstChar</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// primer carácter de la variable name</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">at</span>(<span
+              class="num">0</span>);</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getLastChar</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// último carácter de la variable name</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">at</span>(<span
+              class="num">-1</span>);</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getLower</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// variable name en minúsculas</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">toLowerCase()</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getUpper</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// variable name en mayúsculas</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">toUpperCase()</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getCapitalized</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// variable name capitalizada</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> name.<span class="func">at</span>(<span
+              class="num">0</span>).<span class="func">toUpperCase()</span> <span class="elem">+</span> name.<span
+              class="func">substring</span>(<span class="num">1</span>).<span class="func">toLowerCase()</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p class="prueba"><a
+            href="../../02_Strings_I/05_Literales_de_plantilla/05_02_proyecto_variaciones_de_nombre/index.html"
+            target="_blank">Prueba</a></p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen del capítulo</h2>
+        <ul>
+          <li>Puedes crear cadenas de texto con <code>"</code> o <code>'</code>.</li>
+          <li><strong>.length</strong> es una propiedad que te indica la longitud de una cadena.</li>
+          <li><strong>.toUpperCase()</strong> es una función que convierte la cadena a mayúsculas.</li>
+          <li><strong>.toLowerCase()</strong> es una función que convierte la cadena a minúsculas.</li>
+          <li>Los paréntesis <code>()</code> son obligatorios en las llamadas a funciones. <code>.length</code> es una
+            propiedad precalculada, por lo tanto, no
+            necesita paréntesis.</li>
+          <li><strong>console.log(...)</strong> se usa para depurar y no es un reemplazo para <strong>return</strong>.
+          </li>
+          <li>Los corchetes <code>[índice]</code> se usan para acceder a un índice específico de una cadena.</li>
+          <li>El índice comienza en 0. Por lo tanto, el primer carácter es el índice 0.</li>
+          <li>Puedes combinarlo con la longitud de una cadena para obtener otro carácter en otra posición.</li>
+          <li>El método <code>.at()</code> te permite leer un carácter en un índice determinado (que también puede ser
+            negativo).</li>
+          <li>Una subcadena es una parte o una porción de una cadena.</li>
+          <li><code>string.substring(indexStart, indexEnd)</code> se usa para devolver una porción de la cadena.</li>
+          <li><strong>indexStart</strong>: la posición del primer carácter que deseas incluir.</li>
+          <li><strong>indexEnd</strong>: la posición del primer carácter que deseas ignorar.</li>
+          <li>El argumento <strong>indexEnd</strong> es opcional, lo que significa que puedes omitirlo.</li>
+          <li>El operador <code>+</code> es usado para sumar 2 números.
+          </li>
+          <li>El operador <code>+</code> es usado para concatenar dos cadenas.</li>
+          <li>Una cadena de plantilla es una cadena creada con el carácter de comilla invertida: <code>`</code>.</li>
+          <li>Las cadenas de plantilla pueden extenderse a varias líneas.</li>
+          <li>Las cadenas de plantilla admiten interpolación con la sintaxis <code>${variableName}</code>.</li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../../02_Strings_I/04_Operador_Plus/04_Plus_operator.html"><button class="last">Anterior</button></a>
+        <a href="../../03_Numbers/01_Numbers/01_numbers.html"><button class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

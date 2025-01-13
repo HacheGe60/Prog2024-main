@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Variables</h1>
+      <p>Hay 2 formas de definir una variable en JavaScript. Veamos la diferencia entre <code>let</code> y
+        <code>const</code>.
+      </p>
+      <h2>let</h2>
+      <p>La primera vez que defines una variable, debes prefijarla con <code>let =</code>. Veamos un ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> name <span class="elem">=</span> <span class="txt">"Sam"</span>;</p>
+        <p>console.<span class="func">log</span>(name); <span class="comment">// "Sam"</span></p>
+        <p class="prueba" onclick="prueba51()">Prueba</p>
+      </div>
+      <p>Esto define una variable llamada <code>name</code> con un valor de <code>"Sam"</code>. La próxima vez que
+        desees usar esa variable, la referencias
+        por su nombre (solo usas la palabra clave <code>let</code> para la declaración).</p>
+      <p>Las variables definidas con <code>let</code> pueden ser reasignadas más adelante:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> language <span class="elem">=</span> <span class="txt">"C++"</span>;</p>
+        <p>console.<span class="func">log</span>(language); <span class="comment">// "C++"</span></p>
+        <p>language <span class="elem">=</span> <span class="txt">"JavaScript"</span>;</p>
+        <p>console.<span class="func">log</span>(language); <span class="comment">// "JavaScript"</span></p>
+        <p class="prueba" onclick="prueba52()">Prueba</p>
+      </div>
+      <p>Otro ejemplo con números</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> sum <span class="elem">=</span> <span class="num">0</span>;</p>
+        <p>console.<span class="func">log</span>(sum); <span class="comment">// 0</span></p>
+        <p>sum <span class="elem">+=</span> <span class="num">1</span>;</p>
+        <p>console.<span class="func">log</span>(sum); <span class="comment">// 1</span></p>
+        <p class="prueba" onclick="prueba53()">Prueba</p>
+      </div>
+      <p>Esto es especialmente útil cuando deseas crear una variable que necesite ser incrementada/disminuida (como un
+        contador).</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h2>let</h2>
+      </div>
+      <p>La instrucción let declara una variable de alcance local con ámbito de bloque(blockscope), la cual,
+        opcionalmente, puede
+        ser inicializada con algún valor.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>let var1 [= valor1] [, var2 [= valor2]] [, ..., varN [= valorN]];</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Parámetros</h4>
+      </div>
+      <code>var1</code>, <code>var2</code>, ..., <code>varN</code>
+      <p>Los nombres de la variable o las variables a declarar. Cada una de ellas debe ser un identificador legal de
+        JavaScript</p>
+      <code>value1</code>, <code>value2</code>, ..., <code>valueN</code>
+      <p>Por cada una de las variables declaradas puedes, opcionalmente, especificar su valor inicial como una expresión
+        legal
+        JavaScript.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Descripción</h3>
+      </div>
+      <p><code>let</code> te permite declarar variables limitando su alcance (scope) al bloque, declaración, o expresión
+        donde se
+        está
+        usando, a diferencia de la palabra clave <code>var</code> la cual define una variable global o local en una
+        función sin
+        importar el
+        ámbito del bloque. La otra diferencia entre <code>var</code> y <code>let</code> es que este último se inicializa
+        a un valor sólo cuando un
+        analizador lo evalúa (ver abajo).</p>
+      <p>Al igual que <code>const</code>, <code>let</code> no crea propiedades del objeto se declara globalmente (en el
+        alcance más alto).</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Alcance (scope) a nivel de bloque con <code>let</code></h4>
+      </div>
+      <p>Usar la palabra reservada <code>let</code> para definir variables dentro de un bloque.</p>
+      <div class="codigo">
+        <p><span class="elem">if</span> (x &gt; y) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> gamma <span class="elem">=</span> <span class="num">12.7</span>
+          <span class="elem">+</span> y;
+        </p>
+        <p>&nbsp;&nbsp;i <span class="elem">=</span> gamma <span class="elem"> * </span> x;</p>
+        <p>}</p>
+      </div>
+      <p>Es posible usar definiciones let para asociar código en extensiones con un pseudo-espacio-de-nombre
+        (pseudo-namespace).</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> Cc <span class="elem">=</span> Components.classes,</p>
+        <p>&nbsp;&nbsp;Ci <span class="elem">=</span> Components.interfaces;</p>
+      </div>
+      <p><code>let</code> puede ser útil para escribir código más limpio cuando usamos funciones internas.</p>
+      <div class="codigo">
+        <p><span class="elem">var</span> list <span class="elem">=</span> document<span
+            class="func">.getElementsById</span>(<span class="txt">"list"</span>);</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">for</span> (<span class="elem">var</span> i <span class="elem">=</span> <span
+            class="num">1</span>; i <span class="elem">&lt;=</span> <span class="num">5</span>; i<span
+            class="elem">++</span>)
+          {</p>
+        <p>&nbsp;&nbsp;<span class="elem">var</span> item <span class="elem">=</span> document.<span
+            class="func">createElement</span>(<span class="txt">"LI"</span>);</p>
+        <p>&nbsp;&nbsp;item<span class="func">.appendChild</span>(document.<span
+            class="func">createTextNode</span>(<span class="txt">"Item "</span> <span class="elem">+</span>
+          i));</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> j <span class="elem">=</span> i;</p>
+        <p>&nbsp;&nbsp;item.<span class="func">onclick</span> <span class="elem">=</span> <span
+            class="elem">function</span> (ev) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">"Item "</span> <span
+            class="elem">+</span> j <span class="elem">+</span> <span class="txt">" is clicked."</span>);</p>
+        <p>&nbsp;&nbsp;};</p>
+        <p>&nbsp;&nbsp;list.<span class="func">appendChild</span>(item);</p>
+        <p>}</p>
+      </div>
+      <p>El ejemplo anterior trabaja como se espera porque las cinco instancias de la función (anónima) interna hacen
+        referencia
+        a cinco diferentes instancias de la variable <code>j</code>. Nótese que esto no funcionaría como se espera si
+        reemplazamos
+        <code>let</code> con
+        <code>var</code> o si removemos la variable <code>j</code> y simplemente usamos la variable <code>i</code>
+        dentro de la función interna.
+      </p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h5>Reglas de alcance</h5>
+      </div>
+      <p>Variables declaradas por <code>let</code> tienen por alcance el bloque en el que se han definido, así mismo,
+        como en cualquier bloque
+        interno. De esta manera, <code>let</code> trabaja muy parecido a <code>var</code>. La más notable diferencia
+        es que el alcance de una variable <code>var</code>
+        es la función contenedora:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">varTest</span>() {</p>
+        <p>&nbsp;&nbsp;<span class="elem">var</span> x <span class="elem">=</span> <span class="num">31</span>;</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (<span class="txt">true</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">var</span> x <span class="elem">=</span> <span
+            class="num">71</span>; <span class="comment">// ¡misma variable!</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(x); <span class="comment">// 71</span></p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(x); <span class="comment">// 71</span></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">function</span> <span class="func">letTest</span>() {</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> x <span class="elem">=</span> <span class="num">31</span>;</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (<span class="txt">true</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">let</span> x <span class="elem">=</span> <span
+            class="num">71</span>;
+          <span class="comment">// variable diferente</span>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(x); <span class="comment">// 71</span></p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(x); <span class="comment">// 31</span></p>
+        <p>}</p>
+        <p><span class="comment">//llamamos a las funciones</span></p>
+        <p><span class="func">varTest</span>()</p>
+        <p><span class="func">letTest</span>()</p>
+        <p class="prueba" onclick="prueba54()">Prueba</p>
+      </div>
+      <p>En el nivel superior de un programa y funciones, <code>let</code> , a diferencia de <code>var</code>, no crea
+        una propiedad en el objeto global,
+        por ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">var</span> x <span class="elem">=</span> <span class="txt">"global"</span>;</p>
+        <p><span class="elem">let</span> y <span class="elem">=</span> <span class="txt">"global"</span>;</p>
+        <p>console.<span class="func">log</span>(<span class="elem">this</span>.x); <span class="comment">//
+            "global"</span></p>
+        <p>console.<span class="func">log</span>(<span class="elem">this</span>.y); <span class="comment">//
+            undefined</span></p>
+        <p class="prueba" onclick="prueba55()">Prueba</p>
+      </div>
+      <p>La salida de este código desplegaría "global" una vez.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Zona muerta temporal y errores con <code>let</code></h4>
+      </div>
+      <p>La redeclaración de la misma variable bajo un mismo ámbito léxico terminaría en un error de tipo
+        <code>SyntaxError</code>.
+        Esto
+        también es extensible si usamos <code>var</code> dentro del ámbito léxico. Esto nos salvaguarda de redeclarar
+        una variable
+        accidentalmente y que no era posible solo con <code>var</code>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">if</span> (x) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> foo;
+        <p>&nbsp;&nbsp;<span class="elem">let</span> foo; <span class="comment">// Terminamos con un SyntaxError.</span>
+        </p>
+        <p>}</p>
+        <p><span class="elem">if</span> (x) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> foo;
+        <p>&nbsp;&nbsp;<span class="elem">var</span> foo; <span class="comment">// Terminamos con un SyntaxError.</span>
+        </p>
+        <p>}</p>
+      </div>
+      <p>En ECMAScript 2015, <code>let</code> no eleva la variable a la parte superior del bloque. Si se hace una
+        referencia a la variable
+        declarada con <code>let</code> (<code>let foo</code>) antes de su declaración, terminaríamos con un error de
+        tipo <code>ReferenceError</code> (al contrario de
+        la variable declarada con <code>var</code>, que tendrá el valor <code>undefined</code>), esto porque la
+        variables vive en una "zona muerta
+        temporal" desde el inicio del bloque hasta que la declaración ha sido procesada.</p>
+      <div class="codigo">
+        <p>function do_something() {</p>
+        <p>&nbsp;&nbsp;console.log(bar); // undefined</p>
+        <p>&nbsp;&nbsp;console.log(foo); // ReferenceError: foo no está definida</p>
+        <p>&nbsp;&nbsp;var bar = 1;</p>
+        <p>&nbsp;&nbsp;let foo = 2;</p>
+        <p>}</p>
+      </div>
+      <p>Es posible encontrar errores en bloques de control switch debido a que solamente existe un block subyacente.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">switch</span> (x) {</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">case</span> <span class="num">0</span>:</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">let</span> foo;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">break</span>;</p>
+        <p>&nbsp;&nbsp;<span class="elem">case</span> <span class="num">1</span>:</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">let</span> foo; <span class="comment">// Terminamos con un error
+            de tipo SyntaxError</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// esto debido a la redeclaración</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">break</span>;</p>
+        <p>}</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Otro ejemplo de zona muerta temporal combinada con ámbito léxico</h4>
+      </div>
+      <p>Debido al ámbito léxico, el identificador <code>num</code> dentro de la expresión (<code>num + 55</code>) se
+        evalúa como <code>num</code> del bloque <code>if</code>, y no
+        como la variable <code>num</code> con el valor 33 que esta por encima.</p>
+      <p>En esa misma línea, el <code>num</code> del bloque <code>if</code> ya se ha creado en el ámbito léxico, pero
+        aún no ha alcanzado (y terminado) su
+        inicialización (que es parte de la propia declaración): todavía está en la zona muerta temporal.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">prueba</span>() {</p>
+        <p>&nbsp;&nbsp;<span class="elem">var</span> num <span class="elem">=</span> <span class="num">33</span>;</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (<span class="txt">true</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">let</span> num <span class="elem">= </span> num <span
+            class="elem">+</span> <span class="num">55</span>; <span class="comment">// ReferenceError: no se puede
+            acceder a la declaración léxica 'num' antes de la inicialización</span></p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+        <p><span class="func">prueba</span>()</p>
+        <p class="prueba" onclick="prueba56()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <p><code>let</code> vs <code>var</code></p>
+      <p>Cuando usamos <code>let</code> dentro de un bloque, podemos limitar el alcance de la variable a dicho bloque.
+        Notemos la diferencia
+        con <code>var</code>, cuyo alcance reside dentro de la función donde ha sido declarada la variable.</p>
+      <div class="codigo">
+        <p><span class="elem">var</span> a <span class="elem">=</span> <span class="num">5</span>;</p>
+        <p><span class="elem">var</span> b <span class="elem">=</span> <span class="num">10</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">if</span> (a <span class="elem">===</span> <span class="num">5</span>) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> a <span class="elem">=</span> <span class="num">4</span>; <span
+            class="comment">// El alcance es dentro del bloque if</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">var</span> b <span class="elem">=</span> <span class="num">1</span>; <span
+            class="comment">// El alcance es global</span></p>
+        <p>&nbsp;</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(a); <span class="comment">// 4</span></p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(b); <span class="comment">// 1</span></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(a) <span class="comment">// 5</span></p>
+        <p>console.<span class="func">log</span>(b) <span class="comment">// 1</span></p>
+        <p class="prueba" onclick="prueba57()">Prueba</p>
+      </div>
+      <p><code>let</code> en bucles</p>
+      <p>Es posible usar la palabra reservada <code>let</code> para enlazar variables con alcance local dentro del
+        alcance de un bucle en
+        lugar de usar una variable global (definida usando <code>var</code>) para dicho propósito.</p>
+      <div class="codigo">
+        <p><span class="elem">for</span> (<span class="elem">let</span> i <span class="elem">=</span> <span
+            class="num">0</span>; i <span class="elem">&lt;</span> <span class="num">10</span>; i<span
+            class="elem">++</span>) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(i); <span class="comment">// 0, 1, 2, 3, 4 ... 9</span></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(i); <span class="comment">// ReferenceError: i is not defined</span>
+        </p>
+        <p class="prueba" onclick="prueba58()">Prueba</p>
+      </div>
+      <h2>const</h2>
+      <p>Las variables definidas con <code>const</code> no pueden ser reasignadas. Esto significa que solo puedes usar
+        el signo <code>=</code> una vez al
+        definir la variable. Aquí tienes un ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> language <span class="elem">=</span> <span class="txt">"C++"</span>; <span
+            class="comment">// Cannot be re-assigned anymore</span></p>
+        <p>console.<span class="func">log</span>(language); <span class="comment">// "C++"</span></p>
+        <p>&nbsp;</p>
+        <p>language <span class="elem">=</span> <span class="txt">"JavaScript"</span>; <span class="comment">// <i
+              class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i> Error de tipo: esto interrumpirá tu
+            script</span></p>
+        <p class="prueba" onclick="prueba59()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h2>const</h2>
+      </div>
+      <p>Las variables constantes presentan un ámbito de bloque (block scope) tal y como lo hacen las variables
+        definidas usando
+        la instrucción <code>let</code>, con la particularidad de que el valor de una constante no puede cambiarse a
+        través de la
+        reasignación. Las constantes no se pueden redeclarar.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>const varname1 = value1 [, varname2 = value2 [, ...[, varnameN = valueN]]];</p>
+      </div>
+      <p><code>varnameN</code></p>
+      <p>Nombre de la constante. Puede ser un identificador legal.</p>
+      <p><code>valueN</code></p>
+      <p>Valor de la constante. Puede ser cualquier expresión legal.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Descripción</h3>
+      </div>
+      <p>Esta declaración crea una constante cuyo alcance puede ser <strong>global o local para el bloque en el que se
+          declara</strong>.
+        Es
+        necesario <strong>inicializar</strong> la constante, es decir, se debe especificar su valor en la misma
+        sentencia en la que se
+        declara,
+        lo que tiene sentido, dado que no se puede cambiar posteriormente.</p>
+      <p>La declaración de una constante crea una referencia de sólo lectura. No significa que el valor que tiene sea
+        inmutable,
+        sino que el identificador de variable no puede ser reasignado, por lo tanto, en el caso de que la asignación a
+        la
+        constante sea un objeto, el objeto sí que puede ser alterado.</p>
+      <p>Una constante <strong>no puede compartir</strong> su nombre con una función o variable en el mismo ámbito.</p>
+      <p>Todas las consideraciones acerca de la " zona muerta temporal " se aplican tanto a <code>let</code> y
+        <code>const</code>.
+      </p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <p>El siguiente ejemplo produce una salida <code>"a es 7."</code></p>
+      <div class="codigo">
+        <p><span class="elem">const</span> a <span class="elem">=</span> <span class="num">7</span>;</p>
+        <p>document.<span class="func">writeln</span>(<span class="txt">"a es "</span> <span class="elem">+</span> a
+          <span class="elem">+</span> <span class="txt">"."</span>);
+        </p>
+      </div>
+      <p>Las siguientes instrucciones demuestra como se comporta <code>const</code></p>
+      <div class="codigo">
+        <p><span class="comment">// NOTA: Las constantes pueden ser declaradas en mayúsculas o minúsculas,</span></p>
+        <p><span class="comment">// pero por convención para distinguirlas del resto de variables se escribe todo en
+            mayúsculas</span></p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// definimos MY_FAV como constante y le damos un valor de 7</span></p>
+        <p><span class="elem">const</span> MY_FAV <span class="elem">=</span> <span class="num">7</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// lanzara un error: Uncaught TypeError: Asignación a variable constante.</span></p>
+        <p>MY_FAV <span class="elem">=</span> <span class="num">20</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// imprimirá 7</span></p>
+        <p>console.<span class="func">log</span>(<span class="txt">'mi número favorito es: '</span> <span
+            class="elem">+</span> MY_FAV);</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// lanzara un error: SyntaxError: tratando de redeclarar una constante. El
+            identificador 'MY_FAV' ya ha sido declarado</span></p>
+        <p><span class="elem">const</span> MY_FAV <span class="elem">=</span> <span class="num">20</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// el nombre MY_FAV esta reservado para la constante anterior, también fallara y
+            lanzara un SyntaxError por la
+            redeclaración</span></p>
+        <p><span class="elem">var</span> MY_FAV <span class="elem">=</span> <span class="num">20</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// el nombre MY_FAV esta reservado para la constante anterior, también fallara y
+            lanzara un SyntaxError por la
+            redeclaración</span></p>
+        <p><span class="elem">let</span> MY_FAV <span class="elem">=</span> <span class="num">20</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// es importante tener en cuenta como funciona el alcance de bloque</span></p>
+        <p><span class="elem">if</span> (MY_FAV <span class="elem">===</span> <span class="num">7</span>) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// esto esta bien y crea una variable MY_FAV de alcance/ámbito de
+            bloque</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// (funciona igual de bien con let para declarar un alcance de
+            bloque/ámbito de variable no-constante)</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">const</span> MY_FAV <span class="elem">=</span> <span class="num">20</span>;
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;&nbsp;<span class="comment">// MY_FAV ahora es 20</span></p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'mi número favorito es '</span> <span
+            class="elem">+</span> MY_FAV);</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;&nbsp;<span class="comment">// aquí también lanzará un SyntaxError por la redeclaración</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">var</span> MY_FAV <span class="elem">=</span> <span class="num">20</span>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// MY_FAV todavía es 7</span></p>
+        <p>console.<span class="func">log</span>(<span class="txt">'mi número favorito es '</span> <span
+            class="elem">+</span>
+          MY_FAV);</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// lanza error, falta el inicializador en la declaración de const</span></p>
+        <p><span class="elem">const</span> FOO;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// const también funciona en objetos</span></p>
+        <p><span class="elem">const</span> MY_OBJECT <span class="elem">=</span> {<span class="elem">'key'</span>: <span
+            class="txt">'value'</span>};</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Intentando sobrescribir el objeto nos lanza un error</span></p>
+        <p>MY_OBJECT <span class="elem">=</span> {<span class="elem">'OTHER_KEY'</span>: <span
+            class="txt">'value'</span>};</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Sin embargo, los object keys no están protegidas,</span></p>
+        <p><span class="comment">// por lo que la siguiente sentencia se ejecutara sin problema</span></p>
+        <p>MY_OBJECT.<span class="elem">key</span> <span class="elem">=</span> <span class="txt">'otherValue'</span>;
+          <span class="comment">// Use Object.freeze() para hacer un objeto inmutable</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Lo mismo se aplica a los arrays</span></p>
+        <p><span class="elem">const</span> MY_ARRAY <span class="elem">=</span> [];</p>
+        <p><span class="comment">// es posible empujar elementos en el array</span></p>
+        <p>MY_ARRAY.<span class="func">push</span>(<span class="txt">'A'</span>); <span class="comment">// ["A"]</span>
+        </p>
+        <p><span class="comment">// Sin embargo, asignar un nuevo array a la variable lanza error</span></p>
+        <p>MY_ARRAY <span class="elem">=</span> [<span class="txt">'B'</span>];</p>
+      </div>
+      <h3>Una nota sobre <code>const</code></h3>
+      <p>Una nota importante sobre <code>const</code> es que <strong>no</strong> crea un valor constante o inmutable.
+        Esto se explicará a fondo una vez que
+        aprendamos sobre arreglos y objetos. Lo que necesitas saber por ahora es que solo puedes usar el signo igual una
+        vez,
+        pero aún puedes cambiar elementos dentro de un arreglo o objeto.</p>
+      <h2><code>let</code> vs <code>const</code></h2>
+      <p>¿Cómo decides si usarás <code>let</code> o <code>const</code>? La regla general es fácil. Siempre usa
+        <code>const</code>, hasta que te des cuenta de que
+        necesitas poder reasignar la variable más adelante, entonces cámbiala a <code>let</code>.
+      </p>
+      <p>Con el tiempo se vuelve más fácil. Por ejemplo, cuando defines una variable <code>count</code> (que esperas
+        incrementar),
+        inmediatamente te darás cuenta y usarás <code>let</code>.</p>
+      <p>El beneficio de usar <code>const</code> es que una vez que una variable es un array, siempre será un array
+        (pero como verás más
+        adelante, los elementos dentro del array pueden cambiar). Esto te permite usar con confianza los métodos de
+        array en esa
+        variable porque sabes que siempre será de tipo array.</p>
+      <h2>¿Puedo usar <code>'var'</code>?</h2>
+      <p>Cuando busques documentación o preguntas y respuestas en StackOverflow, verás muchos fragmentos de código que
+        usan <code>var</code>
+        en lugar de <code>let</code> y <code>const</code>. Aunque <code>var</code> todavía funciona, su uso se
+        desaconseja ya que puede ser confuso en muchos escenarios. Por lo tanto, puedes
+        simplemente reemplazar <code>var</code> por <code>let</code> (o <code>const</code> si la variable no se
+        reasigna).</p>
+      <div class="nota">
+        <i class="fa-solid fa-circle-info fa-xl" style="color: #000333;"></i>
+        <p>Evita usar <code>var</code> al definir variables. Usa <code>let</code> o <code>const</code> en su lugar.</p>
+      </div>
+      <p>Una explicación detallada de por qué debes evitar <code>var</code> está disponible hacia el final del curso.
+        Seguimos un
+        enfoque
+        único en este curso donde te enseñamos JavaScript moderno antes de descubrir el legado, ¡y ha funcionado
+        bastante bien
+        para la mayoría de nuestros estudiantes!</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Cuando usas una variable por primera vez en JavaScript, debes declararla con <code>let</code> o
+            <code>const</code>.
+          </li>
+          <li>Usa <code>let</code> para variables que necesitarás reasignar más adelante (como cambiar su valor).</li>
+          <li>Usa <code>const</code> para variables que no necesitarás reasignar más adelante.</li>
+          <li>Las variables declaradas con <code>const</code> no son constantes. Veremos por qué más adelante en este
+            curso.</li>
+          <li>Las variables declaradas con <code>const</code> no pueden ser reasignadas, por lo que no puedes tener el
+            signo <code>=</code> junto a ese nombre
+            de variable después de declararlo.</li>
+          <li>Si ves <code>var</code>, es de la versión antigua de JavaScript. Puedes convertirlo a <code>let</code> (o
+            <code>const</code> si la variable no se reasigna).
+          </li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Define una variable</h3>
+      <p>Define la variable <code>count</code> con un valor inicial de 0 y luego increméntala (suma 1) en la siguiente
+        línea.</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> count <span class="elem">=</span> <span class="num">0</span>;</p>
+        <p>console.<span class="func">log</span>({count}); <span class="comment">// 0</span></p>
+        <p>count <span class="elem">+=</span> <span class="num">1</span>;</p>
+        <p>console.<span class="func">log</span>({count}); <span class="comment">// 1</span></p>
+        <p class="prueba" onclick="prueba60()">Prueba</p>
+      </div>
+      <h3>Límite de edad</h3>
+      <p>Define la variable ageLimit, la cual no puede ser reasignada y asígnale el valor 18.</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> ageLimit <span class="elem">=</span> <span class="num">18</span>;</p>
+        <p>console.<span class="func">log</span>({ageLimit}); <span class="comment">// {ageLimit: 18}</span></p>
+        <p class="prueba" onclick="prueba61()">Prueba</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen del capítulo</h2>
+        <p>Definir variables nos permitirá trabajar en desafíos más interesantes, especialmente después de que
+          aprendamos sobre
+          arreglos (cubierto en el capítulo 6).</p>
+        <p>Las variables definidas con <code>let</code> y <code>const</code> tienen "alcance de bloque". Esto se
+          explicará la primera vez que encontremos un
+          bloque dentro de una función.</p>
+        <p>Si vienes del curso learnprogramming.online, habrás notado que no mencionamos <code>const</code> en absoluto.
+          Eso se hizo
+          a propósito
+          para facilitarte un poco la vida mientras aprendías a programar. Ahora que conoces <code>const</code>, intenta
+          usarlo
+          siempre que sea
+          posible, ya que, como puedes ver, todo funciona también con let. La diferencia es que <code>const</code> te da
+          la garantía
+          de que
+          cuando defines algo como un arreglo (por ejemplo), seguirá siendo un arreglo.</p>
+        <div class="resumen">
+          <h2>Resumen</h2>
+          <ul>
+            <li>Cuando usas una variable por primera vez en JavaScript, debes declararla con <code>let</code> o
+              <code>const</code>.
+            </li>
+            <li>Usa <code>let</code> para variables que necesitarás reasignar más adelante (como cambiar su valor).</li>
+            <li>Usa <code>const</code> para variables que no necesitarás reasignar más adelante.</li>
+            <li>Las variables declaradas con <code>const</code> no son constantes. Veremos por qué más adelante en este
+              curso.</li>
+            <li>Las variables declaradas con <code>const</code> no pueden ser reasignadas, por lo que no puedes tener el
+              signo <code>=</code> junto a ese nombre
+              de variable después de declararlo.</li>
+            <li>Si ves <code>var</code>, es de la versión antigua de JavaScript. Puedes convertirlo a <code>let</code>
+              (o <code>const</code> si la variable no se reasigna).</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../03_Numbers/03_Operaciones/03_operaciones.html">Anterior</a>
+        <a class="next" href="../../05_Conditions/01_Conditions/01_conditions.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

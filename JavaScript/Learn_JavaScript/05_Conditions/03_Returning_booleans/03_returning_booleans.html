@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Devolver valores booleanos</h1>
+      <p>Cuando devuelvas un valor booleano (verdadero o falso), es bastante redundante usar if y else. Aquí tienes un
+        ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">isPassing</span>(grade) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (grade <span class="elem">&gt;=</span> <span class="num">10</span>)
+          {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">true</span>;</p>
+        <p>&nbsp;&nbsp;} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">false</span>;</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">isPassing</span>(<span class="num">12</span>));</p>
+        <p class="prueba" onclick="prueba69()">Prueba</p>
+      </div>
+      <p>Esto es redundante porque <code>grade >= 10</code> por sí solo se evalúa como <strong>true</strong> o
+        <strong>false</strong> dependiendo de la nota. Esto significa que
+        no necesitas envolverlo en una declaración if/else.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">isPassing</span>(grade) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> (grade <span class="elem">&gt;=</span> <span
+            class="num">10</span>);
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">isPassing</span>(<span class="num">12</span>));</p>
+        <p class="prueba" onclick="prueba70()">Prueba</p>
+      </div>
+      <p>sin usar <code>if/else</code>, lo cual siempre devolverá un valor booleano.</p>
+      <p>Esto solo funciona cuando estás devolviendo un valor booleano desde una función.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Cuando devuelvas un valor booleano desde una función, puedes simplificar tu código devolviendo
+            directamente la expresión
+            booleana, sin usar una declaración <code>if</code>.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>¿Puedes votar? (mejorada)</h3>
+      <p>Implementa la función <code>canVote</code> para que devuelva <code>true</code> cuando la edad sea 18 o superior
+        y <code>false</code> en todos los demás casos.
+        No debes usar una condición <code>if</code> (o ternaria).</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">canVote</span>(age) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> (age <span class="elem">&gt;=</span> <span
+              class="num">18</span>);</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">canVote</span>(<span class="num">25</span>)); <span
+            class="comment">// true</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">canVote</span>(<span class="num">18</span>)); <span
+            class="comment">// true</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">canVote</span>(<span class="num">17</span>)); <span
+            class="comment">// false</span></p>
+        <p class="prueba" onclick="prueba71()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../05_Conditions/02_Advanced_if/02_advanced_if.html">Anterior</a>
+        <a class="next" href="../../05_Conditions/04_Even_&_Odd/04_even_&_odd.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

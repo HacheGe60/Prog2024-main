@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Números</h1>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>-5</li>
+        <li>3.5</li>
+        <li>2000</li>
+        <li>2021</li>
+        <li>-23.51</li>
+      </ul>
+      <p>Todos estos son ejemplos de números en JavaScript. No importa si es negativo o positivo, o si tiene decimales
+        (valores
+        después del punto <code>.</code>). Los llamamos números.</p>
+      <h2>Separador numérico</h2>
+      <p>Puedes representar números más grandes de manera más clara, si lo deseas, con el separador numérico (_). Por
+        ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> nb = <span class="num">1_000</span> <span class="comment">// equivalente a
+            1000</span></p>
+      </div>
+      <p>Esto hace que los números más grandes sean más fáciles de leer. Por ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> nb = <span class="num">1_000_000</span> <span class="comment">// equivalente a
+            1000000 (1 millón)</span></p>
+      </div>
+      <p>El guion bajo <code>_</code> es eliminado por JavaScript del número. Por lo tanto, <code>10_00</code> es
+        equivalente a <code>1000</code>.</p>
+      <h2>Convertir de número a cadena</h2>
+      <p>Aunque rara vez se usa, puedes convertir un número a una cadena llamando al método <code>.toString()</code>.
+      </p>
+      <p>Tomemos un ejemplo donde tenemos una variable llamada <code>answer</code> con un valor <code>42</code>;</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> answer = <span class="num">42</span>;</p>
+        <p><span class="elem">let</span> answerString = answer.<span class="func">toString</span>();</p>
+        <p>console.<span class="func">log</span>(answerString); <span class="comment">// "42"</span></p>
+        <p class="prueba" onclick="prueba38()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="">
+        <h2>Number.prototype.toString();</h2>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="">
+        <h3>Resumen</h3>
+      </div>
+      <p>Devuelve una cadena que representa al objeto Number especificado</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="">
+        <h3>Sintaxis</h3>
+      </div>
+
+      <div class="codigo">
+        <p>number .toString( [base] )</p>
+      </div>
+      <h4>MDN Parámetro</h4>
+      <p>base: Un entero entre 2 y 36 especificando la base a usar para representar los valores numéricos.</p>
+      <h4>MDN Devuelve</h4>
+      <p>Una cadena que representa al objeto.</p>
+      <h3>MDN Descripción</h3>
+      <p>El objeto <code>Number</code> sobreescribe el método <code>toString</code> y no lo hereda del objeto Object;
+        por tanto no hereda
+        Object.prototype.toString(). Para objetos <code>Number</code>, el método <code>toString</code> devuelve una
+        cadena que representa al objeto en la
+        base especificada.
+      </p>
+      <p>El método toString comprueba su primer argumento, e intenta devolver una cadena de representación en la base
+        especificada. Para bases superiores a 10, las letras del alfabeto indican numerales mayores de 9. Por ejemplo,
+        para
+        números hexadecimales (base 16), se utiliza de A hasta F.</p>
+      <p>Si no se da a toString una base entre 2 y 36, se lanza una excepción.</p>
+      <p>Si no se especifica la base, JavaScript asume la base predefinida, que es 10.</p>
+      <h3>MDN Ejemplos</h3>
+      <div class="codigo">
+        <p><span class="elem">let</span> howMany = <span class="num">10</span>;</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="txt">"howMany.toString() is "</span> <span
+            class="elem">+</span> howMany.<span class="func">toString()</span>); <span class="comment">// muestra
+            "10"</span></p>
+        <p>console.<span class="func">log</span>(<span class="txt">"45 .toString() is "</span> <span
+            class="elem">+</span> (<span class="num">45</span>).<span class="func">toString()</span>); <span
+            class="comment">// muestra
+            "45"</span></p>
+        <p><span class="elem">let</span> x = <span class="num">7</span>;</p>
+        <p>console.<span class="func">log</span>(x<span class="func">.toString(</span><span class="num">2</span><span
+            class="func">)</span>); <span class="comment">// muestra
+            "111"</span></p>
+        <p class="prueba" onclick="prueba39()">Prueba</p>
+      </div>
+      <p>En la próxima lección, veremos cómo hacer lo contrario. Convertir una cadena en un número.</p>
+      <h2>Documentación en la web</h2>
+      <p>Si echas un vistazo a la documentación en línea, a menudo verás <code>String.prototype.toString()</code>. ¿Por
+        qué está <code>prototype</code>?
+        Esto se explica en profundidad más adelante en este curso. Por ahora, cada vez que veas
+        <code>String.prototype.algo()</code>,
+        significa que hay un método <code>algo()</code> que puedes llamar en una cadena.
+      </p>
+      <p><a href="https://developer.mozilla.org/es/">Mozilla Developer Network</a> es el sitio web más autorizado para
+        la documentación de JavaScript. Sin embargo, si
+        estás
+        comenzando con JavaScript, puede resultarte un poco difícil de comprender.</p>
+      <p>Por lo tanto, en este curso, apuntamos a brindarte explicaciones breves y fáciles de entender, para que no te
+        sientas
+        abrumado cuando estés comenzando tu viaje de aprendizaje.</p>
+      <p>Cuando te sientas cómodo con lo que Learn JavaScript dice sobre un tema y quieras profundizar más y descubrir
+        más, busca
+        el logotipo de MDN <span><img class="mdn-logo" src="../../images/mdn-logo.png" alt="logo mdn"></span>y haz clic
+        en el enlace
+        que lo sigue para
+        acceder a información mucho más detallada.</p>
+      <h2>NaN</h2>
+      <p>A veces puedes encontrarte con <code>NaN</code>, que significa <strong>"No es un número"</strong>. Por ejemplo,
+        si intentas multiplicar un número por
+        una cadena (lo que no debes hacer):</p>
+      <div class="codigo">
+        <p><span class="comment">//</span> <i class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i></p>
+        <p><span class="txt">"abc"</span> <span class="elem">*</span> <span class="num">4</span> <span
+            class="comment">// NaN</span></p>
+      </div>
+      <p>NaN suele ser una señal de que algo está mal en tu código, a menudo se olvidó convertir una cadena a un número.
+        Uno de
+        los casos más comunes es cuando una propiedad de un objeto se evalúa como <code>undefined</code> debido a un
+        error tipográfico y
+        luego se usa como si fuera un número válido (más sobre esto en capítulos posteriores a medida que aprendemos
+        sobre
+        objetos y propiedades de objetos).</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Convertir de un número a una cadena: <code>value.toString()</code></li>
+          <li><code>NaN</code> significa "No es un Número" (Not a Number).</li>
+          <li><code>NaN</code> suele ser un indicio de un error.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Conversión de número a cadena</h3>
+      <p>Completar la función <code>convertNumberToString</code> para que convierta el número que recibe en una cadena.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">convertNumberToString</span>(number) {</p>
+        <p>&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> number.<span class="func">toString()</span>;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">convertNumberToString</span>(<span
+            class="num">42</span>)); <span class="comment">// "42" </span></p>
+        <p>console.<span class="func">log</span>(<span class="func">convertNumberToString</span>(<span
+            class="num">97</span>)); <span class="comment">// "97" </span></p>
+        <p>console.<span class="func">log</span>(<span class="func">convertNumberToString</span>(<span
+            class="num">11</span>)); <span class="comment">// "11" </span></p>
+        <p class="prueba" onclick="prueba40()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../../02_Strings_I/05_Literales_de_plantilla/05_literales_de_plantilla.html"><button
+            class="last">Anterior</button></a>
+        <a href="../../03_Numbers/02_Conversion_de_cadena_a_numero/02_conversion_de_cadena_a_numero.html"><button
+            class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercises</title>
+    </head>
+
+    <body>
+        <button>9a</button>
+        <button class="js-second-btn">9b</button>
+        <br><br>
+        <button onclick="clickButton('heads')">heads</button>
+        <button onclick="clickButton('tails')">tails</button>
+        <p class="js-result"></p>
+        <input type="text" onkeydown="handleKeyDown(event)">
+        <button class="js-submit" onclick="handleSubmit()">Submit</button>
+        <p class="text"></p>
+
+        <script>
+            console.log(document.querySelector('button'));
+            document.querySelector('.js-second-btn').innerHTML = '9b done';
+
+            const clickButton = (result) => document.querySelector('.js-result').innerHTML = `You chose: ${result}`;
+
+            const handleSubmit = () => {
+                const name = document.querySelector('input').value;
+                document.querySelector('.text').innerHTML = `Your name is: ${name}`;
+            };
+
+            const handleKeyDown = (event) => {
+                if (event.key === 'Enter') {
+                    handleSubmit();
+                }
+            }
+        </script>
+    </body>
+
+</html>

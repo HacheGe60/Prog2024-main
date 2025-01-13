@@ -1,0 +1,20 @@
+.cost-input,
+.calculate-button {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.calculate-button {
+    background-color: #008000;
+    color: #fff;
+    border: 1px solid #008000;
+    cursor: pointer;
+}
+
+.addCart {
+    background-color: #ffd814;
+    font-size: 16px;
+    border: none;
+    padding: 8px 48px;
+    border-radius: 20px;
+}

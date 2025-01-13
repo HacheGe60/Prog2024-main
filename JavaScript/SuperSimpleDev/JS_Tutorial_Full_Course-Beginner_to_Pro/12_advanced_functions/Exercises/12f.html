@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>12f</title>
+	</head>
+	<body>
+		<button
+			class="one"
+			onclick="addToCart()"
+		>
+			Add to cart
+		</button>
+		<p class="text"></p>
+		<script>
+			let timeoutId;
+			/* function addToCart() {
+				const textElement = document.querySelector('.text');
+				textElement.innerHTML = 'Added';
+				clearTimeout(timeoutId);|
+				timeoutId = setTimeout(() => {
+					textElement.innerHTML = '';
+				}, 2000);
+			} */
+
+			const addToCart = () => {
+				const textElement = document.querySelector('.text');
+				textElement.innerHTML = 'Added';
+				clearTimeout(timeoutId);
+				timeoutId = setTimeout(() => {
+					textElement.innerHTML = '';
+				}, 2000);
+			};
+		</script>
+	</body>
+</html>

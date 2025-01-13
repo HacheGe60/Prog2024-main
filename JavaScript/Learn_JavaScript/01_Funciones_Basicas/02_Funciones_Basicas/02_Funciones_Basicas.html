@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones Básicas</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Funciones Básicas</h1>
+      <p>Comencemos con funciones básicas.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">suma</span>(x, y) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> x + y;</p>
+        <p>}</p>
+      </div>
+      <p>Este fragmento de código define una función llamada suma.</p>
+      <p>Ahora podés usar la función <code>suma(1, 3)</code>, que te va a dar 4.</p>
+      <p>Podés usar la función otra vez con otros números, por ejemplo <code>suma(2, 5)</code>, y te va a
+        dar el resultado de 2 + 5, que es 7.</p>
+      <h2>Devolviendo el resultado.</h2>
+      <p>En JavaScript, tenés que decir qué valor devuelve la función. Si te olvidás de poner <code>return</code>, la
+        función va a devolver
+        <code>undefined</code>.
+      </p>
+      <p>Si usás <code>return</code> la función se termina.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">suma</span>(x, y) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> x + y;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">"Hola Mundo"</span>); <span
+            class="comment">// esto <strong>NUNCA</strong> correrá.</span></p>
+        <p>}</p>
+      </div>
+      <p>Si usás <code>return</code>, la función se va a terminar y va a devolver el resultado (<code>x + y</code>), así
+        que lo que
+        venga después
+        no se va
+        a ejecutar.</p>
+      <h2>Prácticas</h2>
+      <h3>Suma básica</h3>
+      <p>Completá la función <code>suma</code> para que devuelva la suma de <code>a</code> y <code>b</code>.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">suma</span>(a, b) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> a + b;</em></p>
+        <p>}</p>
+        <p><span class="func">alert</span>(suma(1, 3)); <span class="comment">// 4</span></p>
+        <p><span class="func">alert</span>(suma(2, 5)); <span class="comment">// 7</span></p>
+        <p class="prueba" onclick="prueba1()">Prueba</p>
+      </div>
+      <h3>Multiplicación básica</h3>
+      <p>Terminá de escribir la función <strong>multiplicacion</strong> para que tire el resultado de multiplicar
+        <strong>a</strong> y <strong>b</strong>.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">multiplicacion</span>(a, b) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> a * b;</em></p>
+        <p>}</p>
+        <p><span class="func">alert</span>(suma(2, 4)); <span class="comment">// 8</span></p>
+        <p><span class="func">alert</span>(suma(3, 2)); <span class="comment">// 6</span></p>
+        <p class="prueba" onclick="prueba2()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../01_Bienvenidos/01_Bienvenidos.html"><button class="last">Anterior</button></a>
+        <a href="../../02_Strings_I/01_Strings/01_Strings.html"><button class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

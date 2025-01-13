@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Confusión del return</h1>
+      <p>En esta lección, cubriremos una confusión común cuando se trata de devolver dentro de una función que contiene
+        una
+        llamada <code>.forEach()</code>.</p>
+      <p>Pero primero, hablemos un poco más sobre nombrar variables cuando iteramos.</p>
+      <h2>Nombrando variables</h2>
+      <p>Nombrar las variables con un nombre claro hace que sea mucho más fácil para ti y para otros entender el código.
+        Esto es
+        especialmente cierto con la iteración.</p>
+      <p>Por lo tanto, siempre es una buena idea usar el <strong>plural</strong> para el <em>array</em> y el
+        <strong>singular</strong> para el <em>elemento</em> del array.
+      </p>
+      <p>Aquí hay algunos ejemplos:</p>
+      <ul>
+        <li><code>grades</code> => el elemento es <code>grade</code></li>
+        <li><code>people</code> => el elemento es <code>person</code></li>
+      </ul>
+      <p>Puede parecer un consejo menor, ¡pero marca una gran diferencia!</p>
+      <p>Aquí hay un ejemplo de código basado en lo anterior.</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> grades <span class="elem">=</span> [<span class="num">10</span>, <span
+            class="num">14</span>, <span class="num">15</span>]; <span class="comment">// array (plural)</span></p>
+        <p>grades.<span class="func">forEach</span>(<span class="elem">function</span>(grade) { <span class="comment">//
+            elemento del array (singular)</span></p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(grade);</p>
+        <p>});</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">const</span> people <span class="elem">=</span> [<span class="txt">'Sam'</span>, <span
+            class="txt">'Alex'</span>]; <span class="comment">// array (plural)</span></p>
+        <p>people.<span class="func">forEach</span>(<span class="elem">function</span>(person) { <span
+            class="comment">// elemento del array (singular)</span></p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(person);</p>
+        <p>});</p>
+      </div>
+      <h2>Retornando desde un bucle</h2>
+      <p>Hay un error común que ocurre cuando intentas <code>return</code> desde una función que contiene una llamada
+        .forEach(). Eso se debe
+        a que hay 2 funciones. Digamos que tienes esta función:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">logUserIds</span>(userIds) {</p>
+        <p>&nbsp;&nbsp;userIds.<span class="func">forEach</span>(<span class="elem">function</span>(userId) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(userId);</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+      </div>
+      <p>Y querrías que esta función devolviera true cuando se complete. ¿Dónde colocarías el return <code>true</code>?
+      </p>
+      <p>¿Sería correcto...?</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">logUserIds</span>(userIds) {</p>
+        <p>&nbsp;&nbsp;userIds.<span class="func">forEach</span>(<span class="elem">function</span>(userId) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(userId);</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> true; <span class="comment">// ¿Funciona esto como
+            debería?</span></p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+      </div>
+      <p>o</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">logUserIds</span>(userIds) {</p>
+        <p>&nbsp;&nbsp;userIds.<span class="func">forEach</span>(<span class="elem">function</span>(userId) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(userId);</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> true; <span class="comment">// ¿o funciona de esta
+            manera?</span> </p>
+        <p>}</p>
+      </div>
+      <p>Si damos un paso atrás, la palabra clave <code>return</code> devuelve desde su <strong>propia función</strong>.
+        Por lo tanto, el primer enfoque NO
+        funciona. Porque estás devolviendo desde la función de devolución que <code>.forEach()</code> recibe. Esto NO
+        devolverá desde la
+        función <code>logUserIds</code>.</p>
+      <p>Por lo tanto, la respuesta correcta es la segunda opción:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">logUserIds</span>(userIds) {</p>
+        <p>&nbsp;&nbsp;userIds.<span class="func">forEach</span>(<span class="elem">function</span>(userId) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(userId);</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> true; <span class="comment">// <i
+              class="fa-solid fa-square-check fa-xl" style="color: #7CB342;"></i> retorna desde la función
+            logUserIds</span></p>
+        <p>}</p>
+      </div>
+      <p>El <code>return true</code> dentro de la función no es realmente útil porque va a devolver desde la función de
+        devolución, pero no
+        hay más código dentro de esa función de todos modos. La siguiente iteración de <code>.forEach()</code> seguirá
+        ocurriendo. Además, el
+        método <code>.forEach()</code> siempre devolverá undefined sin importar lo que devuelvas dentro de él.</p>
+      <h3>Un ejemplo más</h3>
+      <p>Veamos un ejemplo educativo para asegurarnos de que lo entiendes. ¿Qué crees que devolverá esta función
+        <code>logGrades</code> una
+        vez que se llame?
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">logGrades</span>(grades) {</p>
+        <p>&nbsp;&nbsp;grades.<span class="func">forEach</span>(<span class="elem">function</span>(grade) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(grade);</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="num">10</span>;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> <span class="num">20</span>;</p>
+        <p>}</p>
+        <p class="prueba" onclick="prueba98()">Respuesta</p>
+      </div>
+      <p>¿Qué crees que devolverá esta función <code>logGrades</code> una vez que se llame?</p>
+      <p>La respuesta correcta es 20.</p>
+      <hr>
+      <p>Es posible que hayas notado que estamos usando la palabra clave <code>function</code> en lugar de las funciones
+        de flecha
+        del
+        JavaScript moderno. Esto es a propósito, ya que las funciones son bastante comunes en todas partes. Las
+        funciones de
+        flecha se introducirán en un capítulo posterior y luego se usarán en la iteración de arrays.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Nombra tus arrays en plural y el elemento del array (dentro de <code>.forEach()</code>) en singular.</li>
+          <li>Asegúrate de colocar correctamente el <code>return</code> dentro de una función que contenga
+            <code>.forEach()</code>.
+          </li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Sumar notas</h3>
+      <p>Completa la función <code>sumGrades</code> para que devuelva la suma de todas las calificaciones que recibe
+        como parámetro. Aún no hemos visto <code>reduce</code>, así que
+        intenta resolverlo usando lo que has aprendido hasta ahora.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">sumGrades</span>(grades) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">let</span> sum <span class="elem">=</span> <span
+              class="num">0</span>;</em></p>
+        <p>&nbsp;&nbsp;<em>grades.<span class="func">forEach</span>(<span class="elem">function</span>(grade) {</em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>sum <span class="elem">+=</span> grade;</em></p>
+        <p>&nbsp;&nbsp;<em>});</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> sum;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">sumGrades</span>([<span class="num">15</span>, <span
+            class="num">5</span>, <span class="num">10</span>])); <span class="comment">// 30</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">sumGrades</span>([<span class="num">12</span>, <span
+            class="num">10</span>, <span class="num">13</span>, <span class="num">19</span>])); <span class="comment">//
+            54</span>
+        </p>
+        <p class="prueba" onclick="prueba99()">Prueba</p>
+      </div>
+      <h3>Suma de números positivos</h3>
+      <p>Completa la función <code>sumPositiveNumbers</code> para que devuelva la suma de todos los números pares que
+        recibe
+        como parámetro.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">sumPositiveNumbers</span>(numbers) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">let</span> sum <span class="elem">=</span> <span
+              class="num">0</span>;</em></p>
+        <p>&nbsp;&nbsp;<em>numbers.<span class="func">forEach</span>(<span class="elem">function</span>(number) {</em>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">if</span> (number <span class="elem">&gt;</span> <span
+              class="num">0</span>) {</em>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>sum <span class="elem">+=</span> number;</em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>}</em></p>
+        <p>&nbsp;&nbsp;<em>});</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> sum;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">sumPositiveNumbers</span>([<span
+            class="num">15</span>, <span class="num">-5</span>, <span class="num">10</span>])); <span class="comment">//
+            25</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">sumPositiveNumbers</span>([<span
+            class="num">-3</span>, <span class="num">4</span>, <span class="num">-2</span>, <span
+            class="num">1</span>])); <span class="comment">// 5</span></p>
+        <p class="prueba" onclick="prueba100()">Prueba</p>
+      </div>
+      <h3>Sumar números impares</h3>
+      <p>Completa la función <code>sumOddNumbers</code> para que devuelva la suma de todos los números impares que
+        recibe
+        como parámetro.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">sumOddNumbers</span>(numbers) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">let</span> sum <span class="elem">=</span> <span
+              class="num">0</span>;</em></p>
+        <p>&nbsp;&nbsp;<em>numbers.<span class="func">forEach</span>(<span class="elem">function</span>(number) {</em>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">if</span> (number <span class="elem">%</span> <span
+              class="num">2</span> <span class="elem">!==</span> <span class="num">0</span>) {</em>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>sum <span class="elem">+=</span> number;</em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>}</em></p>
+        <p>&nbsp;&nbsp;<em>});</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> sum;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">sumOddNumbers</span>([<span class="num">15</span>,
+          <span class="num">5</span>, <span class="num">10</span>])); <span class="comment">//
+            20</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">sumOddNumbers</span>([<span class="num">2</span>,
+          <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span
+            class="num">6</span>])); <span class="comment">// 8</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">sumOddNumbers</span>([<span class="num">-2</span>,
+          <span class="num">-3</span>, <span class="num">4</span>, <span class="num">5</span>, <span
+            class="num">6</span>])); <span class="comment">// 2</span>
+        </p>
+        <p class="prueba" onclick="prueba101()">Prueba</p>
+      </div>
+      <h3>Desplegable de países I</h3>
+      <p>Completa la función <code>getDropdown</code> para que devuelva el siguiente HTML que llenará el elemento
+        <code>&lt;select&gt;&lt;/select&gt;</code> existente.
+        El HTML que se devuelve debe verse así:
+      </p>
+      <ol>
+        <li>Debe comenzar con: <code>&lt;option value=""&gt;Por favor, seleccione&lt;/option&gt;</code></li>
+        <li>Luego, para cada país, debes tener el <code>&lt;option&gt;</code> para ese país. Por ejemplo, para el país
+          "Países
+          Bajos", debes tener el
+          siguiente
+          <code>&lt;option value="netherlands"&gt;Netherlands&lt;/option&gt;</code>
+        </li>
+      </ol>
+      <p>Observa cómo el valor contiene el nombre del país en minúsculas. Los países restantes deberán aparecer también
+        siguiendo
+        los mismos criterios.</p>
+      <p>¡No olvides mirar el resultado final en la pestaña del <a href="./03_01_Countries_Dropdown_I/index.html"
+          target="_blank">navegador</a>!</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getDropdown</span>(countries) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(countries);</p>
+        <p><em>&nbsp;&nbsp;<span class="elem">let</span> html <span class="elem">=</span> <span class="txt">'&lt;option
+              value=&quot;&quot;&gt;Please select&lt;/option&gt;'</span>;</em></p>
+        <p><em>&nbsp;&nbsp;countries.<span class="func">forEach</span> (<span class="elem">function</span>(country)
+            {</em></p>
+        <p><em>&nbsp;&nbsp;&nbsp;&nbsp;html <span class="elem">+=</span> <span class="txt">`&lt;option
+              value=&quot;</span><span class="elem">${</span>country.<span class="func">toLowerCase</span>()<span
+              class="elem">}</span><span class="txt">&quot;&gt;</span><span class="elem">${</span>country<span
+              class="elem">}</span><span class="txt">&lt;/option&gt;`</span>;</em></p>
+        <p><em>&nbsp;&nbsp;});</em></p>
+        <p><em>&nbsp;&nbsp;<span class="elem">return</span> html;</em></p>
+        <p>}</p>
+        <p class="prueba"><a href="./03_01_Countries_Dropdown_I/index.html" target="_blank">Prueba</a></p>
+      </div>
+      <h3>Tabla de Nutrición II</h3>
+      <p>Completa la función renderTableRows para que devuelva el siguiente HTML:</p>
+      <div class="codigo">
+        <p>&lt;<span class="elem">tr</span>&gt;</p>
+        <p>&nbsp;&nbsp;&lt;<span class="elem">td</span>&gt;label aquí&lt;/<span class="elem">td</span>&gt;</p>
+        <p>&nbsp;&nbsp;&lt;<span class="elem">td</span>&gt;value aquí&lt;/<span class="elem">td</span>&gt;</p>
+        <p>&lt;/<span class="elem">tr</span>&gt;</p>
+      </div>
+      <p>para cada fila que recibe en su parámetro <code>rows</code>.</p>
+      <p>El parámetro <code>rows</code> se ve así:</p>
+      <div class="codigo">
+        <p>[[<span class="txt">"Carbs"</span>, <span class="txt">"17g"</span>], [<span class="txt">"Protein"</span>,
+          <span class="txt">"19g"</span>], [<span class="txt">"Fat"</span>, <span class="txt">"5g"</span>]]
+        </p>
+      </div>
+      <p>Este es un array anidado. Cada array interno contiene 2 elementos, el primero refiriéndose a la
+        <code>label</code> que debes
+        reemplazar en lugar de <code>label aquí</code> y el segundo refiriéndose al <code>value</code> que debes
+        reemplazar en lugar de <code>value aquí</code>.
+      </p>
+      <p>Asegúrate de usar <code>console.log()</code> en cada paso del camino para visualizar con lo que estás
+        trabajando.</p>
+      <p>¡No olvides mirar el resultado final en la pestaña <a href="./03_02_Nutrition_table_II/index.html"
+          target="_blank">"NAVEGADOR"</a>!</p>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../06_Arrays_I/02_Array_forEach/02_array_forEach.html">Anterior</a>
+        <a class="next" href="../../06_Arrays_I/04_Chapter_Recap/04_chapter_recap.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

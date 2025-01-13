@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculator</title>
+		<link rel="stylesheet" href="10i_calculator.css">
+	</head>
+
+	<body>
+		<p class="display"></p>
+		<div>
+			<button onclick="updateCalculation('1')" class="number">1</button>
+			<button onclick="updateCalculation('2')" class=" number">2</button>
+			<button onclick="updateCalculation('3')" class=" number">3</button>
+			<button onclick="updateCalculation(' + ')" class="operator">+</button>
+		</div>
+		<div>
+			<button onclick="updateCalculation('4')" class=" number">4</button>
+			<button onclick="updateCalculation('5')" class=" number">5</button>
+			<button onclick="updateCalculation('6')" class=" number">6</button>
+			<button onclick="updateCalculation(' - ')" class="operator">-</button>
+		</div>
+		<div>
+			<button onclick="updateCalculation('7')" class=" number">7</button>
+			<button onclick="updateCalculation('8')" class=" number">8</button>
+			<button onclick="updateCalculation('9')" class=" number">9</button>
+			<button onclick="updateCalculation(' * ')" class="operator">*</button>
+		</div>
+		<div>
+			<button onclick="updateCalculation('0')" class=" number">0</button>
+			<button onclick="updateCalculation('.')" class=" number">.</button>
+			<button onclick="document.querySelector('.display').innerHTML =eval(calculation)" class="number">=</button>
+			<button onclick="updateCalculation(' / ')" class="operator">/</button>
+		</div>
+		<button onclick="reset()" class="number clear">Clear</button>
+
+		<script src="10i_calculator.js">
+		</script>
+	</body>
+
+</html>

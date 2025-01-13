@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Substrings</h1>
+      <p>Una subcadena es una parte o una porción de una cadena. Por ejemplo, <code>"rain"</code> es una subcadena de la
+        cadena
+        <code>"brain"</code> porque
+        puedes obtener <code>"rain"</code> tomando los últimos 4 caracteres.
+      </p>
+      <p>A menudo, cuando trabajas con cadenas, necesitas obtener algunos caracteres de una cadena en lugar de todos.
+        Por lo
+        tanto, utilizamos el método <code>substring</code>.</p>
+      <h2>Sintaxis de substring</h2>
+      <p>La sintaxis de una función te brinda una explicación de los parámetros que debes pasar para ese método. Veamos
+        la sintaxis de
+        substring:</p>
+      <div class="codigo">
+        <p>unaCadena.substring(indiceInicial[, indiceFinal])</p>
+      </div>
+      <p>Esto significa que cuando llamas a substring, puedes pasarle 2 parámetros: el primero para
+        <code>indiceInicial</code> y el
+        segundo para
+        <code>indiceFinal</code>.
+      </p>
+      <ul>
+        <li><code>indiceInicial</code>: la posición del primer carácter que uno quiere incluir.</li>
+        <li><code>indiceFinal</code>: la ubicación del último carácter que uno quiere ignorar.</code></li>
+      </ul>
+      <p>Esto significa que un indiceFinal de 5 solo incluirá hasta el carácter en la posición 4.</p>
+      <p>La combinación de estos 2 te dará una subcadena.</p>
+      <p>Tomemos un ejemplo con una variable llamada <code>language</code> con un valor <code>"JavaScript"</code>, y
+        obtengamos la subcadena con <strong>indiceInicial</strong>
+        de <strong>1</strong> e <strong>indiceFinal</strong> de <strong>4</strong>. Esto devolverá una cadena compuesta
+        por todos los caracteres de las posiciones <strong>1 a 3</strong>, ya que <strong>4</strong> es
+        el primer carácter que se ignora.</p>
+      <img src="../../images/2-3-1-substring.jpg" alt="substring">
+      <p>El resultado de esta subcadena es <code>"ava"</code>.</p>
+      <p>Esta es la forma de hacerlo en JavaScript:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> language = <span class="txt">"JavaScript"</span>;</p>
+        <p>console.<span class="span func">log</span>(language.<span class="func">substring</span>(<span
+            class="num">1</span>, <span class="num">4</span>));<span class="comment">// "ava"</span>
+        </p>
+        <p class="prueba" onclick="prueba17()">Prueba</p>
+        </p>
+      </div>
+      <h2>Parámetros opcionales</h2>
+      <p>El parámetro <code>indiceFinal</code> es opcional, lo que significa que puedes pasar el
+        <code>indiceInicial</code> y asumirá
+        que el <code>indiceFinal</code> es igual a
+        la longitud de la cadena. Aquí hay un ejemplo:
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> language = <span class="txt">"JavaScript"</span>;</p>
+        <p>console.<span class="span func">log</span>(language.<span class="func">substring</span>(<span
+            class="num">4</span>)); <span class="comment">// "Script"</span>
+        </p>
+        <p class="prueba" onclick="prueba18()">Prueba</p>
+        </p>
+      </div>
+      <h2>Nota de la vieja escuela</h2>
+      <p>Si ya sabes un poco de JavaScript, es posible que hayas usado otro método que realiza un resultado similar.
+        Puedes
+        encontrar el nombre de la función a continuación, pero no recomendamos que lo uses porque está obsoleto.</p>
+      <div class="nota">
+        <i class="fa-solid fa-circle-info fa-lg" style="color: #333333;"></i>
+        <p>No uses el método <code>.substr</code>, ya que está obsoleto y funciona de manera diferente. Siempre usa el
+          método <code>.substring</code>.</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Una subcadena es una parte o una porción de una cadena.</li>
+          <li><code>unaCadena.substring(indiceInicial[, indiceFinal]) </code>se usa para devolver una porción de la
+            cadena.</li>
+          <li><code>indiceInicial </code>indica la posición del primer carácter que uno quiere incluir.</li>
+          <li><code>indiceFinal</code> indica la ubicación del último carácter que uno quiere ignorar.</li>
+          <li>el <code>indiceFinal</code> es opcional, lo que significa que puedes pasar el <code>indiceInicial</code>
+            directamente.
+          </li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Ignora el primer carácter</h3>
+      <p>Completa la función <code>skipFirstCharacter</code> para que devuelva todos los caracteres excepto el primero
+        del parámetro <code>text</code> que
+        recibe.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">skipFirstCharacter</span>(text) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> text.<span class="func">substring</span>(<span
+              class="num">1</span>);</em></p>
+        <p>}</p>
+        <p>&nbsp</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">skipFirstCharacter</span>(<span
+            class="txt">"Xcode"</span>));
+          <span class="comment">// code</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">skipFirstCharacter</span>(<span
+            class="txt">"Hello"</span>));
+          <span class="comment">// ello</span>
+        </p>
+        <p class="prueba" onclick="prueba19()">Prueba</p>
+      </div>
+      <h3>Proyecto de elipsis de texto I</h3>
+      <p>Este es el primer desafío donde puedes usar el "NAVEGADOR".</p>
+      <p>Se te proporciona el código dentro de <code>index.html</code>, <code>index.css</code> e <code>index.js</code>.
+      </p>
+      <p>Ahora puedes probar tu código haciendo clic <a
+          href="../03_Substrings/03_01_proyecto_de_elipsis_de_texto_I/index.html" target="_blank">aquí</a> e
+        interactuando con el
+        desafío. Por ejemplo, en
+        este desafío, puedes escribir texto dentro del cuadro de texto dado.</p>
+      <p>Es posible que el código proporcionado en <code>index.js</code> sea completamente nuevo para ti, ya que es el
+        código que manipula el
+        DOM. Esto se explicará en varios capítulos más adelante en este curso.</p>
+      <p>Es posible que también hayas notado que la función que se te proporciona está precedida por la palabra clave
+        <code>export</code>.
+        Asegúrate de mantener esta palabra clave, ya que nos permite importar tu código en el archivo
+        <code>index.js</code>. Esto también se
+        explicará en un capítulo posterior.
+      </p>
+      <p>Ahora, aquí están las instrucciones para este desafío:</p>
+      <p>Completa la función <code>getDescription</code> para que devuelva los primeros 10 caracteres del parámetro
+        <code>text</code> que recibe.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getDescription</span>(text) {</span>
+        </p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(text); <span class="comment">// Escribe algo en el
+            NAVEGADOR y míralo en la consola.</span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> text.<span class="func">substring</span>(<span
+              class="num">0</span>, <span class="num">10</span>);</em></p>
+        <p>}</p>
+
+        <p class="prueba"><a href="./03_01_proyecto_de_elipsis_de_texto_I/index.html">Prueba</a>
+          </a>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../02_Strings_I/02_Acceso_a_caracteres.html"><button class="last">Anterior</button></a>
+        <a href="../../02_Strings_I/04_Operador_Plus/04_Plus_operator.html"><button class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

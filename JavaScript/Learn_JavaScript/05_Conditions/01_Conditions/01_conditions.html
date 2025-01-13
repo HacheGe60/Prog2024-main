@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Condiciones</h1>
+      <p>Las condiciones en JavaScript tienen el siguiente esquema:</p>
+      <div class="codigo">
+        <p><span class="elem">if</span> (condition) {</p>
+        <p><span class="comment">&nbsp;&nbsp;// do something</span></p>
+        <p>}</p>
+      </div>
+      <p>Tomemos un ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> grade <span class="elem">=</span> <span class="num">15</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">if</span> (grade <span class="elem">&gt;=</span> <span class="num">10</span>) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'Passing grade'</span>);</p>
+        <p>}</p>
+        <p class="prueba" onclick="prueba62()">Prueba</p>
+      </div>
+      <p>El código anterior imprimirá en la consola: "Passing grade".</p>
+      <h2>else</h2>
+      <p>También puedes agregar un bloque <code>else</code> para todos los demás casos:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> grade <span class="elem">=</span> <span class="num">3</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">if</span> (grade <span class="elem">&gt;=</span> <span class="num">10</span>) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'Passing grade'</span>);</p>
+        <p>} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'Failing grade'</span>);</p>
+        <p>}</p>
+        <p class="prueba" onclick="prueba63()">Prueba</p>
+      </div>
+      <p>El código anterior imprimirá en la consola: "Failing grade".</p>
+      <h2>else if</h2>
+      <p>Se pueden verificar varias condiciones secuencialmente usando <code>else if</code>. Por ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> grade <span class="elem">=</span> <span class="num">10</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">if</span> (grade <span class="elem">&gt;</span> <span class="num">10</span>) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'Passing grade'</span>);</p>
+        <p>} <span class="elem">else if</span> (grade <span class="elem">===</span> <span class="num">10</span>) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'Passing on the limit'</span>);</p>
+        <p>} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'Failing grade'</span>);</p>
+        <p>}</p>
+        <p class="prueba" onclick="prueba64()">Prueba</p>
+      </div>
+      <p>El código anterior imprimirá en la consola: "Passing on the limit".</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h2>if else</h2>
+      </div>
+      <p>La sentencia <code>if...else</code> ejecuta una sentencia, si una condición especificada es evaluada como
+        verdadera. Si la condición
+        es evaluada como falsa, otra sentencia en la clausula opcional <code>else</code> será ejecutada.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">testNum</span>(a) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> result;</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (a <span class="elem">&gt;</span> <span class="num">0</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;result <span class="elem">=</span> <span class="txt">'Positive'</span>;</p>
+        <p>&nbsp;&nbsp;} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;result <span class="elem">=</span> <span class="txt">'NOT Positive'</span>;</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> result;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(<span class="func">testNum</span>(<span
+            class="num">-5</span>));</p>
+        <p><span class="comment">// Resultado esperado: "NOT Positive"</span></p>
+        <p class="prueba" onclick="prueba65()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>if (condition)</p>
+        <p>&nbsp;&nbsp;sentencia1</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// con una cláusula else</span></p>
+        <p>if (condition)</p>
+        <p>&nbsp;&nbsp;sentencia1</p>
+        <p>else</p>
+        <p>&nbsp;&nbsp;sentencia2</p>
+      </div>
+      <p><code>condición</code></p>
+      <p>Una expresión que puede ser evaluada como verdadera o falsa.</p>
+      <p><code>sentencia1</code></p>
+      <p>Sentencia que se ejecutará si <code>condición</code> es evaluada como verdadera. Puede ser cualquier sentencia,
+        incluyendo otras
+        sentencias <code>if</code> anidadas. Para ejecutar múltiples sentencias, use una sentencia block ({ ... }) para
+        agruparlas. Para no
+        ejecutar ninguna sentencia, usa una sentencia vacía.</p>
+      <p><code>sentencia2</code></p>
+      <p>Sentencia que se ejecutará si <code>condición</code> se evalúa como falsa, y existe una cláusula
+        <code>else</code>. Puede ser cualquier sentencia,
+        incluyendo sentencias block y otras sentencias <code>if</code> anidadas.
+      </p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Descripción</h3>
+      </div>
+      <p>Multiples sentencias <code>if...else</code> pueden ser anidadas para crear una cláusula <code>else if</code>.
+        Note que no hay una palabra clave
+        <code>elseif</code> (en una sola palabra) en JavaScript.
+      </p>
+      <div class="codigo">
+        <p>if (condición1)</p>
+        <p>&nbsp;&nbsp;sentencia1</p>
+        <p>else if (condición2)</p>
+        <p>&nbsp;&nbsp;sentencia2</p>
+        <p>else if (condición3)</p>
+        <p>&nbsp;&nbsp;sentencia3</p>
+        <p>// ...</p>
+        <p>else</p>
+        <p>&nbsp;&nbsp;sentenciaN</p>
+      </div>
+      <p>Para entender como esto funciona, así es como se vería si el anidamiento hubiera sido indentado correctamente:
+      </p>
+      <div class="codigo">
+        <p>if (condición1)</p>
+        <p>&nbsp;&nbsp;sentencia1</p>
+        <p>else</p>
+        <p>&nbsp;&nbsp;if (condición2) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;sentencia2</p>
+        <p>&nbsp;&nbsp;else</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;if (condición3) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;sentencia3</p>
+        <p>&nbsp;&nbsp;...</p>
+      </div>
+      <p>Para ejecutar varias sentencias en una cláusula, use una sentencia block (<code>{/*...*/}</code> ) para
+        agruparlas.</p>
+      <div class="codigo">
+        <p>if (condición) {</p>
+        <p>&nbsp;&nbsp;sentencia1</p>
+        <p>} else {</p>
+        <p>&nbsp;&nbsp;sentencia2</p>
+        <p>}</p>
+      </div>
+      <p>No usar blocks puede ocasionar un comportamiento inesperado, especialmente si el código es estructurado
+        manualmente. Por
+        ejemplo:</p>
+      <div class="codigo error">
+        <p><span class="elem">function</span> <span class="func">checkValue</span>(a, b) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (a <span class="elem">===</span> <span class="num">1</span>)</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">if</span>(b <span class="elem">===</span> <span
+            class="num">2</span>)</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'a is 1 and b is
+            2'</span>);</p>
+        <p>&nbsp;&nbsp;<span class="elem">else</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'a is not 1'</span>);</p>
+        <p>}</p>
+      </div>
+      <p>Este código puede parece inocente — sin embargo, si ejecutamos <code>checkValue(1, 3)</code> registrara el
+        mensaje "a is not 1". Esto
+        debido a que en el caso de dangling else, la cláusula <code>else</code> se conectará a la clausula
+        <code>if</code> más cercana. Por lo tanto, el
+        código anterior, indentado apropiadamente, se vería así:
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">checkValue</span>(a, b) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (a <span class="elem">===</span> <span class="num">1</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">if</span>(b <span class="elem">===</span> <span
+            class="num">2</span>) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'a is 1 and b is
+            2'</span>);</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'a is not 1'</span>);</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+      </div>
+      <p>No confundir los valores booleanos primitivos true y false con los valores verdadero y falso del objeto
+        Boolean.
+        Cualquier valor diferente de undefined, null, 0, -0, NaN, o la cadena vacía (""), y cualquier objecto, incluso
+        un objeto
+        Boolean cuyo valor es false, se evalúa como verdadero en una sentencia condicional. Por ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> b <span class="elem">=</span> <span class="elem">new</span> <span
+            class="func">Boolean</span>(<span class="txt">false</span>);</p>
+        <p><span class="comment">// Esta condición se evalúa como verdadera</span></p>
+        <p><span class="elem">if</span> (b) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(<span class="txt">'b is truthy'</span>); <span
+            class="comment">// "b is truthy"</span></p>
+        <p>}</p>
+        <p class="prueba" onclick="prueba66()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Uso de <code>if...else</code></h4>
+      </div>
+      <p>Note que no hay sintaxis <code>elseif</code> en JavaScript. Sin embargo, puede escribirse con un espacio
+        entre <code>else</code> y <code>if</code>:</p>
+      <div class="codigo">
+        <p><span class="elem">if</span> (cipherChar === fromChar) {</p>
+        <p>&nbsp;&nbsp;result <span class="elem">+=</span> toChar;</p>
+        <p>&nbsp;&nbsp;x<span class="elem">++</span>;</p>
+        <p>} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;result <span class="elem">+=</span> clearChar;</p>
+        <p>}</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Using else if</h3>
+      </div>
+      <p>Note que no hay sintaxis <code>elseif</code> en JavaScript. Sin embargo, puede escribirse con un espacio entre
+        <code>else</code> y <code>if</code>:
+      </p>
+      <div class="codigo">
+        <p><span class="elem">if</span> (x <span class="elem">&gt;</span> <span class="num">50</span>) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">/* hace algo */</span></p>
+        <p>} <span class="elem">else</span> <span class="elem">if</span> (x <span class="elem">&gt;</span> <span
+            class="num">5</span>) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">/* hace algo */</span></p>
+        <p>} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;<span class="comment">/* hace algo */</span></p>
+        <p>}</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Asignación en una expresión condicional</h3>
+      </div>
+      <p>Casi nunca deberías tener un <code>if...else</code> con una asignación <code>x = y</code> como condición:</p>
+      <div class="codigo error">
+        <p><span class="elem">if</span> (x <span class="elem">=</span> y) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// ...</span></p>
+        <p>}</p>
+      </div>
+      <p>Porque a diferencia de los bucles <code>while</code>, la condición es evaluada sólo una vez, así que la
+        asignación es ejecutada una
+        vez. El código anterior es equivalente a:</p>
+      <div class="codigo">
+        <p>x <span class="elem">=</span> y;</p>
+        <p><span class="elem">if</span> (x) {</p>
+        <p>&nbsp;&nbsp;<span class="comment">// ...</span></p>
+        <p>}</p>
+      </div>
+      <p>El cual es mucho más claro. Sin embargo, en el raro caso que te encuentres en la situación de hacer algo como
+        eso, la
+        documentación del bucle while tiene una sección llamada Usando una asignación como una condición con nuestras
+        recomendaciones.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Usando una condición <strong>if</strong>, puedes ejecutar un fragmento de código cuando la condición se
+            evalúe como <code>true</code>.</li>
+          <li>La sintaxis es <code>if (condición)</code> y luego las llaves <code>{}</code> envuelven las líneas de
+            código que corresponden a esta condición.</li>
+          <li>La palabra clave else se puede usar para realizar algún otro código basado en todas las demás condiciones
+            no satisfechas
+            con el <code>if</code>.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>¿Tienes edad para votar?</h3>
+      <p>Implementa la función canVote que devuelve <code>true</code> si el usuario tiene 18 o más años y
+        <code>falso</code> si no.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">canVote</span>(age) {</p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> age <span class="elem">&gt;=</span> <span
+              class="num">18</span>;</em>
+        </p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">canVote</span>(<span class="num">25</span>)); <span
+            class="comment">// true</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">canVote</span>(<span class="num">18</span>)); <span
+            class="comment">// true</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">canVote</span>(<span class="num">10</span>)); <span
+            class="comment">// false</span></p>
+        <p class="prueba" onclick="prueba67()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../04_Variables/01_Variables/01_variables.html">Anterior</a>
+        <a class="next" href="../../05_Conditions/02_Advanced_if/02_advanced_if.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

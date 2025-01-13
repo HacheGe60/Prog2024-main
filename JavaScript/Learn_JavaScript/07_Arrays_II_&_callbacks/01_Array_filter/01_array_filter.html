@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Array filter</h1>
+      <p>En este capítulo, exploraremos más métodos de arrays al mismo tiempo que aprendemos sobre funciones de
+        devolución (callbacks).
+      </p>
+      <p>Un método común de arrays es el método <code>.filter()</code>. Cuando llamas a este método en un array,
+        obtendrás otro array que
+        contiene algunos de los elementos del array original, basado en la condición que especifiques. Veamos un
+        ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="nun">9</span>, <span
+            class="num">5</span>, <span class="num">14</span>, <span class="num">3</span>, <span class="num">11</span>
+          ];
+        </p>
+        <p><span class="elem">const</span> numbersAboveTen <span class="elem">=</span> numbers.<span
+            class="func">filter</span>(<span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;</span> <span
+            class="num">10</span>;
+        </p>
+        <p>});</p>
+        <p>console.<span class="func">log</span>(<span class="func">numbersAboveTen</span>); <span class="comment">//
+            [14, 11]</span></p>
+        <p class="prueba" onclick="prueba102()">Prueba</p>
+      </div>
+      <div class="notaNaranja">
+        <i class="fa-solid fa-triangle-exclamation fa-xl " style="color: #000333;"></i>
+        <p>No olvides la palabra clave <code>return</code> dentro de la función de devolución (callback).</p>
+      </div>
+      <p>Observa cómo obtuvimos un nuevo array que contiene los elementos que han satisfecho la condición. La
+        condición es que el
+        <code>number</code> debe ser mayor que 10.
+      </p>
+      <p>En un par de capítulos, veremos cómo escribir lo anterior con funciones de flecha, ¡se verá bien y corto!</p>
+      <p>¿Cómo funciona esto?</p>
+      <h2>Array.filter(callback)</h2>
+      <p>Veamos cómo funciona el código anterior, desglosando su ejecución paso a paso.</p>
+      <p>El método <code>.filter()</code> espera una función de devolución (callback) como primer argumento. En nuestro
+        ejemplo, la
+        función de
+        devolución
+        es:</p>
+      <div class="codigo">
+        <p><span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number <span class="elem">&gt;</span> <span
+            class="num">10</span>;</p>
+        <p>}</p>
+      </div>
+      <p>JavaScript tomará tu función de devolución (callback) y la llamará para cada elemento en el array. Nuestro
+        array
+        <code>numbers</code> tiene 5
+        elementos, por lo que lo llamará 5 veces. Cada vez que llame a esta función, le dará un valor al parámetro
+        <code>number</code> que especificaste dentro de esta función de
+        devolución.
+      </p>
+      <ol>
+        <li>La primera vez que se ejecute, le dará al <code>number</code> un valor de 9 (el primer elemento del array)
+        </li>
+        <li>La segunda vez que se ejecute, le dará al <code>number</code> un valor de 5 (el segundo elemento del array).
+        </li>
+        <li>Y así sucesivamente hasta el último elemento del array.</li>
+      </ol>
+      <p>Así es como funcionan las funciones de devolución (callbacks). Ahora, cada método de array tiene un
+        comportamiento diferente que
+        explicaremos. Este comportamiento a menudo depende del resultado de la función de devolución (callback). En este
+        ejemplo, si la función de devolución (callback) devuelve <code>true</code>, entonces el elemento se incluirá en
+        el array
+        final devuelto
+        por <code>.filter()</code>. Sin embargo, si la función de devolución (callback) devuelve <code>false</code>,
+        entonces el elemento no se
+        incluirá en el array
+        final.</p>
+      <p>Eso significa que si tienes el siguiente código:</p>
+      <div class="codigo">
+        <p>numbers.<span class="func">filter</span>(<span class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> true;</p>
+        <p>});</p>
+      </div>
+      <p>Esto devolverá todos los elementos del array. Por lo tanto, terminarás obteniendo una copia del array original.
+        Eso se
+        debe a que la función de devolución (callback) siempre está devolviendo <code>true</code>. Este código no es muy
+        útil, pero
+        sirve para mostrarte
+        la importancia de lo que devuelve la función de devolución (callback) y cómo eso afecta el resultado del método
+        <code>.filter()</code>.
+      </p>
+      <p>Por eso teníamos la condición <code>number > 10</code>. Esta condición devolverá <code>true</code> o
+        <code>false</code> dependiendo
+        del valor de <code>number</code>.
+      </p>
+      <hr>
+      <p>Probablemente tengas una pregunta en tu cabeza ahora. ¿Cómo sabe JavaScript que cada elemento del array
+        <code>numbers</code> se
+        convierte en <code>number</code> en el argumento de la función de devolución (callback)? Y la respuesta es que
+        ¡no lo sabe!
+      </p>
+      <p>JavaScript tomará tu función de devolución (callback) y pasará el elemento del array como el primer parámetro a
+        tu función de
+        devolución. Esto significa que el siguiente código funciona (pero no es recomendable):</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers <span class="elem">=</span> [<span class="nun">9</span>, <span
+            class="num">5</span>, <span class="num">14</span>, <span class="num">3</span>, <span class="num">11</span>
+          ];
+        </p>
+        <p><span class="elem">const</span> numbersAboveTen <span class="elem">=</span> numbers.<span
+            class="func">filter</span>(<span class="elem">function</span>(x) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> x <span class="elem">&gt;</span> <span class="num">10</span>;
+        </p>
+        <p>});</p>
+        <p>console.<span class="func">log</span>(<span class="func">numbersAboveTen</span>); <span class="comment">//
+            [14, 11]</span></p>
+        <p class="prueba" onclick="prueba103()">Prueba</p>
+      </div>
+      <p>JavaScript no se preocupa por cómo llames a tus variables. Llamará a tu función de devolución (callback) y le
+        dará un valor al
+        primer parámetro, que llamamos <code>x</code> aquí.</p>
+      <p>Sin embargo, desde la perspectiva de un desarrollador, ¿qué es <code>x</code>? No está nada claro, así que
+        siempre asegúrate de
+        seguir la convención de nombres plural -> singular que vimos en el capítulo anterior. Te hará la vida más fácil.
+      </p>
+      <p>El siguiente código:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> years <span class="elem">=</span> [<span class="num">2000</span>, <span
+            class="num">2008</span>, <span class="num">2020</span>, <span class="num">2023</span>];</p>
+        <p>years.<span class="func">filter</span>(<span class="elem">function</span>(year) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> year <span class="elem">&gt;=</span> <span
+            class="num">2010</span></p>
+        <p>});</p>
+      </div>
+      <p>Se puede leer en español como "Filtrar los años donde el año es 2010 o superior".</p>
+      <ul>
+        <li>"<strong>Filtrar los años</strong>" corresponde a <code>years.filter</code>.</li>
+        <li>"<strong>donde el año es 2010 o superior</strong>" corresponde a la función de devolución (callback) (y la
+          condición dentro
+          de
+          ella) que se
+          ejecuta
+          para cada elemento del array.</li>
+      </ul>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h2>Array.prototype.filter()</h2>
+      </div>
+      <p>El método <code>filter()</code> crea un nuevo array con todos los elementos que cumplan la condición
+        implementada por la
+        función
+        dada.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">const</span> words <span class="elem">=</span> [<span class="txt">'spray'</span>, <span
+            class="txt">'elite'</span>, <span class="txt">'exuberant'</span>, <span class="txt">'destruction'</span>,
+          <span class="txt">'present'</span>];
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="elem">const</span> result <span class="elem">=</span> words.<span
+            class="func">filter</span>((word) => word.<span class="func">length</span> <span class="elem">&gt;</span>
+          <span class="num">6</span>);
+        </p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">result</span>); <span class="comment">// [
+            'exuberant', 'destruction', 'present' ]</span></p>
+        <p class="prueba" onclick="prueba104()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>let newArray = arr.filter(callback(currentValue[, index[, array]])[, thisArg])</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Parámetros</h4>
+      </div>
+      <p><code>callback</code></p>
+      <p>Función que <strong>comprueba cada elemento</strong> del array para ver si cumple la condición (también llamada
+        predicado). Retorna <code>true</code>
+        si el elemento la cumple o en caso contrario retornará <code>false</code>. Acepta tres parámetros:</p>
+      <ul>
+        <li>
+          <p><code>currentValue</code></p>
+          <p>El elemento actual del array que está siendo procesado.</p>
+        </li>
+        <li>
+          <p><code>index</code></p>
+          <p>El índice del elemento actual del array que está siendo procesado.</p>
+        </li>
+        <li>
+          <p><code>array</code></p>
+          <p>El array sobre el que se ha llamado <code>filter</code>.</p>
+        </li>
+      </ul>
+      <p><code>thisArg</code></p>
+      <p>Opcional. Valor a utilizar como <code>this</code> cuando se ejecuta <code>callback</code>.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Valor devuelto</h4>
+      </div>
+      <p>Un nuevo array con los elementos que cumplen la condición. Si ningún elemento cumple la condición, se devolverá
+        un array
+        vacío.</p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Descripción</h3>
+      </div>
+      <p><code>filter()</code> llama a la función <code>callback</code> sobre cada elemento del array, y construye un
+        nuevo array con todos los valores
+        para los cuales <code>callback</code> devuelve un valor verdadero. <code>callback</code> es invocada sólo para
+        índices del array que tengan un
+        valor asignado. No se invoca sobre índices que hayan sido borrados o a los que no se les haya asignado algún
+        valor. Los
+        elementos del array que no cumplan la condición <code>callback</code> simplemente los salta, y no son incluidos
+        en el nuevo array.</p>
+      <p><code>callback</code> se invoca con tres argumentos:</p>
+      <ol>
+        <li>El valor de cada elemento</li>
+        <li>El índice del elemento</li>
+        <li>El objeto Array que se está recorriendo</li>
+      </ol>
+      <p>Si se proporciona un parámetro <code>thisArg</code> a <code>filter()</code>, este será pasado a
+        <code>callback</code> cuando sea invocado, para usarlo
+        como
+        valor <code>this</code>. De lo contrario, se pasará el valor <code>undefined</code> como valor
+        <code>this</code>. El valor <code>this</code> dentro del <code>callback</code> se
+        determina conforme a las las normas habituales para determinar el this visto por una función.
+      </p>
+      <p><code>filter()</code> no hace mutar el array sobre el cual es llamado.</p>
+      <p>El rango de elementos procesados por <code>filter()</code> se establece antes de la primera invocación de
+        callback. Los elementos que
+        se añadan al array después de que comience la llamada a filter() no serán visitados por <code>callback</code>.
+        Si se modifica o
+        elimina un elemento existente del array, cuando pase su valor a <code>callback</code> será el que tenga cuando
+        <code>filter()</code> lo recorra;
+        los elementos que son eliminados no son recorridos.
+      </p>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Filtrando todos los valores pequeños</h4>
+      </div>
+      <p>El siguiente ejemplo usa <code>filter()</code> para crear un array filtrado que excluye todos los elementos con
+        valores inferiores a
+        10.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">esSuficientementeGrande</span>(elemento) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> elemento <span class="elem">&gt;&equals;</span> 10;
+        </p>
+        <p>}</p>
+        <p><span class="elem">let</span> filtrados <span class="elem">=</span> [<span class="num">12</span>, <span
+            class="num">5</span>, <span class="num">8</span>, <span class="num">130</span>, <span
+            class="num">44</span>].<span class="func">filter</span>(<span class="func">esSuficientementeGrande</span>);
+        </p>
+        <p>console.<span class="func">log</span>(filtrados);</p>
+        <p><span class="comment">// filtrados es [12, 130, 44]</span></p>
+        <p class="prueba" onclick="prueba105()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Filtrando entradas inválidas desde un JSON</h4>
+      </div>
+      <p>El siguiente ejemplo emplea <code>filter()</code> para crear un json filtrado con todos lo elementos que tengan
+        id numérico
+        distinto
+        de cero.</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> arr <span class="elem">=</span> [</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="num">15</span> },</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="num">-1</span> },</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="num">0</span> },</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="num">3</span> },</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="num">12.2</span> },</p>
+        <p>&nbsp;&nbsp;{},</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> null },</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="num">NaN</span> },</p>
+        <p>&nbsp;&nbsp;{ id<span class="elem">:</span> <span class="txt">"undefined"</span> },</p>
+        <p>];</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">let</span> entradasInvalidas <span class="elem">=</span> <span class="num">0</span>;</p>
+        <p><span class="comment">// Si el elemento tiene un atributo id, y su valor correspondiente es un número</span>
+        </p>
+        <p><span class="comment">// Y no es el valor NaN, entonces es una entrada válida</span></p>
+        <p><span class="elem">function</span> <span class="func">filtrarPorId</span>(obj) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">if</span> (<span class="txt">"id"</span> in obj <span class="elem">&amp;&amp;
+            typeof</span> obj.id <span class="elem">===</span> <span class="txt">"number"</span> <span
+            class="elem">&amp;&amp;</span> !<span class="func">isNaN</span>(obj.id)) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> true;</p>
+        <p>&nbsp;&nbsp;} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;entradasInvalidas<span class="elem">++</span>;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> false;</p>
+        <p>&nbsp;&nbsp;}</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">let</span> arrPorId <span class="elem">=</span> arr.<span
+            class="func">filter</span>(filtrarPorId);</p>
+        <p>console.<span class="func">log</span>(<span class="txt">"Array Filtrado\n"</span>, arrPorId);</p>
+        <p><span class="comment">// [{ id: 15 }, { id: -1 }, { id: 0 },{ id: 3 }, { id: 12.2 }]</span></p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="txt">"Número de Entradas Inválidas = "</span>,
+          entradasInvalidas);
+        </p>
+        <p><span class="comment">// 4</span></p>
+        <p class="prueba" onclick="prueba106()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img class="mdn-logo" src="../../images/mdn-logo.png" alt="mdn logo">
+        <h4>Búsqueda en el arreglo</h4>
+      </div>
+      <p>El siguiente ejemplo emplea filter() para filtrar el contenido de un arreglo en función de un criterio de
+        búsqueda.</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> fruits <span class="elem">=</span> [<span class="txt">"apple"</span>, <span
+            class="txt">"banana"</span>, <span class="txt">"grapes"</span>, <span class="txt">"mango"</span>, <span
+            class="txt">"orange"</span>];</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">/**</span></p>
+        <p><span class="comment">&nbsp;* Filtra la matriz en función de un criterio de búsqueda (query)</span></p>
+        <p><span class="comment">&nbsp;*/</span></p>
+        <p><span class="elem">function</span> <span class="func">filterItems</span>(query) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> fruits.<span class="func">filter</span>(<span
+            class="elem">function</span> (el) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> el.<span class="func">toLowerCase</span>().<span
+            class="func">indexOf</span>(query.<span class="func">toLowerCase</span>()) <span class="elem">&gt;</span>
+          <span class="num">-1</span>;
+        </p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(filterItems(<span class="txt">"ap"</span>)); <span class="comment">//
+            ['apple', 'grapes']</span></p>
+        <p>console.<span class="func">log</span>(filterItems(<span class="txt">"an"</span>)); <span class="comment">//
+            ['banana', 'mango', 'orange'] <span class="comment">// ['banana', 'mango', 'orange']</span></p>
+        <p class="prueba" onclick="prueba107()">Prueba</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>El método <code>.filter()</code> devuelve un nuevo array que contiene algunos de los elementos del array
+            original,
+            basado en la
+            condición que especifiques.</li>
+          <li>JavaScript tomará tu función de devolución (callback) y la llamará para cada elemento en el array.</li>
+          <li>Para el método <code>.filter()</code>, el resultado de la función de devolución (callback) importa. Cuando
+            es <code>true</code>, el elemento se
+            incluirá en
+            el array resultante. De lo contrario, no lo será.</li>
+          <li>JavaScript no puede adivinar que el array <code>numbers</code> se convierte en el parámetro
+            <code>number</code> en tu función de
+            devolución. Lo
+            que hace es llamar a tu función de devolución (callback) mientras le da un valor al primer parámetro que
+            especificaste.
+          </li>
+          <li>Usa la convención de nombres plural -> singular cuando uses el método <code>.filter()</code>.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Temperaturas positivas</h3>
+      <p>Completa la función <code>getPositiveTemperatures</code> para que devuelva un array que contenga las
+        temperaturas positivas (las
+        temperaturas que están por encima de 0).</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getPositiveTemperatures</span>(temperatures) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> temperatures.<span class="func">filter</span>(<span
+            class="elem">function</span> (temperature) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> temperature <span class="elem">&gt;</span> <span
+            class="num">0</span>;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getPositiveTemperatures</span>([<span
+            class="num">-5</span>,
+          <span class="num">12</span>, <span class="num">3</span>])); <span class="comment">// [12, 3]</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getPositiveTemperatures</span>([<span
+            class="num">1</span>, <span class="num">-3</span>, <span class="num">-2</span>, <span class="num">4</span>,
+          <span class="num">10</span>])); <span class="comment">//
+            [1, 4, 10]</span>
+        </p>
+        <p class="prueba" onclick="prueba108()">Prueba</p>
+      </div>
+      <h3>Temperaturas bajo cero</h3>
+      <p>Completa la función <code>getFreezingTemperatures</code> para que devuelva un array que contenga las
+        temperaturas negativas (las
+        temperaturas que están por debajo de 0).</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getFreezingTemperatures</span>(temperatures) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> temperatures.<span class="func">filter</span>(<span
+            class="elem">function</span> (temperature) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> temperature <span class="elem">&lt;</span> <span
+            class="num">0</span>;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getFreezingTemperatures</span>([<span
+            class="num">-5</span>,
+          <span class="num">12</span>, <span class="num">3</span>])); <span class="comment">// [-5]</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getFreezingTemperatures</span>([<span
+            class="num">1</span>, <span class="num">-3</span>, <span class="num">-2</span>, <span class="num">4</span>,
+          <span class="num">10</span>])); <span class="comment">//
+            [-3, -2]</span>
+        </p>
+        <p class="prueba" onclick="prueba109()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../06_Arrays_I/04_Chapter_Recap/04_chapter_recap.html">Anterior</a>
+        <a class="next" href="../../07_Arrays_II_&_callbacks/02_Array_find/02_array_find.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

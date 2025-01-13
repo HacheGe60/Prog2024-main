@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>12d</title>
+	</head>
+	<body>
+		<button
+			class="one"
+			onclick="changeText()"
+		>
+			Start
+		</button>
+		<script>
+			/* function changeText() {
+				oneElement = document.querySelector('.one');
+				oneElement.innerHTML = 'Loading...';
+				setTimeout(function () {
+					oneElement.innerHTML = 'Finished';
+				}, 1000);
+			} */
+
+			const changeText = () => {
+				oneElement = document.querySelector('.one');
+				oneElement.innerHTML = 'Loading...';
+				setTimeout(() => {
+					oneElement.innerHTML = 'Finished';
+				}, 1000);
+			};
+		</script>
+	</body>
+</html>

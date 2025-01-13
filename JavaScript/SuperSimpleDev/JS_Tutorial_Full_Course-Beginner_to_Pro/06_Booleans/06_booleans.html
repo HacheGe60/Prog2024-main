@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Booleans</title>
+	</head>
+
+	<body>
+		<script>
+			/* true;
+			false;
+
+			console.log(3 > 5);
+
+			console.log(typeof 'true'); // string
+			console.log(typeof true); // boolean
+
+			console.log(5 == '5.00'); // true
+			console.log(5 === '5.00'); // false
+
+			if (true) {
+				console.log('Hello, World!'); // 'Hello, World!'
+			}
+
+			if (false) {
+				console.log('Hello, World!');
+			} else {
+				console.log('Goodbye, World!'); // 'Goodbye, World!'
+			}
+
+			const age = 15;
+
+			if (age >= 16) {
+				console.log('You can drive!');
+				console.log('Congrats!');
+			} else if (age >= 14) {
+				console.log('Almost there!');
+			} else {
+				console.log('You cannot drive!');
+			} */
+
+			/* console.log(true && true);
+			console.log(true && false);
+			console.log(false && true);
+			console.log(false && false);
+
+			console.log(true || true);
+			console.log(true || false);
+			console.log(false || true);
+			console.log(false || false);
+
+			console.log(!true);
+			console.log(!false); */
+
+			/* if (5) {
+				console.log('truthy');
+			}
+
+			if (false || 0 || '' || NaN || null || undefined) {
+				console.log('truthy');
+			} else {
+				console.log('falsy');
+			}
+
+			const cartQuantity = 5;
+
+			if (cartQuantity) {
+				console.log(`cart has products (${cartQuantity})`);
+			}
+
+			console.log(!0); */
+
+			/* const result = true ? 'truthy' : 'falsy';
+			console.log(result);
+			false ? console.log('truthy') : console.log('falsy');
+
+			false && console.log('Hello, World!');
+
+			const message = 5 && 'Hello, World!';
+			console.log(message); */
+
+			const hour = new Date().getHours();
+			const name = 'Horacio';
+			(hour >= 6 && hour < 13) ? console.log(`Good morning ${name}!`) : (hour >= 13 && hour < 17) ? console.log(`Good afternoon ${name}!`) : console.log(`Good night ${name}!`);
+
+			const age = 4;
+			isHoliday = false;
+			((age <= 6 || age >= 65) && !isHoliday) ? console.log('Discount!') : console.log('No discount!');
+
+			const randomNumber = Math.random();
+
+			const result = (randomNumber < 0.5) ? 'heads' : 'tails';
+
+			const guess = 'heads';
+
+			(result === guess) ? console.log('You win!') : console.log('You lose!');
+
+
+
+		</script>
+	</body>
+
+</html>

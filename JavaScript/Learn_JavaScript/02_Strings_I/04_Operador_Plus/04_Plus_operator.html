@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Operador Plus</h1>
+      <p>Buen trabajo al terminar tu primer desafío del mundo real. Revisitaremos este proyecto de elipsis de texto
+        varias veces
+        en los siguientes capítulos para mejorarlo.</p>
+      <p>En JavaScript, el operador más (+) se comportará de manera diferente según los tipos de valores que uses con
+        él.</p>
+      <p>Ya has visto que <code>1 + 3</code> devolverá el número <code>4</code>.</p>
+      <p>Sin embargo, también puedes usar el símbolo de suma <code>+</code> para concatenar 2 cadenas, lo que significa
+        unirlas en una sola
+        cadena.</p>
+      <p>Aquí tienes un ejemplo:</p>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="txt">"Hello"</span> + <span class="txt">"World"</span>)
+          <span class="comment">//
+            "HelloWorld"</span>
+        </p>
+        <p class="prueba" onclick="prueba20()">Prueba</p>
+      </div>
+      <p>Esto devolverá una cadena única: "HelloWorld". Esto sería útil si deseas concatenar 2 o más cadenas juntas. Por
+        ejemplo:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> prefix = <span class="txt">"Mrs."</span>;</p>
+        <p><span class="elem">let</span> name = <span class="txt">"Sam"</span>;</p>
+        <p><span class="elem">let</span> string = prefix + <span class="txt">" "</span> + name; <span class="comment">//
+            "Mrs. Sam"</span></p>
+        <p>console.<span class="func">log</span>(string);</p>
+        <p class="prueba" onclick="prueba21()">Prueba</p>
+      </div>
+      <p>También es posible hacer lo anterior con interpolación de cadenas, lo que se tratará en la siguiente lección.
+      </p>
+      <h2>Operador +=</h2>
+      <p>Supongamos que tenemos el siguiente código:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> name = <span class="txt">"Sam"</span>;</p>
+        <p>name = name + <span class="txt">" Blue"</span>;</p>
+        <p>console.<span class="func">log</span>(name); <span class="comment">// "Sam Blue"</span></p>
+        <p class="prueba" onclick="prueba22()">Prueba</p>
+      </div>
+      <p>Puedes reescribir <code>name = name +</code> de una manera más corta usando el operador <code>+=</code>.</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> name = <span class="txt">"Sam"</span>;</p>
+        <p>name += <span class="txt">" Blue"</span>;</p>
+        <p>console.<span class="func">log</span>(name); <span class="comment">// "Sam Blue"</span></p>
+        <p class="prueba" onclick="prueba23()">Prueba</p>
+      </div>
+      <h2>MDN Asignación de adición (+=)</h2>
+      <p>El operador de asignación de adición (<code>+=</code>) realiza una suma (que puede ser una suma numérica o una
+        concatenación de
+        cadenas) en los dos operandos y asigna el resultado al operando izquierdo.</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> a = <span class="num">2</span>;</p>
+        <p><span class="elem">let</span> b = <span class="txt">'hello'</span>;</p>
+        <p>&nbsp</p>
+        <p>console.<span class="func">log</span>(a += 3); <span class="comment">// Suma</span></p>
+        <p><span class="comment">// Resultado esperado: 5</span></p>
+        <p>console.<span class="func">log</span>(b += ' world'); <span class="comment">// Concatenación</span></p>
+        <p><span class="comment">// Resultado esperado: 'hello world'</span></p>
+        <p class="prueba" onclick="prueba24()">Prueba</p>
+      </div>
+      <h3>MDN Sintaxis</h3>
+      <div class="codigo">
+        <p>x += y</p>
+      </div>
+      <h3>MDN Descripción</h3>
+      <p><code>x += y</code> es equivalente a <code>x = x + y</code>, excepto que la expresión x se evalúa solo una vez.
+      </p>
+      <h3>MDN Ejemplos</h3>
+      <div class="codigo">
+        <p><span class="elem">let</span> baz = <span class="txt">true</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Booleano + Número -> adición</span></p>
+        <p>console.<span class="func">log</span>(baz += <span class="num">1</span>); <span class="comment">// 2</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Número + Booleano -> adición</span></p>
+        <p>console.<span class="func">log</span>(baz += <span class="num">false</span>); <span class="comment">//
+            2</span></p>
+        <p class="prueba" onclick="prueba25()">Prueba</p>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">let</span> foo = <span class="txt">"foo"</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Cadena de texto + Booleano -> concatenación</span></p>
+        <p>console.<span class="func">log</span>(foo += <span class="txt">false</span>); <span class="comment">//
+            "foofalse"</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Cadena de texto + Cadena de texto -> concatenación</span></p>
+        <p>console.<span class="func">log</span>(foo += <span class="txt">"bar"</span>); <span class="comment">//
+            "foofalsebar"</span></p>
+        <p class="prueba" onclick="prueba26()">Prueba</p>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">let</span> bar = <span class="num">5</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Número + Número -> adición</span></p>
+        <p>console.<span class="func">log</span>(bar += <span class="num">2</span>); <span class="comment">//
+            7</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Número + Cadena de texto -> concatenación</span></p>
+        <p>console.<span class="func">log</span>(bar += <span class="txt">"foo"</span>); <span class="comment">//
+            "7foo"</span></p>
+        <p class="prueba" onclick="prueba27()">Prueba</p>
+      </div>
+      <div class="codigo">
+        <p><span class="elem">let</span> x = <span class="num">1n</span>;</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// BigInt + BigInt -> adición</span></p>
+        <p>console.<span class="func">log</span>(x += <span class="num">2n</span>); <span class="comment">//
+            3n</span>
+        </p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// BigInt + Número -> devuelve TypeError</span></p>
+        <p>console.<span class="func">log</span>(x += <span class="num">1</span>); <span class="comment">//
+            TypeError: Cannot mix BigInt and other types, use explicit conversions</span></p>
+        <p class="prueba" onclick="prueba28()">Prueba</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>El operador + es usado para sumar dos números.</li>
+          <li>El operador + es usado para concatenar dos cadenas de texto.</li>
+        </ul>
+
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Concatenación de cadenas de texto</h3>
+      <p>Completa la función <code>concatInitials</code> para que devuelva el <strong>firstNameInitial</strong> seguido
+        del <strong>lastNameInitial</strong>.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">concatInitials</span>(firstNameInitial,
+          lastNameInitial) {
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> firstNameInitial + lastNameInitial;</em></p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p>console.<span class="func">log</span>(concatInitials(<span class="txt">"J"</span>, <span
+            class="txt">"D"</span>)); <span class="comment">// "JD" </span></p>
+        <p>console.<span class="func">log</span>(concatInitials(<span class="txt">"S"</span>, <span
+            class="txt">"B"</span>)); <span class="comment">// "SB" </span></p>
+        <p class="prueba" onclick="prueba29()">Prueba</p>
+      </div>
+      <h3>Proyecto de elipsis de texto II</h3>
+      <p>Completa la función <code>getDescription</code> para que devuelva los <strong>primeros 10 caracteres</strong>
+        del parámetro <code>text</code>
+        que recibe, seguido
+        de un elipsis. Un elipsis es el carácter <strong>punto</strong> escrito 3 veces: <code>...</code>.</p>
+      <p>Nota: para este desafío, el <code>...</code> siempre debe estar presente, incluso si el texto fuera más corto
+        que 10 caracteres.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getDescription</span>(text) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(text); <span class="comment">// escribir algo
+            en el browser y verlo en la consola</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> text.substring(0, 10) + <span
+              class="txt">"..."</span>;</em></p>
+        <p>}</p>
+        <p class="prueba"><a href="./04_01_proyecto_de_elipsis_de_texto_II/index.html" target="_blank">Prueba</a></p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../02_Strings_I/03_Substrings/03_Substrings.html"><button class="last">Anterior</button></a>
+        <a href="../../02_Strings_I/05_Literales_de_plantilla/05_literales_de_plantilla.html"><button
+            class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

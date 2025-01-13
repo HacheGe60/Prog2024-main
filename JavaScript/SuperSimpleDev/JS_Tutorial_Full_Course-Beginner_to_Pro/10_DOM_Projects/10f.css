@@ -1,0 +1,15 @@
+.off {
+    background-color: #e6e6e6;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.isToggled {
+    background-color: #191919;
+    color: #fff;
+}

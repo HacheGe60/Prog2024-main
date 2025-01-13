@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Más métodos de array</h1>
+      <p>En esta lección, veremos tres métodos de array.</p>
+      <h2>Array map</h2>
+      <p>El método <code>.map(callback)</code> te permite transformar un array en otro. Aquí hay algunos ejemplos
+        comunes:</p>
+      <ul>
+        <li><code>[4, 2, 5, 8]</code> transformado a <code>[8, 4, 10, 16]</code>. Se duplicó cada elemento del array
+          original.</li>
+        <li><code>["sam", "Alex"]</code> transformado a <code>["SAM", "ALEX"]</code>. Se convirtieron todos los
+          elementos del array original a mayúsculas.</li>
+      </ul>
+      <p>Ten en cuenta que siempre obtienes un array que contiene la misma cantidad de elementos en comparación con el
+        array
+        original, pero cada elemento probablemente ha sufrido alguna transformación.</p>
+      <p>En el primer ejemplo, la transformación consiste en multiplicar cada número por 2.</p>
+      <p>En el segundo ejemplo, la transformación es llamar a <code>.toUpperCase()</code> en cada elemento.</p>
+      <p>Veamos cómo podemos implementar estas transformaciones:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> numbers = [<span class="num">4</span>, <span class="num">2</span>, <span
+            class="num">5</span>, <span class="num">8</span>];</p>
+        <p><span class="elem">const</span> doubled = numbers.<span class="func">map</span>(<span
+            class="elem">function</span>(number) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> number * <span class="num">2</span>;</p>
+        <p>});</p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(squaredNumbers); <span class="comment">// [8,
+            4, 10, 16]</span></p>
+      </div>
+      <p>y</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> names = [<span class="txt">"sam"</span>, <span class="txt">"Alex"</span>];
+        </p>
+        <p><span class="elem">const</span> upperNames = names.<span class="func">map</span>(<span
+            class="elem">function</span>(name) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> name.<span class="func">toUpperCase</span>();</p>
+        <p>});</p>
+      </div>
+      <p>Si te olvidas de usar <code>return</code> dentro de la función de devolución, terminarás con el siguiente
+        array: [undefined,
+        undefined]. Esto se debe a que, por cada elemento en el array original (["sam", "Alex"]), estás devolviendo
+        <code>undefined</code>,
+        por lo que el resultado final será [undefined, undefined]. Una vez que cometas este error un par de veces, se
+        convertirá
+        en una señal clara de que has olvidado la palabra clave <code>return</code>.
+      </p>
+      <p><a
+          href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map()</a>
+        en
+        MDN</p>
+      <h2>Array includes(item)</h2>
+      <p>El método <code>.includes(item)</code> del array es uno de los métodos de array más simples, ya que toma un
+        <code>item</code> en lugar de una
+        función de devolución y devuelve <code>true</code> cuando ese <code>item</code> existe en el array y
+        <code>false</code> de lo contrario. Aquí hay un ejemplo:
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> groceries = [<span class="txt">"Apple"</span>, <span
+            class="txt">"Peach"</span>, <span class="txt">"Tomato"</span>];</p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(groceries.<span
+            class="func">includes</span>(<span class="txt">"Tomato"</span>)); <span class="comment">// true</span></p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(groceries.<span
+            class="func">includes</span>(<span class="txt">"Bread</span>)); <span class="comment">// false</span></p>
+      </div>
+      <p><a
+          href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">Array.includes()</a>
+        en MDN.</p>
+      <h2>Array join(glue)</h2>
+      <p>Cuando tienes un array y lo renderizas en una página web (como veremos más adelante en la sección DOM del
+        curso), el
+        array se convertirá automáticamente en una cadena de texto. JavaScript invocará automáticamente el método
+        <code>.toString()</code>
+        del array, que devuelve una cadena de los elementos del array separados por comas. Así es como funciona:
+      </p>
+      <div class="codigo">
+        <p><span class="elem">const</span> groceries = [<span class="txt">"Apple"</span>, <span
+            class="txt">"Peach"</span>,
+          <span class="txt">"Tomato"</span>];
+        </p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(groceries.<span class="func">join</span>(";
+          ")); <span class="comment">// "Apple; Peach; Tomato"</span></p>
+        <p><span class="elem">console</span>.<span class="func">log</span>(groceries.<span class="func">join</span>(".
+          ")); <span class="comment">// "Apple . Peach . Tomato"</span></p>
+      </div>
+      <p><a
+          href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/join">Array.join()</a>
+        en MDN.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>El método <code>.map(callback)</code> del array te permite transformar un array en otro.</li>
+          <li>El método <code>.includes(item)</code> del array toma un <code>item</code> y devuelve <code>true</code>
+            cuando
+            ese <code>item</code> existe en el array y <code>false</code> de lo
+            contrario.</li>
+          <li>El método <code>.join(glue)</code> del array devuelve una cadena de los elementos del array separados por
+            el
+            <code>glue</code>.
+          </li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>¿Se usa la aplicación?</h3>
+      <p>Completa la función <code>isAppUsed</code> para que devuelva <code>true</code> cuando el parámetro
+        <code>app</code> que recibe exista en el parámetro <code>apps</code>, y
+        <code>false</code> de lo contrario.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> isAppUsed(apps, app) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> apps.<span class="func">includes</span>(app);</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">isAppUsed</span>( [<span
+            class="txt">'Twitter'</span>,
+          <span class="txt">'Calculator'</span>], <span class="txt">'Calculator'</span>)); <span class="comment">//
+            true</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">isAppUsed</span>( [<span class="txt">'Clock'</span>,
+          <span class="txt">'Calculator'</span>], <span class="txt">'Safari'</span>)); <span class="comment">//
+            false</span>
+        </p>
+        <p class="prueba" onclick="prueba114()">Prueba</p>
+      </div>
+      <h3>Tamaño de la cadena</h3>
+      <p>Completa la función <code>getStringSizes</code> para que devuelva un array con la cantidad de caracteres de
+        cada cadena que recibe en
+        el parámetro <code>strings</code>.</p>
+      <p>Es decir, para el array <code>["abc", "d"]</code> debería devolver <code>[3, 1]</code>, ya que la primera
+        cadena tiene 3 caracteres y la segunda
+        tiene 1.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> getStringSizes(strings) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> strings.<span class="func">map</span>(<span
+            class="elem">function</span>(string) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> string.<span class="func">length</span>;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getStringSizes</span>( [<span
+            class="txt">'a'</span>, <span class="txt">'abc'</span>])); <span class="comment">// [1, 3]</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getStringSizes</span>( [<span
+            class="txt">'Sam'</span>, <span class="txt">'Alex'</span>, <span class="txt">'Charlie'</span>])); <span
+            class="comment">// [3, 4, 7]</span></p>
+        <p>console.<span class="func">log</span>(<span class="func">getStringSizes</span>( [<span
+            class="txt">'Hello'</span>, <span class="txt">'Blue'</span>])); <span class="comment">// [5, 4]</span></p>
+        <p class="prueba" onclick="prueba115()">Prueba</p>
+      </div>
+      <h3>Proyecto Aula I</h3>
+      <p>¡Este es un proyecto de clase! Puedes ingresar calificaciones en la pestaña del navegador y agregarlas a la
+        aplicación,
+        que te mostrará varias estadísticas sobre el aula. Por ejemplo, verás el promedio de calificaciones, todas las
+        calificaciones reprobadas, etc.</p>
+      <p>Cada función tiene un comentario que describe lo que debería devolver, pero también puedes encontrarlos a
+        continuación:</p>
+      <ol>
+        <li><code>getNumberOfGrades</code> debería devolver la cantidad de calificaciones.</li>
+        <li><code>getSumGrades</code> debería devolver la suma de todas las calificaciones.</li>
+        <li><code>getAverageValue</code> debería devolver el valor promedio de todas las calificaciones (suma de todas
+          las
+          calificaciones
+          dividida por el número total de calificaciones).</li>
+        <li><code>getPassingGrades</code> debería devolver todas las calificaciones aprobatorias (10 o más).</li>
+        <li><code>getFailingGrades</code> debería devolver todas las calificaciones reprobatorias (9 o menos).</li>
+        <li><code>getRaisedGrades</code> debería devolver todas las calificaciones aumentadas en 1 (las calificaciones
+          no deberían
+          superar 20).</li>
+      </ol>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getNumberOfGrades</span>(grades) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver la cantidad de notas</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> grades.<span class="func">length</span>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getSumGrades</span>(grades) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver la suma de todas las notas</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> sum = <span class="num">0</span>;</p>
+        <p>&nbsp;&nbsp;grades.<span class="func">forEach</span>(<span class="elem">function</span>(grade) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> sum <span class="ope">+=</span> grade;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> sum;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getAverageValue</span>(grades) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver el promedio de todas las notas</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">let</span> sum = <span class="num">0</span>;</p>
+        <p>&nbsp;&nbsp;grades.<span class="func">forEach</span>(<span class="elem">function</span>(grade) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> sum <span class="ope">+=</span> grade;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> sum / grades.<span class="func">length</span>;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getPassingGrades</span>(grades) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver todas las notas aprobatorias</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> grades.<span class="func">filter</span>(<span
+            class="elem">function</span>(grade) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> grade <span class="ope">&gt;=</span> <span
+            class="num">10</span>;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getFailingGrades</span>(grades) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver todas las notas reprobatorias</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> grades.<span class="func">filter</span>(<span
+            class="elem">function</span>(grade) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> grade <span class="ope">&lt;=</span> <span
+            class="num">9</span>;</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="elem">export function</span> <span class="func">getRaisedGrades</span>(grades) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver todas las notas aumentadas en 1, ninguna de ellas puede
+            superar 20</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> grades.<span class="func">map</span>(<span
+            class="elem">function</span>(grade) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">if</span>(grade <span class="ope">&gt;=</span> <span
+            class="num">20</span>) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> <span class="num">20</span>;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;} <span class="elem">else</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> grade <span class="ope">+=</span> <span
+            class="num">1</span>;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+        <p>&nbsp;&nbsp;});</p>
+        <p>}</p>
+        <p class="prueba"><a
+            href="../../07_Arrays_II_&_callbacks/03_Mas_metodos_de_array/03_01_Proyecto_Aula_I/index.html"
+            target="_blank">Prueba</a>
+        </p>
+      </div>
+      <h3>Estadísticas de votantes I</h3>
+      <p>Este proyecto utiliza la API <code>fetch</code> (que aprenderás más adelante en este curso) para obtener las
+        estadísticas de
+        los
+        ciudadanos de una ciudad. Para completar este proyecto, debes devolver la cantidad de votantes en la ciudad
+        seleccionada por el usuario.</p>
+      <p>Ve a la pestaña del navegador y selecciona Ámsterdam o Berlín. Esto obtendrá la edad de los ciudadanos de la
+        ciudad
+        seleccionada (datos no reales) utilizando una API. Estos datos son recibidos por una función llamada
+        <code>getVotersCount.</code>.
+      </p>
+      <p>Implementa la función <code>getVotersCount</code> de manera que devuelva la cantidad de ciudadanos que pueden
+        votar (deben
+        tener 18
+        años o más).</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getVotersCount</span>(ages) {</span></p>
+        <p>&nbsp;&nbsp;<span class="comment">// TODO: devolver la cantidad de ciudadanos mayores de 18</span></p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> ages.<span class="func">filter</span>(<span
+            class="elem">function</span>(age) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> age <span class="ope">&gt;=</span> <span
+            class="num">18</span>;</p>
+        <p>&nbsp;&nbsp;}).<span class="func">length</span>;</p>
+        <p>}</p>
+        <p class="prueba"><a
+            href="../../07_Arrays_II_&_callbacks/03_Mas_metodos_de_array/03_02_Estadistica_de_votantes_I/index.html"
+            target="_blank">Prueba</a>
+        </p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../07_Arrays_II_&_callbacks/02_Array_find/02_array_find.html">Anterior</a>
+        <a class="next" href="../../07_Arrays_II_&_callbacks/04_Chapter_recap/04_chapter_recap.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

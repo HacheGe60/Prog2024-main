@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetos I</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Objetos</h1>
+      <p>Un objeto es un tipo de dato que te permite agrupar varias variables en una sola variable que contiene claves y
+        valores.
+        Esto se utiliza a menudo para representar o describir una entidad. Por ejemplo, una persona, un usuario, un
+        producto,
+        etc.</p>
+      <p>Así es como puedes crear un objeto:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> user <span class="elem">=</span> {</p>
+        <p>&nbsp;&nbsp;<span class="elem">id</span><span class="ope">:</span> <span class="num">1</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">firstName</span><span class="ope">:</span> <span class="txt">'Sam'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">lastName</span><span class="ope">:</span> <span class="txt">'Doe'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">age</span><span class="ope">:</span> <span class="num">20</span>,</p>
+        <p>};</p>
+      </div>
+      <div class="notaVerde">
+        <i class="fa-solid fa-circle-check fa-lg" style="color: #333"></i>
+        <p>En JavaScript, la convención recomendada es usar camelCase para los nombres de propiedades (por ejemplo,
+          <code>firstName</code> en
+          lugar de <code>first_name</code>)./p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <p><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object"
+            target="_blank">Object</a> en MDN.</p>
+      </div>
+      <h2>Leer el valor de una propiedad</h2>
+      <p>Para leer el valor de una propiedad en un objeto, puedes usar la <strong>notación de punto</strong> de la
+        siguiente manera:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> user <span class="elem">=</span> {</p>
+        <p>&nbsp;&nbsp;<span class="elem">id</span><span class="ope">:</span> <span class="num">1</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">firstName</span><span class="ope">:</span> <span class="txt">'Sam'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">lastName</span><span class="ope">:</span> <span class="txt">'Doe'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">age</span><span class="ope">:</span> <span class="num">20</span>,</p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p>user.id;<span class="comment">// 1</span></p>
+        <p>user.firstName;<span class="comment">// 'Sam'</span></p>
+        <p>user.isAdmin; <span class="comment">// undefined (no existe la propiedad 'isAdmin')</span></p>
+      </div>
+      <div class="notaVerde">
+        <i class="fa-solid fa-circle-check fa-lg" style="color: #333"></i>
+        <p>Es una buena idea visualizar los objetos con los que estás trabajando registrándolos en la consola. Sin
+          embargo, los
+          objetos anidados no se expanden en la consola de este curso. Puedes usar la consola de tu navegador o,
+          preferiblemente,
+          hacer un <code>console.log</code> directo del objeto anidado.</p>
+      </div>
+      <p>Más adelante en este curso, veremos cómo leer el valor de una propiedad dinámica.</p>
+      <h2>Actualizando el valor de una propiedad</h2>
+      <p>También puedes actualizar el valor de una propiedad usando la misma notación de punto seguida de un signo
+        igual:</p>
+      <div class="codigo">
+        <p><span class="elem">const</span> user <span class="elem">=</span> {</p>
+        <p>&nbsp;&nbsp;<span class="elem">id</span><span class="ope">:</span> <span class="num">1</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">firstName</span><span class="ope">:</span> <span class="txt">'Sam'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">lastName</span><span class="ope">:</span> <span class="txt">'Doe'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">age</span><span class="ope">:</span> <span class="num">20</span>,</p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p>user.lastName <span class="ope">=</span> <span class="txt">'Blue'</span>;</p>
+        <p>user.age <span class="ope">=</span> user.age <span class="ope">+</span> <span class="num">1</span>; <span
+            class="comment">// 21</span></p>
+        <p>console.<span class="func">log</span>(user); <span class="comment">// { id: 1, firstName: 'Sam', lastName:
+            'Blue', age: 21 }</span></p>
+      </div>
+      <div class="notaNaranja">
+        <i class="fa-solid fa-triangle-exclamation fa-lg" style="color: #333"></i>
+        <p>Puedes actualizar el valor de una propiedad de un objeto definido con <code>const</code> porque
+          <code>const</code> no significa que la
+          variable
+          sea constante, solo significa que no puedes reasignarla. Por lo tanto, la variable siempre es un objeto, pero
+          su
+          contenido (propiedades) puede cambiar.
+        </p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Un objeto es un tipo de dato que te permite agrupar varias variables en una sola variable que contiene
+            claves y valores.</li>
+          <li>En JavaScript, la convención recomendada es usar camelCase para los nombres de propiedades (por ejemplo,
+            <code>firstName</code> en
+            lugar de <code>first_name</code>).
+          </li>
+          <li>Para leer o actualizar el valor de una propiedad, puedes usar la notación de punto.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Detalle de productos</h3>
+      <p>Completa la función <code>getProductDetails</code> de manera que devuelva un objeto con las siguientes
+        propiedades:</p>
+      <ul>
+        <li><code>id</code>: Un número que representa el ID del producto.</li>
+        <li><code>title</code>: Una cadena de texto que representa el título del producto.</li>
+        <li><code>inStock</code>: Un booleano que representa si el producto está en stock o no.</li>
+      </ul>
+      <p>Asigna a estas propiedades cualquier valor que desees, siempre que coincida con el tipo de retorno esperado.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getProductDetails</span>() {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">id</span><span class="ope">:</span> <span class="num">1</span>,
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">title</span><span class="ope">:</span> <span class="txt">'Product
+            1'</span>,</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">inStock</span><span class="ope">:</span> <span
+            class="bool">true</span>,</p>
+        <p>&nbsp;&nbsp;};</p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">getProductDetails</span>()); <span
+            class="comment">//
+            { id: 1, title: 'Product 1',
+            inStock:
+            true }</span></p>
+      </div>
+      <h3>Se siente como</h3>
+      <p>Completa la función getWeather de manera que devuelva la cadena de texto:</p>
+      <p><code><em>Actualmente hacen X grados en Y</em></code></p>
+      <p>Donde X es reemplazado por el valor y Y es reemplazado por el nombre de la ciudad. Estos valores se
+        proporcionan como un
+        parámetro city que es un objeto.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getWeather</span>(city) {</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> <span class="txt">`It's currently</span> ${city.value} <span
+            class="txt">degrees in</span> ${city.name}`</span>;</p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">getWeather</span>({<span
+            class="elem">name</span><span class="ope">:</span> <span class="txt">'Amsterdam'</span>,
+          <span class="elem">value</span><span class="ope">:</span> <span class="num">3</span>})); <span
+            class="comment">// It's currently 3 degrees in Amsterdam</span>
+        </p>
+        <p>console.<span class="func">log</span>(<span class="func">getWeather</span>({<span
+            class="elem">name</span><span class="ope">:</span> <span class="txt">'Brasilia'</span>, <span
+            class="elem">value</span><span class="ope">:</span> <span class="txt">24</span>})); <span class="comment">//
+            It's currently 24 degrees in Brasilia</span></p>
+        <p class="prueba" onclick="prueba116()">Prueba</p>
+      </div>
+      <h3>Aumentar la edad</h3>
+      <p>Completa la función <code>incrementAge</code> de manera que devuelva el objeto <code>person</code> con la edad
+        incrementada (suma 1 al
+        valor
+        existente).</p>
+      <p>Ten en cuenta que solo hemos proporcionado un ejemplo de uso en este desafío, pero tu código debería funcionar
+        para
+        cualquier objeto similar con el que lo probemos.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">incrementAge</span>(person) {</p>
+        <p>&nbsp;&nbsp;person.age<span class="ope">++</span>;</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> person;
+        </p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p><span class="elem">const</span> person <span class="elem">=</span> {</p>
+        <p>&nbsp;&nbsp;<span class="elem">firstName</span><span class="ope">:</span> <span
+            class="txt">'Jennifer'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">lastName</span><span class="ope">:</span> <span class="txt">'Doe'</span>,</p>
+        <p>&nbsp;&nbsp;<span class="elem">age</span><span class="ope">:</span> <span class="num">18</span>,</p>
+        <p>};</p>
+        <p>&nbsp;&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="func">incrementAge</span>(person)); <span
+            class="comment">//
+            { firstName: 'Jennifer', lastName: 'Doe', age: 19 }</span></p>
+        <p class="prueba" onclick="prueba117()">Prueba</p>
+      </div>
+      <h3>Tabla Nutricional III</h3>
+      <p>Completa la función <code>renderTableRow</code> de manera que devuelva el siguiente HTML:</p>
+      <div class="codigo">
+        <p>&lt;<span class="tag">tr</span>&gt;</p>
+        <p>&nbsp;&nbsp;&lt;<span class="tag">td</span>&gt;TITLE&lt;/<span class="tag">td</span>&gt;</p>
+        <p>&nbsp;&nbsp;&lt;<span class="tag">td</span>&gt;VALUE&lt;/<span class="tag">td</span>&gt;</p>
+        <p>&lt;/<span class="tag">tr</span>&gt;</p>
+      </div>
+      <p>Ten en cuenta que debes agregar la <code>g</code> junto al VALOR (<code>g</code> significa gramos).</p>
+      <p>Necesitarás reemplazar el <code>TÍTULO</code> y el <code>VALOR</code>. La función recibe un parámetro
+        <code>details</code> que es un objeto. Usa <code>console.log()</code>
+        para visualizar cómo se ve.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">renderTableRow</span>(details) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(details);</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> <span class="str">`&lt;tr&gt;
+            &lt;td&gt;${details.title}&lt;/td&gt;
+            &lt;td&gt;${details.value}g&lt;/td&gt;
+            &lt;/tr&gt;`</span>
+        </p>
+        <p>};</p>
+        <p class="prueba"><a href="../../08_Objetos_I/01_Objetos/01_01_Tabla_Nutricional_III/index.html"
+            target="_blank">Prueba</a></p>
+      </div>
+      <h3>Clima I</h3>
+      <p>Una vez que aprendamos sobre la API Fetch, ¡podrás escribir la llamada fetch a una API de clima (demo)!</p>
+      <p>Para este desafío, ya estamos llamando a la API del clima por ti en <code>index.js</code>. Tienes que completar
+        las siguientes
+        funciones en <code>weather.js</code>:</p>
+      <ul>
+        <li><code>getCountry</code>: Devuelve el <strong>país</strong> para el que se muestra el clima.</li>
+        <li><code>getIcon</code>: Devuelve el <strong>ícono</strong> del clima.</li>
+        <li><code>getTemperature</code>: Devuelve la <strong>temperatura</strong>.</li>
+      </ul>
+      <p>Ten en cuenta que estas 3 funciones reciben un objeto <code>data</code> que es una instantánea de una respuesta
+        proveniente de una
+        API real (weatherstack.com).</p>
+      <p><strong>No puedes resolver este desafío sin comenzar con un</strong> <code>console.log(data)</code> <strong>en
+          cada
+          función</strong>. Tienes que explorar el objeto y
+        ver dónde puedes obtener la propiedad que estás buscando.</p>
+      <p>Ah, y hemos deshabilitado el autocompletado para que puedas resolverlo tú mismo ;) ¡Buena suerte!</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getCountry</span>(data) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(data.location.country);</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> data.location.country;</p>
+        <p>};</p>
+        <p><span class="elem">export function</span> <span class="func">getIcon</span>(data) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(data.current.weather_icons[0]);</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> data.current.weather_icons[0];</p>
+        <p>};</p>
+        <p><span class="elem">export function</span> <span class="func">getTemperature</span>(data) {</p>
+        <p>&nbsp;&nbsp;console.<span class="func">log</span>(data.current.temperature);</p>
+        <p>&nbsp;&nbsp;<span class="elem">return</span> data.current.temperature;</p>
+        <p>};</p>
+        <p class="prueba"><a href="../../08_Objetos_I/01_Objetos/01_02_Clima_I/index.html" target="_blank">Prueba</a>
+        </p>
+      </div>
+      <h2>Resumen del capítulo</h2>
+      <p>Los objetos son muy importantes en JavaScript, especialmente cuando se trabaja con APIs y el DOM. ¡A
+        continuación, las
+        funciones flecha!</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Un objeto es un tipo de dato que te permite agrupar varias variables en una sola variable que contiene
+            claves y valores.</li>
+          <li>En JavaScript, la convención recomendada es usar camelCase para los nombres de propiedades (por ejemplo,
+            <code>firstName</code> en
+            lugar de <code>first_name</code>).
+          </li>
+          <li>Para leer o actualizar el valor de una propiedad, puedes usar la <strong>notación de punto</strong>.</li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../07_Arrays_II_&_callbacks/04_Chapter_recap/04_chapter_recap.html">Anterior</a>
+        <a class="next" href="../../09_Arrow_functions/01_Default_parameters/01_default_parameters.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

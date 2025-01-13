@@ -1,0 +1,41 @@
+body {
+    background-color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.display {
+    color: #fff;
+    font-size: 36px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.number,
+.operator {
+    background-color: #222;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.operator {
+    background-color: rgb(215, 140, 0);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+}
+
+.clear {
+    font-size: 12px;
+}

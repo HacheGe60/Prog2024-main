@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numbers</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Operaciones</h1>
+      <p>Como puedes esperar, los números pueden multiplicarse y dividirse. Ya hemos hecho un ejemplo de multiplicación
+        al
+        principio del curso, usando el operador <code>*</code>. Para la división, debes usar el operador <code>/</code>.
+      </p>
+      <h2>División con resto</h2>
+      <p>También puedes usar el operador de resto <code>%</code> que devuelve el resto de la división. Aquí tienes un
+        ejemplo:</p>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="num">8</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// El resto de la división es 0</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">7</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// El resto de la división es 1</span></p>
+        <p class="prueba" onclick="prueba44()">Prueba</p>
+      </div>
+      <p>Aquí se muestra cómo se calcula el resto de la división de 8 % 2:</p>
+      <p>8 / 2 = 4</p>
+      <p>4 / 2 = 2</p>
+      <p>=> el resto de la división es 0 porque 8 = 4 * 2 + 0</p>
+      <p>Mientras que para 7 % 2:</p>
+      <p>Empezamos dividiendo 7 por 2: <code>7 / 2 = 3.5</code>. Luego, tomamos el número entero de este número
+        y eliminamos
+        el
+        decimal: <code>3</code>.</p>
+      <p>De otra manera, puedes escribir <code>7</code> como <code>i3 * 2 + 1</code>. Ese 1 al final es el resto de la
+        división.</p>
+      <p>Usaremos el resto de la división en 2 capítulos a partir de ahora para verificar si un número es
+        <strong>par</strong> o <strong>impar</strong>.
+      </p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h2>Resto (%)</h2>
+      </div>
+      <p>El operador resto (<code>%</code>) devuelve el resto de la división entre dos operandos. Siempre toma el signo
+        del
+        dividendo.</p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Prueba</h3>
+      </div>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="num">13</span> <span class="elem">%</span> <span
+            class="num">5</span>);</p>
+        <p><span class="comment">// Resultado esperado: 3</span></p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="num">-13</span> <span class="elem">%</span> <span
+            class="num">5</span>);</p>
+        <p><span class="comment">// Resultado esperado: -3</span></p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="num">4</span> <span class="elem">%</span> <span
+            class="num">2</span>);</p>
+        <p><span class="comment">// Resultado esperado: 0</span></p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(<span class="num">-4</span> <span class="elem">%</span> <span
+            class="num">2</span>);</p>
+        <p><span class="comment">// Resultado esperado: -0</span></p>
+        <p class="prueba" onclick="prueba45()">Prueba</p>
+      </div>
+      <p>Tener en cuenta que en la mayoría de los lenguajes de programación, el operador de resto es '%', pero en otros
+        (como
+        Python, Perl) es el operador módulo. Ambos son iguales para valores positivos, pero cuando el divisor y el
+        dividendo son
+        de signos distintos, se obtienen distintos resultados. Para obtener el módulo en JavaScript, en lugar de
+        <code>a % n</code>, usa <code>((a
+      % n ) + n ) % n</code>.
+      </p>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Sintaxis</h3>
+      </div>
+      <div class="codigo">
+        <p>Operador: var1 % var2</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h3>Ejemplos</h3>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Resto con dividendo positivo</h4>
+      </div>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="num">12</span> <span class="elem">%</span> <span
+            class="num">5</span>); <span class="comment">// 2</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">1</span> <span class="elem">%</span> <span
+            class="num">-2</span>); <span class="comment">// 1</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">1</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// 1</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">2</span> <span class="elem">%</span> <span
+            class="num">3</span>); <span class="comment">// 2</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">5.5</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// 1.5</span></p>
+        <p class="prueba" onclick="prueba46()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Resto con dividendo negativo</h4>
+      </div>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="num">-12</span> <span class="elem">%</span> <span
+            class="num">5</span>); <span class="comment">// -2</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">-1</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// -1</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">-4</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// -0</span></p>
+        <p class="prueba" onclick="prueba47()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Resto con dividendo NaN</h4>
+      </div>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="num">NaN</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// NaN</span></p>
+        <p class="prueba" onclick="prueba48()">Prueba</p>
+      </div>
+      <div class="mdn-container">
+        <img src="../../images/mdn-logo.png" alt="mdn-logo" class="mdn-logo">
+        <h4>Resto con Infinity</h4>
+      </div>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(<span class="num">Infinity</span> <span class="elem">%</span> <span
+            class="num">2</span>); <span class="comment">// NaN</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">Infinity</span> <span class="elem">%</span> <span
+            class="num">0</span>); <span class="comment">// NaN</span></p>
+        <p>console.<span class="func">log</span>(<span class="num">Infinity</span> <span class="elem">%</span> <span
+            class="num">Infinity</span>); <span class="comment">// NaN</span></p>
+        <p class="prueba" onclick="prueba49()">Prueba</p>
+      </div>
+      <h2>Métodos de números</h2>
+      <p>Si bien hay otros métodos que puedes llamar en números, no se usan muy comúnmente. Lo que se usa comúnmente,
+        sin
+        embargo, es el objeto <code>Math</code>, que contiene métodos como <code>min()</code>, <code>max()</code>,
+        <code>round()</code>, etc.
+      </p>
+      <p>Aquí hay algunos ejemplos:</p>
+      <div class="codigo">
+        <p>console.<span class="func">log</span>(Math.<span class="func">round</span>(<span class="num">2.1</span>));
+          <span class="comment">// 2</span>
+        </p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">round</span>(<span class="num">2.6</span>));
+          <span class="comment">// 3</span>
+        </p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">round</span>(<span class="num">2.5</span>));
+          <span class="comment">// 3</span>
+        </p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">floor</span>(<span class="num">2.1</span>));
+          <span class="comment">// 2</span>
+        </p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">floor</span>(<span class="num">2.6</span>));
+          <span class="comment">// 2</span>
+        </p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">floor</span>(<span class="num">2.5</span>));
+          <span class="comment">// 2</span>
+        </p>
+        <p>&nbsp;</p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">ceil</span>(<span class="num">2.1</span>));
+          <span class="comment">// 3</span>
+        </p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">ceil</span>(<span class="num">2.6</span>));
+          <span class="comment">// 3</span>
+        </p>
+        <p>console.<span class="func">log</span>(Math.<span class="func">ceil</span>(<span class="num">2.5</span>));
+          <span class="comment">// 3</span>
+        </p>
+        <p class="prueba" onclick="prueba50()">Prueba</p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>El operador de resto (<code>%</code>) devuelve el resto de la división entre dos números.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Obtener el resto de la división por 2</h3>
+      <p>Completa la función getDivisionRemainderBy2 para que devuelva el resto de la división del número que recibe por
+        2. Esto
+        significa que debería devolver el resto de la división por 2.</p>
+      <p>Este desafío se desarrollará aún más en una pequeña aplicación que mostrará si el número es par o impar en un
+        capítulo
+        futuro.</p>
+      <p>¡Asegúrate de probarlo en la pestaña <a href="./01_Obtener_el_resto_de_la_division_por_2/index.html"
+          target="_blank">"NAVEGADOR"</a>!</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">getDivisionRemainderBy2</span>(num) {</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> <span class="func">num</span> <span
+              class="elem">%</span> <span class="num">2</span>; </em></p>
+        <p>}</p>
+        <p class="prueba"><a href="./01_Obtener_el_resto_de_la_division_por_2/index.html" target="_blank">Prueba</a></p>
+      </div>
+      <div class="resumen">
+        <h2>Resumen del capítulo</h2>
+        <p>¡Buen trabajo! Estás aprendiendo JavaScript lenta pero seguramente.</p>
+        <p>¿Has notado que estamos usando punto y coma en nuestro código? Los punto y coma son opcionales en JavaScript.
+          Puedes
+          decidir si incluirlos o no. La razón por la que existen es que el código JavaScript que escribas se minificará
+          una vez
+          que despliegues tu sitio web en producción. ¡Esto se tratará con más detalle en un capítulo posterior!</p>
+        <p>Los desafíos y proyectos se volverán más interesantes a medida que aprendamos más sobre JavaScript.
+          ¡Siguiente tema,
+          variables!</p>
+        <div class="resumen">
+          <h3>Resumen</h3>
+          <ul>
+            <li>Convertir de un número a una cadena: <code>value.toString()</code></li>
+            <li><code>NaN</code> significa "No es un Número" (Not a Number).</li>
+            <li><code>NaN</code> suele ser un indicio de un error.</li>
+            <li>Convertir de una cadena a un número: <code>Number.parseInt(value, 10)</code></li>
+            <li><code>Number.parseInt()</code> es el nombre de la función que se llama.</li>
+            <li>10 es el radix (base) de la cadena.</li>
+            <li>Asegúrate de especificar siempre el radix para evitar sorpresas desagradables.</li>
+            <li>El operador del resto (%) devuelve el resto de la división entre dos números.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last"
+          href="../../03_Numbers/02_Conversion_de_cadena_a_numero/02_conversion_de_cadena_a_numero.html">Anterior</a>
+        <a class="next" href="../../04_Variables/01_Variables/01_variables.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

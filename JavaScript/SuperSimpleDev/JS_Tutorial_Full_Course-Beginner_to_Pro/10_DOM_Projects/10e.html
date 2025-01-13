@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>10e</title>
+        <style>
+            .off {
+                background-color: #e6e6e6;
+                color: #000;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-weight: bold;
+                margin-right: 12px;
+                cursor: pointer;
+            }
+
+            .isToggled {
+                background-color: #191919;
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <button class="off js-button" onclick="toggleOffButtons('.js-button')">Gaming</button>
+            <button class="off js-button-2" onclick="toggleOffButtons('.js-button-2')">Music</button>
+            <button class="off js-button-3" onclick="toggleOffButtons('.js-button-3')">Tech</button>
+        </div>
+
+        <script>
+
+            function toggleOffButtons(className) {
+                const button = document.querySelector(className);
+                if (!button.classList.contains('isToggled')) {
+                    button.classList.add('isToggled');
+                } else {
+                    button.classList.remove('isToggled');
+                }
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Strings</h1>
+      <p>En JavaScript, podés hacer cadenas de texto usando comillas dobles o comillas simples.</p>
+      <p>Por ejemplo:</p>
+      <div class="codigo">
+        <p><span class="txt">"Esta es una cadena de texto"</span>;</p>
+        <p><span class="txt">'¡Esta es otra cadena de texto!'</span></p>
+      </div>
+      <p>No importa si usás comillas dobles o comillas simples, es lo mismo. <strong>Ninguna</strong> de las dos formas
+        te permite poner
+        variables
+        dentro de la cadena. Eso lo veremos más adelante, en otra lección.</p>
+      <h2>Propiedad de cadena</h2>
+      <p>La propiedad <code>.length</code> se usa para devolver la longitud de la cadena.</p>
+      <p>Acá tenés un ejemplo de cómo saber cuántos caracteres tiene "Linda!":</p>
+      <div class="codigo">
+        <p><span class="txt">"Linda!"</span>.length; <span class="comment">// 6</span></p>
+        <p class="prueba" onclick="prueba3()">Prueba</p>
+      </div>
+      <p>Si tenés una variable que se llama <code>text</code>, así es como podés saber cuántas letras tiene:</p>
+      <div class="codigo">
+        <p><span class="elem">let</span> text = <span class="txt">"Hola Mundo"</span>
+        </p>
+        <p>text.length; <span class="comment">// 10</span></p>
+        <p class="prueba" onclick="prueba4()">Prueba</p>
+      </div>
+      <h2>Métodos básicos de cadenas</h2>
+      <p>Aquí hay algunos métodos comunes que puedes llamar en cadenas:</p>
+      <h3>.toLowerCase()</h3>
+      <p>Esto devolverá una nueva cadena que tiene todos sus caracteres en minúscula.</p>
+      <div class="codigo">
+        <p><span class="text">"HOLA MUNDO"</span>.<span class="func">toLowerCase()</span> <span class="comment">// "hola
+            mundo"</span></p>
+        <p class="prueba" onclick="prueba5()">Prueba</p>
+      </div>
+      <p><code>.length</code> no necesita paréntesis porque es como una característica de la cadena, mientras que
+        <code>.toLowerCase()</code> sí necesita
+        paréntesis porque es algo que le estás pidiendo que haga a la cadena.
+      </p>
+      <h3>.toUpperCase()</h3>
+      <p>Esto devolverá una nueva cadena que tiene todos sus caracteres en mayúscula.</p>
+      <div class="codigo">
+        <p><span class="text">"hola mundo"</span>.<span class="func">toUpperCase()</span> <span class="comment">// "HOLA
+            MUNDO"</span></p>
+        <p class="prueba" onclick="prueba6()">Prueba</p>
+      </div>
+      <h2>Visualizar una variable (o expresión)</h2>
+      <p>Cuando resuelvas desafíos, no dudes en usar <code>console.log()</code> para visualizar una variable o
+        expresión. Aparecerá en la
+        pestaña "consola".</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">sum</span>(a, b) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(a);</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="func">log</span>(a + b);</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="elem">return</span> a + b;</p>
+        <p>}</p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// Ejemplo</span></p>
+        <p><span class="func">sum</span>(1, 3);</p>
+        <p class="prueba" onclick="prueba7()">Prueba</p>
+      </div>
+      <p>Con el código anterior, verás <code>1</code> y luego <code>4</code> registrado en la consola debido a
+        <code>console.log(a)</code> y <code>console.log(a + b)</code>.
+      </p>
+      <p>Ten en cuenta que <code>console.log()</code> no es un reemplazo para <code>return</code>. Todavía tienes que
+        usar <code>return</code> después de <code>console.log()</code>.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>Se pueden crear cadenas de texto (strings) con " o '.</li>
+          <li><strong>.length</strong> es una propiedad que devuelve la longitud de una cadena.</li>
+          <li><strong>.toLowerCase()</strong> y <strong>.toUpperCase()</strong> convierten una cadena en minúscula o
+            mayúscula.</li>
+          <li>Los paréntesis <code>()</code> son obligatorios en las llamadas a funciones. <code>.length</code> es una
+            propiedad que ya está
+            precalculada; por
+            lo tanto, no necesita paréntesis.</li>
+          <li><strong>console.log(...)</strong> se usa para depurar y NO es un reemplazo para <strong>return</strong>.
+          </li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Longitud de la cadena</h3>
+      <p>Completa la función <code>getCharCount</code> para que devuelva la cantidad de caracteres en el parámetro
+        <code>str</code> que recibe.
+      </p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">getCharCount</span>(str) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> str.<span class="func">length</span>;</em></p>
+        <p>}</p>
+        <p>&nbsp</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p><span class="func">alert</span>(<span class="func">getCharCount</span>(<span class="txt">"Sam"</span>));
+          <span class="comment">// 3</span>
+        </p>
+        <p><span class="func">alert</span>(<span class="func">getCharCount</span>(<span class="txt">"Alex 123"</span>));
+          <span class="comment">// 8</span>
+        </p>
+        <p><span class="func">alert</span>(<span class="func">getCharCount</span>(<span class="txt">"Charley is
+            here"</span>));
+          <span class="comment">// 15</span>
+        </p>
+        <p class="prueba" onclick="prueba8()">Prueba</p>
+      </div>
+      <h3>Grita mi nombre</h3>
+      <p>Completa la función <code>shoutMyName</code> para que devuelva el parámetro <code>name</code> que recibe, todo
+        en mayúscula.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">shoutMyName</span>(name) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> name.<span
+              class="func">toUpperCase()</span>;</em></p>
+        <p>}</p>
+        <p>&nbsp</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p><span class="func">alert</span>(<span class="func">shoutMyName</span>(<span class="txt">"Sam"</span>));
+          <span class="comment">// SAM</span>
+        </p>
+        <p><span class="func">alert</span>(<span class="func">shoutMyName</span>(<span class="txt">"Charley"</span>));
+          <span class="comment">// CHARLEY</span>
+        </p>
+        <p><span class="func">alert</span>(<span class="func">shoutMyName</span>(<span class="txt">"alex"</span>));
+          <span class="comment">// ALEX</span>
+        </p>
+        <p class="prueba" onclick="prueba9()">Prueba</p>
+      </div>
+      <h3>Cadena en minúsculas</h3>
+      <p>Completa la función <code>lowerName</code> para que devuelva el parámetro <code>name</code> que recibe en
+        minúscula.</p>
+      <div class="codigo">
+        <p><span class="elem">function</span> <span class="func">lowerName</span>(name) {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> name.<span
+              class="func">toLowerCase()</span>;</em></p>
+        <p>}</p>
+        <p>&nbsp</p>
+        <p><span class="comment">// Ejemplos</span></p>
+        <p><span class="func">alert</span>(<span class="func">lowerName</span>(<span class="txt">"Sam"</span>));
+          <span class="comment">// sam</span>
+        </p>
+        <p><span class="func">alert</span>(<span class="func">lowerName</span>(<span class="txt">"ALEX"</span>));
+          <span class="comment">// alex</span>
+        </p>
+        <p class="prueba" onclick="prueba10()">Prueba</p>
+      </div>
+    </main>
+    <footer>
+      <div class="btns">
+        <a href="../01_Funciones_Basicas/02_Funciones_Basicas.html"><button class="last">Anterior</button></a>
+        <a href="../../02_Strings_I/02_Acceso_a_caracteres/02_Acceso_a_caracteres.html"><button
+            class="next">Siguiente</button></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>

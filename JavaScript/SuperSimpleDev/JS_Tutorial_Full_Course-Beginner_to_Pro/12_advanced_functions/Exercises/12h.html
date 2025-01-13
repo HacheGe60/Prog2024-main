@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>12h</title>
+	</head>
+	<body>
+		<button
+			class="add"
+			onclick="add()"
+		>
+			Add
+		</button>
+		<button
+			class="remove"
+			onclick="remove()"
+		>
+			Remove
+		</button>
+		<script>
+			let messages = 2;
+
+			/* function add() {
+				messages += 1;
+				return messages;
+			}
+
+			function remove() {
+				messages -= 1;
+				return messages;
+			}
+
+			setInterval(function () {
+				if (document.title === '12h') {
+					document.title = `${messages} New messages`;
+				} else {
+					document.title = '12h';
+				}
+			}, 2000); */
+
+			const add = () => {
+				messages += 1;
+				return messages;
+			};
+
+			const remove = () => {
+				messages -= 1;
+				return messages;
+			};
+
+			setInterval(() => {
+				if (document.title === '12h') {
+					document.title = `${messages} New messages`;
+				} else {
+					document.title = '12h';
+				}
+			}, 2000);
+		</script>
+	</body>
+</html>

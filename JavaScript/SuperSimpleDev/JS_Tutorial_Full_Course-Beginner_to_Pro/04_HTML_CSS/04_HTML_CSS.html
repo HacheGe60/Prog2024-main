@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>buttons</title>
+	</head>
+	<body>
+		<!-- a. Create a button with the text "Click" inside. -->
+		<button>Click</button>
+		<br /><br />
+		<!-- b. Create two buttons. 1 with your name and 1 with your favorite food. -->
+		<button>Horacio</button>
+		<button>Barbecue</button>
+		<br />
+		<!-- c. Create a paragraph with the text "Hello, world!" inside. -->
+		<p>Hello, world!</p>
+		<!-- d. Continuing from exercise 4c, create a paragraph below the previous paragraph and write something you did today. -->
+		<p>Today I went to the supermarket.</p>
+		<!-- e. Create 2 buttons 'Add to cart' and 'Buy now'. Use CSS to give them yellow and orange background colors -->
+		<button style="background-color: yellow">Add to cart</button>
+		<button style="background-color: orange">Buy now</button>
+		<br />
+		<!-- f. Add the HTML structure to exercise 4e (add <DOCTYPE html>, <html>, <head>, <body>) and put the elements into the <head> or <body>. -->
+		<!-- g. Continuing from 4f , change the title at the top of the tab to 'Buttons' -->
+		<!-- h. Continuing from 4g, add a <script> element so that when the page loads, it displays the message 'Welcome!' in the Console.-->
+		<script>
+			console.log('Welcome!');
+		</script>
+		<!-- i. Using HTML and CSS, try to copy the design on the right.-->
+		<p>Adults Plain Cotton T-shirt</p>
+		<p>Price: $7.99</p>
+		<button
+			style="background-color: yellow"
+			onclick="alert('Added')"
+		>
+			Add to cart
+		</button>
+		<button
+			style="background-color: orange"
+			onclick="console.log('Loading...') + alert('Purchased!')"
+		>
+			Buy now
+		</button>
+		<br />
+	</body>
+</html>

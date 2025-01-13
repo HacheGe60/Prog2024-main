@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="navbar">
+        Aprender JavaScript
+      </div>
+    </header>
+    <main>
+      <h1>Pares e impares</h1>
+      <p>En el capítulo de Números, explicamos el operador de resto (<code>%</code>). El resto de la división de un
+        número entre dos es
+        siempre <code>0</code> o <code>1</code>. Esto te ayudará a saber si el número original es par (divisible por dos
+        sin resto) o impar.</p>
+      <p>Veamos algunos números:</p>
+      <div class="codigo">
+        <p><span class="comment">// números pares</span></p>
+        <p><span class="num">4</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            0</span></p>
+        <p><span class="num">6</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            0</span></p>
+        <p><span class="num">8</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            0</span></p>
+        <p><span class="num">10</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            0</span></p>
+        <p>&nbsp;</p>
+        <p><span class="comment">// números impares</span></p>
+        <p><span class="num">3</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            1</span></p>
+        <p><span class="num">5</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            1</span></p>
+        <p><span class="num">7</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            1</span></p>
+        <p><span class="num">9</span> <span class="elem">%</span> <span class="num">2</span> <span class="comment">//
+            1</span></p>
+      </div>
+      <p>Observa cómo el resto de la división por dos es siempre 0 cuando el número es par. Por el contrario, es 1
+        cuando el
+        número es impar.</p>
+      <p>En el próximo desafío, usaremos una condición <strong>if</strong> para mostrar si el número ingresado por el
+        usuario es par o
+        impar.</p>
+      <div class="resumen">
+        <h2>Resumen</h2>
+        <ul>
+          <li>El resto de la división de un número entre dos es siempre 0 o 1. Esto nos ayuda a determinar si el número
+            es par o
+            impar.</li>
+        </ul>
+      </div>
+      <h2>Prácticas</h2>
+      <h3>Hallar el resto de la división entre 2</h3>
+      <p>Completa la función evenOrOdd para que devuelva la cadena "even" cuando el parámetro number que recibe es par y
+        "odd" en
+        caso contrario.</p>
+      <p>¿Puedes hacer que funcione también con números negativos?</p>
+      <div class="codigo">
+        <p><span class="elem">export function</span> <span class="func">evenOrOdd</span>(number) {</span>
+          </span></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">if</span> (number <span class="elem">%</span> <span class="num">2</span>
+            <span class="elem">===</span> <span class="num">0</span>) {</em></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<em><span class="elem">return</span> <span class="txt">"even"</span>;</em></p>
+        <p>&nbsp;&nbsp;<em>}</em></p>
+        <p>&nbsp;&nbsp;<em><span class="elem">return</span> <span class="txt">"odd"</span>;</em></p>
+        <p>}</p>
+        <p class="prueba"><a href="./04_01_Hallar_el_resto_de_la_division_entre_2/index.html" target="_blank">Prueba</a>
+        </p>
+      </div>
+
+    </main>
+    <footer>
+      <div class="btns">
+        <a class="last" href="../../05_Conditions/03_Returning_booleans/03_returning_booleans.html">Anterior</a>
+        <a class="next" href="../../05_Conditions/05_Chapter_Recap/05_chapter_recap.html">Siguiente</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/pruebas.js"></script>
+</body>
+
+</html>
