@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Generator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+
+    <body>
+        <div class="container" id="container">
+            <div class="version"><button class="dark-light" id="dark-light-btn"><i class="fa-regular fa-sun"
+                        id="dark-light-icon"></i></button>
+            </div>
+            <div class="main">
+                <h1 class="title">Generate a<br>
+                    <span class="colorTitle">random password</span>
+                </h1>
+                <h2 class="description">Never use an insecure password again.</h2>
+                <div class="passConditions">
+                    <button class=" generateBtn" id="generateBtn">Generate passwords</button>
+                    <div class="conditions">
+                        <div class="length">
+                            <p class="lengthTitle" id="lengthTitle">Password Length: 16</p>
+                            <input type="range" min="8" max="32" value="16" id="length">
+                        </div>
+                        <div class="characters">
+                            <div class="symbols">
+                                <label class="symbolsTitle">Symbols</label>
+                                <input type="checkbox" class="symbolsValue" id="symbols">
+                            </div>
+                            <div class="numbers">
+                                <label class="numbersTitle">Numbers</label>
+                                <input type="checkbox" class="numbersValue" id="numbers">
+                            </div>
+                            <div class="uppercase">
+                                <label class="uppercaseTitle">Uppercase</label>
+                                <input type="checkbox" class="uppercaseValue" id="uppercase">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="passwords">
+                    <div class="password" id="password1"></div>
+                    <div class="password" id="password2"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./js/script.js"></script>
+    </body>
+
+</html>
