@@ -23,8 +23,8 @@ convertBtnEl.addEventListener("click", () => {
     const value = userInputValueEl.value;
     const feet = value * 3.281;
     const meters = value / 3.281;
-    const liter = value * 0.264;
-    const gallon = value / 0.264;
+    const gallon = value * 0.264;
+    const liter = value / 0.264;
     const kilogram = value * 2.204;
     const pound = value / 2.204;
 
