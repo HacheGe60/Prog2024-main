@@ -2,6 +2,9 @@ body {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 21px;
+    width: 100wh;
+    margin: 0;
+    padding: 0;
 }
 
 /* Typography */
@@ -9,42 +12,75 @@ body {
 h1,
 h2 {
     font-weight: 300;
+    margin-top: 0;
 }
 
 h1 {
     font-size: 60px;
 }
 
+h1 span,
+h2 span {
+    font-weight: 900;
+    display: block;
+}
+
 h1 span {
     font-size: 80px;
-    font-weight: 900;
 }
 
 h2 {
     font-size: 42px;
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+    padding: 20px 0;
 }
 
 h2 span {
     font-size: 60px;
-    font-weight: 900;
 }
 
 h3 {
     font-size: 36px;
+    margin-bottom: 0;
+}
+
+p {
+    margin-bottom: 0;
 }
 
 .small {
     font-size: 16px;
+    margin-top: 0;
 }
 
 /* Links */
 
 a {
     color: #99d930;
+    font-weight: 900;
 }
 
-a:hover {
+a:hover,
+a:focus {
     color: #131313;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #99d930;
+    color: #252525;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #131313;
+    color: #99d930;
 }
 
 /* Layouts */
@@ -52,4 +88,26 @@ a:hover {
 .container {
     width: 570px;
     margin: 0 auto;
+}
+
+header,
+section {
+    padding: 100px 0;
+}
+
+header {
+    background-color: #d7d7d7;
+}
+
+.bio {
+    background-color: #ffeaea;
+}
+
+.articles {
+    background-color: #eaf9ff
+}
+
+.inverse {
+    color: #ffffff;
+    background-color: #252525;
 }
