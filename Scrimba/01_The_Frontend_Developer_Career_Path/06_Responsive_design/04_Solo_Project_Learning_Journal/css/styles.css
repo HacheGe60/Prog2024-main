@@ -55,7 +55,7 @@ nav .navbar li {
 }
 
 .sub-header {
-    min-height: 290px;
+    height: 290px;
     background-color: #333;
     background-image: url(../images/mohammad-rahmani-yRsBZJuhbkk-unsplash.jpg);
     background-size: cover;
@@ -193,9 +193,17 @@ footer .copy {
 }
 
 @media (min-width:501px) {
+    body {
+        height: 100vh;
+    }
+
     .container {
         max-width: 900px;
         margin: 0 auto;
+    }
+
+    .sub-header {
+        height: 150px;
     }
 
     .burger {
@@ -215,6 +223,10 @@ footer .copy {
             ".. .. .."
             "b1 b2 b3"
             "b4 b5 b6"
+    }
+
+    .blog img {
+        height: 150px;
     }
 
     .blog-4,
