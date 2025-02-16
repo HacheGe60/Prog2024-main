@@ -11,6 +11,8 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- CSS -->
         <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/index.css">
+
     </head>
 
     <body>
@@ -23,12 +25,16 @@
                         <p>My learning journal</p>
                     </div>
                     <div class="nav-right">
-                        <div class="burger" id="burguer">
+                        <div class="burger" id="burger">
                             <i class="fa-solid fa-bars fa-xl"></i>
                         </div>
-                        <ul class="navbar">
-                            <li>blogs</li>
-                            <li>about me</li>
+                        <ul class="navbar" id="navbar">
+                            <li>
+                                <a href="./pages/intro.html">intro</a>
+                            </li>
+                            <li>
+                                <a href="./pages/about.html">about me</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -101,9 +107,38 @@
                             magnam
                             sed!</p>
                     </div>
+                    <div class="blog blog-7 none" id="blog-7">
+                        <img src="./images/gabriel-heinzer-g5jpH62pwes-unsplash.jpg" alt="#">
+                        <div class="date">February 12, 2025</div>
+                        <h2>Blog 7</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nemo doloremque eligendi,
+                            provident
+                            aperiam ut totam recusandae ipsum ab omnis quidem illo ipsam odit sunt, cumque mollitia vero
+                            magnam
+                            sed!</p>
+                    </div>
+                    <div class="blog blog-8 none" id="blog-8">
+                        <img src="./images/towfiqu-barbhuiya-Jxi526YIQgA-unsplash.jpg" alt="#">
+                        <div class="date">February 12, 2025</div>
+                        <h2>Blog 8</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nemo doloremque eligendi,
+                            provident
+                            aperiam ut totam recusandae ipsum ab omnis quidem illo ipsam odit sunt, cumque mollitia vero
+                            magnam
+                            sed!</p>
+                    </div>
+                    <div class="blog blog-9 none" id="blog-9">
+                        <img src="./images/vipul-jha-a4X1cdC1QAc-unsplash.jpg" alt="#">
+                        <div class="date">February 12, 2025</div>
+                        <h2>Blog 9</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nemo doloremque eligendi,
+                            provident
+                            aperiam ut totam recusandae ipsum ab omnis quidem illo ipsam odit sunt, cumque mollitia vero
+                            magnam
+                            sed!</p>
+                    </div>
                 </div>
-                <button id="viewMore" class="view">view more</button>
-                <button id="viewLess" class="view none">view less</button>
+                <button id="view-btn" class="view-btn">view more</button>
             </main>
             <footer>
                 <p class="title">My Learning Journal</p>
@@ -112,6 +147,7 @@
         </div>
 
         <script src="./js/script.js"></script>
+        <script src="./js/burger.js"></script>
     </body>
 
 </html>
