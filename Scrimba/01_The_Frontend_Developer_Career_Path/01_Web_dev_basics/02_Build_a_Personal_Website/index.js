@@ -2,38 +2,38 @@
 // Replace the arguments below according to your preference.
 
 // space, scary, military, romantic, cowboy, fantasy, superhero
-favouriteMovieGenre("cowboy");
+favoriteMovieGenre("cowboy");
 
 // watermelon, tomato, banana, orange, avocado, blueberry
-favouriteFruit("watermelon");
+favoriteFruit("watermelon");
 
 // light, dark
-favouriteMode("dark");
+favoriteMode("dark");
 
 // sharp, soft, round
-favouriteEdgeStyle("round");
+favoriteEdgeStyle("round");
 
 
 
 ////////////////////////////////////
-// IGONE THE CODE BELOW THIS LINE //
+// IGNORE THE CODE BELOW THIS LINE //
 ////////////////////////////////////
 
 function setProp(prop, value) {
     document.documentElement.style.setProperty(prop, value);
 }
 
-function favouriteEdgeStyle(style) {
+function favoriteEdgeStyle(style) {
     setProp("--image", "var(--" + style + ")");
 }
 
-function favouriteMovieGenre(font) {
+function favoriteMovieGenre(font) {
     if (font) {
         setProp("--font", "var(--" + font + ")");
     }
 }
 
-function favouriteMode(mode) {
+function favoriteMode(mode) {
     if (mode === "light" || !mode) {
         setProp('--background', "var(--light)");
         setProp('--text', "var(--dark)");
@@ -43,7 +43,7 @@ function favouriteMode(mode) {
     }
 }
 
-function favouriteFruit(theme) {
+function favoriteFruit(theme) {
     if (theme === "pastel") {
         setProp('--light', "#f2f6c3");
         setProp('--dark', "#68c4af");
@@ -56,7 +56,7 @@ function favouriteFruit(theme) {
     } else if (theme === "sky") {
         setProp('--light', "#99ccff");
         setProp('--dark', "#3366ff");
-    } else if (theme === "forrest") {
+    } else if (theme === "forest") {
         setProp('--light', "#91B247");
         setProp('--dark', "#597C2B");
     } else if (theme === "shiny") {
